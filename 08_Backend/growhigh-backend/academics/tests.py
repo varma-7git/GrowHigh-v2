@@ -168,3 +168,45 @@ class GuideTests(APITestCase):
         self.assertEqual(r.status_code, 201, r.data)
         self.assertTrue(r.data["is_active"])
         self.assertTrue(r.data["file_url"])
+
+
+class RecordingTests(APITestCase):
+    def setUp(self):
+        self.admin = User.objects.create_user(login_id="ra", password="Passw0rd!x", full_name="Admin", role=Role.ADMIN)
+        self.fac = User.objects.create_user(login_id="rf", password="Passw0rd!x", full_name="Fac", role=Role.FACULTY)
+        self.s1 = User.objects.create_user(login_id="r1", password="Passw0rd!x", full_name="One", role=Role.STUDENT)
+        self.s2 = User.objects.create_user(login_id="r2", password="Passw0rd!x", full_name="Two", role=Role.STUDENT)
+        self.client.force_authenticate(self.admin)
+        self.gid = self.client.post("/api/v1/guides/", {"area": "COMM", "section": "speaking", "kind": "NOTES", "title": "Describe a project", "body": "Speak for one minute."}, format="json").data["id"]
+
+    def _audio(self, name="a.webm"):
+        from django.core.files.uploadedfile import SimpleUploadedFile
+        return SimpleUploadedFile(name, b"OggS" + b"0" * 50, content_type="audio/webm")
+
+    def test_recording_flow(self):
+        self.client.force_authenticate(self.s1)
+        r = self.client.post("/api/v1/recordings/", {"guide_id": self.gid, "seconds": 42, "file": self._audio()}, format="multipart")
+        self.assertEqual(r.status_code, 201, r.data)
+        rid = r.data["id"]
+        self.assertTrue(r.data["file_url"])
+        self.assertEqual(self.client.post("/api/v1/recordings/", {"file": self._audio("a.exe")}, format="multipart").status_code, 400)
+        self.assertEqual(self.client.post("/api/v1/recordings/", {"seconds": 999, "file": self._audio()}, format="multipart").status_code, 400)
+        self.assertEqual(self.client.patch(f"/api/v1/recordings/{rid}/", {"feedback": "x"}, format="json").status_code, 403)
+        self.client.force_authenticate(self.s2)
+        self.assertEqual(self.client.get("/api/v1/recordings/").data["results"], [])
+        self.assertEqual(self.client.delete(f"/api/v1/recordings/{rid}/").status_code, 404)
+        self.client.force_authenticate(self.fac)
+        self.assertEqual(len(self.client.get("/api/v1/recordings/?pending=1").data["results"]), 1)
+        self.assertEqual(self.client.post("/api/v1/recordings/", {"file": self._audio()}, format="multipart").status_code, 403)
+        self.assertEqual(self.client.patch(f"/api/v1/recordings/{rid}/", {"feedback": "Good pace."}, format="json").status_code, 200)
+        self.assertEqual(self.client.get("/api/v1/recordings/?pending=1").data["results"], [])
+        self.client.force_authenticate(self.s1)
+        got = self.client.get(f"/api/v1/recordings/?guide={self.gid}").data["results"][0]
+        self.assertEqual((got["feedback"], got["reviewed_by_name"]), ("Good pace.", "Fac"))
+        self.assertEqual(self.client.delete(f"/api/v1/recordings/{rid}/").status_code, 204)
+
+    def test_audio_lesson(self):
+        self.client.force_authenticate(self.admin)
+        r = self.client.post("/api/v1/guides/", {"area": "COMM", "section": "listening", "kind": "AUDIO", "title": "Announcements", "file": self._audio("l.mp3")}, format="multipart")
+        self.assertEqual(r.status_code, 201, r.data)
+        self.assertEqual(self.client.post("/api/v1/guides/", {"area": "COMM", "section": "listening", "kind": "AUDIO", "title": "No file"}, format="json").status_code, 400)

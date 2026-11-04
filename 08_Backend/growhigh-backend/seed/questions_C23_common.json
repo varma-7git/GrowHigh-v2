@@ -1,0 +1,1019 @@
+{
+ "regulation": "C23",
+ "questions": [
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Algebra",
+   "text": "The value of log10 1000 is",
+   "options": [
+    "3",
+    "10",
+    "100",
+    "1/3"
+   ],
+   "correct": 0,
+   "explanation": "10^3 = 1000."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Algebra",
+   "text": "If A = [[1,2],[3,4]], then |A| equals",
+   "options": [
+    "10",
+    "-2",
+    "2",
+    "-10"
+   ],
+   "correct": 1,
+   "explanation": "1×4 − 2×3 = −2."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Algebra",
+   "text": "The roots of x^2 - 5x + 6 = 0 are",
+   "options": [
+    "1 and 6",
+    "-2 and -3",
+    "2 and 3",
+    "5 and 1"
+   ],
+   "correct": 2,
+   "explanation": "(x−2)(x−3)=0."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Algebra",
+   "text": "The sum of the first n natural numbers is",
+   "options": [
+    "n(n-1)/2",
+    "n^2",
+    "n(n+1)",
+    "n(n+1)/2"
+   ],
+   "correct": 3,
+   "explanation": "Standard formula for an arithmetic series with a=1, d=1."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Algebra",
+   "text": "The partial fraction form of 1/((x-1)(x-2)) is",
+   "options": [
+    "1/(x-2) - 1/(x-1)",
+    "1/(x-1) - 1/(x-2)",
+    "1/(x-1) + 1/(x-2)",
+    "2/(x-1) - 1/(x-2)"
+   ],
+   "correct": 0,
+   "explanation": "A/(x−1)+B/(x−2) gives A=−1, B=1."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Trigonometry",
+   "text": "sin 30° equals",
+   "options": [
+    "√3/2",
+    "1/2",
+    "1",
+    "1/√2"
+   ],
+   "correct": 1,
+   "explanation": "Standard value."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Trigonometry",
+   "text": "sin^2 θ + cos^2 θ equals",
+   "options": [
+    "0",
+    "2",
+    "1",
+    "sin 2θ"
+   ],
+   "correct": 2,
+   "explanation": "Fundamental identity."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Trigonometry",
+   "text": "tan 45° equals",
+   "options": [
+    "0",
+    "√3",
+    "1/√3",
+    "1"
+   ],
+   "correct": 3,
+   "explanation": "Standard value."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Trigonometry",
+   "text": "The value of cos 2A in terms of sin A is",
+   "options": [
+    "1 - 2 sin^2 A",
+    "2 sin^2 A - 1",
+    "1 + 2 sin^2 A",
+    "2 sin A cos A"
+   ],
+   "correct": 0,
+   "explanation": "cos 2A = 1 − 2sin²A."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Co-ordinate",
+   "text": "The distance between the points (0,0) and (3,4) is",
+   "options": [
+    "7",
+    "5",
+    "12",
+    "25"
+   ],
+   "correct": 1,
+   "explanation": "√(9+16) = 5."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Co-ordinate",
+   "text": "The slope of the line y = 3x + 5 is",
+   "options": [
+    "5",
+    "1/3",
+    "3",
+    "-3"
+   ],
+   "correct": 2,
+   "explanation": "In y = mx + c, m is the slope."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Co-ordinate",
+   "text": "The equation of a circle with centre at the origin and radius r is",
+   "options": [
+    "x^2 - y^2 = r^2",
+    "x + y = r",
+    "x^2 + y^2 = r",
+    "x^2 + y^2 = r^2"
+   ],
+   "correct": 3,
+   "explanation": "Distance from origin is r."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Differential",
+   "text": "d/dx (x^3) is",
+   "options": [
+    "3x^2",
+    "x^2",
+    "3x",
+    "x^4/4"
+   ],
+   "correct": 0,
+   "explanation": "Power rule."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Differential",
+   "text": "d/dx (sin x) is",
+   "options": [
+    "-cos x",
+    "cos x",
+    "-sin x",
+    "tan x"
+   ],
+   "correct": 1,
+   "explanation": "Standard derivative."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Differential",
+   "text": "d/dx (e^x) is",
+   "options": [
+    "x e^(x-1)",
+    "1/x",
+    "e^x",
+    "e"
+   ],
+   "correct": 2,
+   "explanation": "e^x is its own derivative."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Differential",
+   "text": "d/dx (log x) is",
+   "options": [
+    "x",
+    "e^x",
+    "log x / x",
+    "1/x"
+   ],
+   "correct": 3,
+   "explanation": "Derivative of natural log."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Applications",
+   "text": "A function has a maximum at x = a if f'(a) = 0 and f''(a) is",
+   "options": [
+    "negative",
+    "positive",
+    "zero",
+    "undefined"
+   ],
+   "correct": 0,
+   "explanation": "Second-derivative test."
+  },
+  {
+   "subject": "Engineering Mathematics-I",
+   "topic": "Applications",
+   "text": "The slope of the tangent to y = x^2 at x = 2 is",
+   "options": [
+    "2",
+    "4",
+    "8",
+    "1"
+   ],
+   "correct": 1,
+   "explanation": "dy/dx = 2x = 4."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Units",
+   "text": "The SI unit of force is",
+   "options": [
+    "joule",
+    "watt",
+    "newton",
+    "pascal"
+   ],
+   "correct": 2,
+   "explanation": "F = ma, in kg·m/s² = N."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Units",
+   "text": "The dimensional formula of velocity is",
+   "options": [
+    "L^2T^-1",
+    "LT^-2",
+    "MLT^-1",
+    "LT^-1"
+   ],
+   "correct": 3,
+   "explanation": "Distance / time."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Units",
+   "text": "The SI unit of power is",
+   "options": [
+    "watt",
+    "joule",
+    "newton",
+    "pascal"
+   ],
+   "correct": 0,
+   "explanation": "Power = work / time."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Units",
+   "text": "Which of the following is a scalar quantity?",
+   "options": [
+    "Velocity",
+    "Speed",
+    "Force",
+    "Displacement"
+   ],
+   "correct": 1,
+   "explanation": "Speed has magnitude only."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Statics",
+   "text": "The resultant of two equal forces F acting at 90° to each other is",
+   "options": [
+    "2F",
+    "F",
+    "√2 F",
+    "F/√2"
+   ],
+   "correct": 2,
+   "explanation": "√(F²+F²) = √2F."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Statics",
+   "text": "The moment of a force about a point is",
+   "options": [
+    "force ÷ distance",
+    "force + distance",
+    "force × time",
+    "force × perpendicular distance"
+   ],
+   "correct": 3,
+   "explanation": "Definition of moment."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Statics",
+   "text": "Lami's theorem applies to",
+   "options": [
+    "three concurrent forces in equilibrium",
+    "two parallel forces",
+    "any number of non-concurrent forces",
+    "a single force"
+   ],
+   "correct": 0,
+   "explanation": "Each force is proportional to the sine of the angle between the other two."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Gravitation",
+   "text": "The value of acceleration due to gravity g on Earth's surface is approximately",
+   "options": [
+    "98 m/s^2",
+    "9.8 m/s^2",
+    "0.98 m/s^2",
+    "6.67 m/s^2"
+   ],
+   "correct": 1,
+   "explanation": "Standard value."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Gravitation",
+   "text": "The SI unit of the universal gravitational constant G is",
+   "options": [
+    "N kg^2 m^-2",
+    "N m kg^-1",
+    "N m^2 kg^-2",
+    "N m^-2 kg^2"
+   ],
+   "correct": 2,
+   "explanation": "From F = Gm₁m₂/r²."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Gravitation",
+   "text": "The escape velocity from Earth is approximately",
+   "options": [
+    "7.9 km/s",
+    "9.8 km/s",
+    "3 × 10^5 km/s",
+    "11.2 km/s"
+   ],
+   "correct": 3,
+   "explanation": "Standard value; 7.9 km/s is the orbital velocity."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Energy",
+   "text": "Kinetic energy of a body of mass m moving with velocity v is",
+   "options": [
+    "(1/2) m v^2",
+    "m v^2",
+    "m v",
+    "(1/2) m v"
+   ],
+   "correct": 0,
+   "explanation": "Definition."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Energy",
+   "text": "The SI unit of work is",
+   "options": [
+    "newton",
+    "joule",
+    "watt",
+    "pascal"
+   ],
+   "correct": 1,
+   "explanation": "Work = force × displacement."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Energy",
+   "text": "Which energy is stored in a compressed spring?",
+   "options": [
+    "Kinetic energy",
+    "Heat energy",
+    "Potential energy",
+    "Sound energy"
+   ],
+   "correct": 2,
+   "explanation": "Elastic potential energy."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Thermal",
+   "text": "The SI unit of temperature is",
+   "options": [
+    "degree celsius",
+    "degree fahrenheit",
+    "calorie",
+    "kelvin"
+   ],
+   "correct": 3,
+   "explanation": "Kelvin is the SI base unit."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Thermal",
+   "text": "Water freezes at, in kelvin,",
+   "options": [
+    "273 K",
+    "373 K",
+    "0 K",
+    "100 K"
+   ],
+   "correct": 0,
+   "explanation": "0 °C = 273 K."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Thermal",
+   "text": "Heat is transferred without a medium by",
+   "options": [
+    "conduction",
+    "radiation",
+    "convection",
+    "diffusion"
+   ],
+   "correct": 1,
+   "explanation": "Radiation needs no medium."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Sound",
+   "text": "Sound waves are",
+   "options": [
+    "transverse waves",
+    "electromagnetic waves",
+    "longitudinal waves",
+    "stationary only"
+   ],
+   "correct": 2,
+   "explanation": "Particles vibrate along propagation direction."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Sound",
+   "text": "The speed of sound in air at 0 °C is about",
+   "options": [
+    "3 × 10^8 m/s",
+    "1500 m/s",
+    "33 m/s",
+    "332 m/s"
+   ],
+   "correct": 3,
+   "explanation": "Standard value."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Sound",
+   "text": "The frequency range audible to humans is about",
+   "options": [
+    "20 Hz to 20 kHz",
+    "2 Hz to 200 Hz",
+    "20 kHz to 200 kHz",
+    "200 Hz to 2 kHz"
+   ],
+   "correct": 0,
+   "explanation": "Below 20 Hz is infrasonic, above 20 kHz ultrasonic."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Electricity",
+   "text": "Ohm's law states that",
+   "options": [
+    "V = I/R",
+    "V = IR",
+    "V = I^2 R",
+    "V = R/I"
+   ],
+   "correct": 1,
+   "explanation": "Voltage across a conductor is proportional to current at constant temperature."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Electricity",
+   "text": "The SI unit of resistance is",
+   "options": [
+    "volt",
+    "ampere",
+    "ohm",
+    "farad"
+   ],
+   "correct": 2,
+   "explanation": "Defined as V/I."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Electricity",
+   "text": "The SI unit of magnetic flux density is",
+   "options": [
+    "weber",
+    "henry",
+    "gauss",
+    "tesla"
+   ],
+   "correct": 3,
+   "explanation": "Wb/m² = tesla."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Modern",
+   "text": "The photoelectric effect supports the",
+   "options": [
+    "particle nature of light",
+    "wave nature of light only",
+    "nuclear model",
+    "Bohr model of gas"
+   ],
+   "correct": 0,
+   "explanation": "Einstein explained it with photons."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Modern",
+   "text": "The speed of light in vacuum is about",
+   "options": [
+    "3 × 10^6 m/s",
+    "3 × 10^8 m/s",
+    "3 × 10^5 m/s",
+    "3 × 10^10 m/s"
+   ],
+   "correct": 1,
+   "explanation": "Standard value."
+  },
+  {
+   "subject": "Engineering Physics",
+   "topic": "Modern",
+   "text": "LASER stands for",
+   "options": [
+    "Light Absorption by Stimulated Emission of Radiation",
+    "Light Amplification by Spontaneous Emission of Radiation",
+    "Light Amplification by Stimulated Emission of Radiation",
+    "Long Amplified Stimulated Emission of Radiation"
+   ],
+   "correct": 2,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Fundamentals",
+   "text": "The atomic number of carbon is",
+   "options": [
+    "12",
+    "8",
+    "14",
+    "6"
+   ],
+   "correct": 3,
+   "explanation": "Carbon has 6 protons."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Fundamentals",
+   "text": "The number of electrons in a neutral sodium atom (Z = 11) is",
+   "options": [
+    "11",
+    "10",
+    "12",
+    "23"
+   ],
+   "correct": 0,
+   "explanation": "Neutral atoms have electrons equal to atomic number."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Fundamentals",
+   "text": "The chemical formula of common salt is",
+   "options": [
+    "KCl",
+    "NaCl",
+    "NaOH",
+    "Na2CO3"
+   ],
+   "correct": 1,
+   "explanation": "Sodium chloride."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Solutions",
+   "text": "The pH of a neutral solution at 25 °C is",
+   "options": [
+    "0",
+    "14",
+    "7",
+    "1"
+   ],
+   "correct": 2,
+   "explanation": "Neutral solutions have equal H+ and OH-."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Solutions",
+   "text": "An acid turns blue litmus",
+   "options": [
+    "blue",
+    "green",
+    "colourless",
+    "red"
+   ],
+   "correct": 3,
+   "explanation": "Acids turn blue litmus red."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Solutions",
+   "text": "The pH of a solution with [H+] = 10^-3 M is",
+   "options": [
+    "3",
+    "11",
+    "-3",
+    "7"
+   ],
+   "correct": 0,
+   "explanation": "pH = −log[H+]."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Electrochemistry",
+   "text": "In electrolysis, oxidation takes place at the",
+   "options": [
+    "cathode",
+    "anode",
+    "salt bridge",
+    "electrolyte"
+   ],
+   "correct": 1,
+   "explanation": "Anode is where oxidation occurs."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Electrochemistry",
+   "text": "The unit of conductance is",
+   "options": [
+    "ohm",
+    "volt",
+    "siemens",
+    "coulomb"
+   ],
+   "correct": 2,
+   "explanation": "Reciprocal of resistance."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Electrochemistry",
+   "text": "Faraday's first law of electrolysis relates mass deposited to",
+   "options": [
+    "temperature only",
+    "pressure only",
+    "volume of the cell",
+    "quantity of electricity"
+   ],
+   "correct": 3,
+   "explanation": "m = Z × Q."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Corrosion",
+   "text": "Rusting of iron requires",
+   "options": [
+    "oxygen and moisture",
+    "only oxygen",
+    "only moisture",
+    "nitrogen and carbon dioxide only"
+   ],
+   "correct": 0,
+   "explanation": "Both are needed for rust (hydrated iron oxide)."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Corrosion",
+   "text": "Galvanizing means coating iron with",
+   "options": [
+    "tin",
+    "zinc",
+    "copper",
+    "nickel"
+   ],
+   "correct": 1,
+   "explanation": "Zinc protects iron sacrificially."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Water",
+   "text": "Temporary hardness of water is due to",
+   "options": [
+    "chlorides of calcium and magnesium",
+    "sulphates of calcium and magnesium",
+    "bicarbonates of calcium and magnesium",
+    "sodium salts"
+   ],
+   "correct": 2,
+   "explanation": "It can be removed by boiling."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Water",
+   "text": "Permanent hardness of water can be removed by",
+   "options": [
+    "boiling alone",
+    "filtration",
+    "sedimentation",
+    "ion exchange process"
+   ],
+   "correct": 3,
+   "explanation": "Boiling removes only temporary hardness."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Polymers",
+   "text": "Polythene is made from the monomer",
+   "options": [
+    "ethylene",
+    "propylene",
+    "vinyl chloride",
+    "styrene"
+   ],
+   "correct": 0,
+   "explanation": "Addition polymer of ethene."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Polymers",
+   "text": "Bakelite is a",
+   "options": [
+    "thermoplastic",
+    "thermosetting plastic",
+    "natural rubber",
+    "fibre"
+   ],
+   "correct": 1,
+   "explanation": "Once set it cannot be remoulded."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Fuels",
+   "text": "The main constituent of natural gas is",
+   "options": [
+    "ethane",
+    "propane",
+    "methane",
+    "butane"
+   ],
+   "correct": 2,
+   "explanation": "CH4."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Fuels",
+   "text": "The calorific value of a fuel is the heat produced on",
+   "options": [
+    "partial combustion",
+    "dissolving in water",
+    "evaporation",
+    "complete combustion of unit mass"
+   ],
+   "correct": 3,
+   "explanation": "Definition."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Environmental",
+   "text": "The gas mainly responsible for the greenhouse effect is",
+   "options": [
+    "carbon dioxide",
+    "oxygen",
+    "nitrogen",
+    "argon"
+   ],
+   "correct": 0,
+   "explanation": "CO2 traps heat."
+  },
+  {
+   "subject": "Engineering Chemistry and Environmental Studies",
+   "topic": "Environmental",
+   "text": "The ozone layer is in the",
+   "options": [
+    "troposphere",
+    "stratosphere",
+    "mesosphere",
+    "exosphere"
+   ],
+   "correct": 1,
+   "explanation": "It absorbs UV radiation."
+  },
+  {
+   "subject": "Engineering Drawing",
+   "topic": "Drawing",
+   "text": "A standard A4 drawing sheet measures",
+   "options": [
+    "297 × 420 mm",
+    "148 × 210 mm",
+    "210 × 297 mm",
+    "420 × 594 mm"
+   ],
+   "correct": 2,
+   "explanation": "ISO A4 size."
+  },
+  {
+   "subject": "Engineering Drawing",
+   "topic": "Drawing",
+   "text": "In first angle projection the plan is placed",
+   "options": [
+    "above the elevation",
+    "left of the elevation",
+    "right of the elevation",
+    "below the elevation"
+   ],
+   "correct": 3,
+   "explanation": "Plan is below the front view in first angle."
+  },
+  {
+   "subject": "Engineering Drawing",
+   "topic": "Drawing",
+   "text": "A line that shows hidden edges is drawn as a",
+   "options": [
+    "dashed line",
+    "continuous thick line",
+    "chain line",
+    "wavy line"
+   ],
+   "correct": 0,
+   "explanation": "Hidden edges use dashed lines."
+  },
+  {
+   "subject": "Engineering Drawing",
+   "topic": "Geometric",
+   "text": "The number of sides of a hexagon is",
+   "options": [
+    "5",
+    "6",
+    "8",
+    "7"
+   ],
+   "correct": 1,
+   "explanation": "Hexa = 6."
+  },
+  {
+   "subject": "Engineering Drawing",
+   "topic": "Projections",
+   "text": "The front view of a cylinder with its axis vertical is a",
+   "options": [
+    "circle",
+    "triangle",
+    "rectangle",
+    "ellipse"
+   ],
+   "correct": 2,
+   "explanation": "Its top view is a circle."
+  },
+  {
+   "subject": "Engineering Drawing",
+   "topic": "Sectional",
+   "text": "Section lines (hatching) are usually drawn at",
+   "options": [
+    "90°",
+    "60° to the vertical only",
+    "0° only",
+    "45°"
+   ],
+   "correct": 3,
+   "explanation": "Conventional 45° thin lines."
+  },
+  {
+   "subject": "Engineering Drawing",
+   "topic": "Orthographic",
+   "text": "The front view is also called",
+   "options": [
+    "elevation",
+    "plan",
+    "side view",
+    "auxiliary view"
+   ],
+   "correct": 0,
+   "explanation": "Vertical plane view."
+  },
+  {
+   "subject": "English",
+   "topic": "Employability",
+   "text": "Choose the correct sentence.",
+   "options": [
+    "She don't like coffee.",
+    "She doesn't like coffee.",
+    "She not like coffee.",
+    "She isn't like coffee."
+   ],
+   "correct": 1,
+   "explanation": "Third person singular takes 'doesn't'."
+  },
+  {
+   "subject": "English",
+   "topic": "Employability",
+   "text": "The plural of 'child' is",
+   "options": [
+    "childs",
+    "childrens",
+    "children",
+    "childes"
+   ],
+   "correct": 2,
+   "explanation": "Irregular plural."
+  },
+  {
+   "subject": "English",
+   "topic": "Employability",
+   "text": "The synonym of 'rapid' is",
+   "options": [
+    "slow",
+    "weak",
+    "late",
+    "quick"
+   ],
+   "correct": 3,
+   "explanation": "Both mean fast."
+  },
+  {
+   "subject": "English",
+   "topic": "Employability",
+   "text": "The antonym of 'ancient' is",
+   "options": [
+    "modern",
+    "old",
+    "historic",
+    "aged"
+   ],
+   "correct": 0,
+   "explanation": "Opposite in meaning."
+  },
+  {
+   "subject": "English",
+   "topic": "Employability",
+   "text": "Fill in the blank: He has been working here ___ 2019.",
+   "options": [
+    "for",
+    "since",
+    "from",
+    "by"
+   ],
+   "correct": 1,
+   "explanation": "'Since' is used with a point in time."
+  },
+  {
+   "subject": "English",
+   "topic": "Employability",
+   "text": "Fill in the blank: I look forward ___ meeting you.",
+   "options": [
+    "for",
+    "at",
+    "to",
+    "on"
+   ],
+   "correct": 2,
+   "explanation": "'Look forward to' is followed by a gerund."
+  },
+  {
+   "subject": "English",
+   "topic": "Employability",
+   "text": "The passive form of 'She writes a letter' is",
+   "options": [
+    "A letter was written by her.",
+    "A letter is being written by her.",
+    "A letter has written by her.",
+    "A letter is written by her."
+   ],
+   "correct": 3,
+   "explanation": "Simple present passive."
+  },
+  {
+   "subject": "English",
+   "topic": "Employability",
+   "text": "The article used before 'hour' is",
+   "options": [
+    "an",
+    "a",
+    "the only",
+    "no article"
+   ],
+   "correct": 0,
+   "explanation": "'Hour' begins with a vowel sound."
+  },
+  {
+   "subject": "English",
+   "topic": "Employability",
+   "text": "A formal letter ends with",
+   "options": [
+    "Love",
+    "Yours faithfully / sincerely",
+    "Bye",
+    "See you"
+   ],
+   "correct": 1,
+   "explanation": "Standard closing."
+  }
+ ]
+}

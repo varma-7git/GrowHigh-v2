@@ -33,6 +33,15 @@ class Subject(models.Model):
     # regulation + semester place a diploma subject in the curriculum; both empty = ECET subject
     regulation = models.ForeignKey(Regulation, null=True, blank=True, on_delete=models.PROTECT, related_name="subjects")
     semester = models.PositiveSmallIntegerField(null=True, blank=True)  # 1 to 6
+    class Area(models.TextChoices):  # ECET subjects and curriculum, or practice sets for a Job preparation tab
+        ECET = "ECET", "ECET and curriculum"
+        APTITUDE = "APTITUDE", "Job prep · Aptitude"
+        REASONING = "REASONING", "Job prep · Reasoning"
+        CODING = "CODING", "Job prep · Coding"
+        TECHNICAL = "TECHNICAL", "Job prep · Technical interview"
+        HR = "HR", "Job prep · HR interview"
+
+    area = models.CharField(max_length=10, choices=Area.choices, default=Area.ECET)
     name = models.CharField(max_length=120)
     code = models.CharField(max_length=20, null=True, blank=True)
     marks = models.PositiveSmallIntegerField(null=True, blank=True)  # marks in the exam paper
@@ -71,6 +80,7 @@ class Material(models.Model):
         VIDEO = "VIDEO", "Video"
         PDF = "PDF", "PDF"
         LINK = "LINK", "Web link"
+        AUDIO = "AUDIO", "Audio"
 
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name="materials")
     kind = models.CharField(max_length=5, choices=Kind.choices, default=Kind.NOTES)
@@ -118,7 +128,14 @@ class Guide(models.Model):
     area = models.CharField(max_length=10, choices=Area.choices)
     section = models.CharField(max_length=20)
     group = models.CharField(max_length=80, blank=True, default="")  # optional heading inside a section, e.g. "Quantitative"
-    kind = models.CharField(max_length=5, choices=Material.Kind.choices, default=Material.Kind.NOTES)
+    class Kind(models.TextChoices):
+        NOTES = "NOTES", "Notes"
+        VIDEO = "VIDEO", "Video"
+        PDF = "PDF", "PDF"
+        LINK = "LINK", "Web link"
+        AUDIO = "AUDIO", "Audio"
+
+    kind = models.CharField(max_length=5, choices=Kind.choices, default=Kind.NOTES)
     title = models.CharField(max_length=150)
     body = models.TextField(blank=True, default="")
     url = models.URLField(max_length=500, blank=True, default="")
@@ -140,3 +157,17 @@ class GuideDone(models.Model):
 
     class Meta:
         constraints = [models.UniqueConstraint(fields=["user", "guide"], name="unique_guide_done")]
+
+
+class Recording(models.Model):
+    """A student's spoken answer to a Communication prompt. Faculty or admin can listen and leave feedback."""
+    user = models.ForeignKey("accounts.User", on_delete=models.CASCADE, related_name="recordings")
+    guide = models.ForeignKey(Guide, null=True, blank=True, on_delete=models.SET_NULL, related_name="recordings")
+    file = models.FileField(upload_to="recordings/%Y/%m/")
+    seconds = models.PositiveSmallIntegerField(default=0)
+    feedback = models.TextField(blank=True, default="")
+    reviewed_by = models.ForeignKey("accounts.User", null=True, blank=True, on_delete=models.SET_NULL, related_name="recordings_reviewed")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]

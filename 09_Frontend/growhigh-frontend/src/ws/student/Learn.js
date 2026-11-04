@@ -5,23 +5,48 @@ import { Btn, Stats, Tabs } from "../kit";
 import { Ic } from "../icons";
 import { all } from "../../admin/ui";
 import api from "../../api/client";
+import Recorder from "./Recorder";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
-const KIND = { NOTES: "Notes", VIDEO: "Video", PDF: "PDF", LINK: "Web link" };
+const KIND = { NOTES: "Notes", VIDEO: "Video", PDF: "PDF", LINK: "Web link", AUDIO: "Audio" };
+const SUBJECT_AREA = { aptitude: "APTITUDE", reasoning: "REASONING", coding: "CODING", technical: "TECHNICAL", hr: "HR" };
 
-function GuideCard({ g, flip }) {
+function GuideCard({ g, flip, record }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="ad-card" style={{ marginBottom: 16 }}>
       <div className="ad-eyebrow">{KIND[g.kind]}{g.done ? " · Done" : ""}</div><h2 style={{ margin: "8px 0" }}>{g.title}</h2>
       {g.kind === "NOTES" && (open || g.body.length < 240 ? <p className="ws-p" style={{ whiteSpace: "pre-line" }}>{g.body}</p> : <p className="ws-p">{g.body.slice(0, 200)}…</p>)}
       {g.kind === "VIDEO" && g.file_url && <video controls preload="metadata" style={{ width: "100%", maxHeight: 460, borderRadius: 14, background: "#000", marginBottom: 12 }} src={g.file_url} />}
+      {g.kind === "AUDIO" && g.file_url && <audio controls preload="metadata" style={{ width: "100%", marginBottom: 12 }} src={g.file_url} />}
       {g.kind === "PDF" && g.file_url && <p className="ws-p"><a href={g.file_url} target="_blank" rel="noreferrer">Open PDF ↗</a></p>}
       {g.kind !== "NOTES" && g.url && <p className="ws-p"><a href={g.url} target="_blank" rel="noreferrer">Open link ↗</a></p>}
       <div className="ws-btns">
         {g.kind === "NOTES" && g.body.length >= 240 && <button className="ad-btn o s" onClick={() => setOpen(!open)}>{open ? "Show less" : "Read more"}</button>}
         <button className={`ad-btn ${g.done ? "o" : "c"} s`} onClick={() => flip(g)}>{g.done ? "Done · Undo" : "Mark as done"}</button>
       </div>
+      {record && <Recorder guide={g} />}
+    </div>
+  );
+}
+
+/** Practice questions for a Job preparation tab: the topics the faculty have written questions for. */
+function PracticeTopics({ sec }) {
+  const [rows, setRows] = useState(null);
+  useEffect(() => {
+    setRows(null);
+    all("/subjects/", { area: SUBJECT_AREA[sec] }).then(async (subs) => {
+      const lists = await Promise.all(subs.map((s) => all("/topics/", { subject: s.id }).then((t) => t.map((x) => ({ ...x, subject: s.name })))));
+      setRows(lists.flat());
+    }).catch(() => setRows([]));
+  }, [sec]);
+  if (!rows) return null;
+  return (
+    <div className="ad-card" style={{ marginBottom: 20 }}><h2>Practice questions</h2>
+      {rows.length === 0 ? <p className="ws-p">No practice questions have been added for this section yet.</p> : (
+        <div className="ad-stream">{rows.map((t) => <div key={t.id}><small>{t.subject}</small><b>{t.name}</b><span>{t.description || "Ten random questions with explanations after you finish."}</span>
+          <Link className="ad-btn c s" style={{ marginTop: 10 }} to={`/student/ecet/practice?topic=${t.id}`}>Practise</Link></div>)}</div>)}
     </div>
   );
 }
@@ -40,6 +65,7 @@ function GuidePage({ area, areaLabel, tabs, sec, label, roadmap }) {
     <WsShell role="student" crumb={`${areaLabel} / ${label}`} title={label} subtitle={`Lessons for ${label.toLowerCase()}, added by your admin.`}>
       <Tabs items={tabs} />
       <Stats items={[["Lessons", String(total), "In this section"], ["Completed", String(done), "Marked done by you"], ["Progress", total ? `${Math.round(done * 100 / total)}%` : "—", total ? "Of this section" : "Nothing added yet"]]} />
+      {SUBJECT_AREA[sec] && area === "JOB_PREP" && <PracticeTopics sec={sec} />}
       {rows && total === 0 && <div className="ad-empty">Nothing has been added to {label} yet. Check back soon.</div>}
       {roadmap ? (rows || []).map((g, i) => (
         <div className={`ws-st ${g.done ? "" : i === firstOpen ? "cur" : "lock"}`} key={g.id}>
@@ -50,7 +76,7 @@ function GuidePage({ area, areaLabel, tabs, sec, label, roadmap }) {
         </div>
       )) : groups.map((grp) => (
         <div key={grp || "all"}>{grp && <h2 style={{ margin: "8px 0 14px" }}>{grp}</h2>}
-          {rows.filter((g) => g.group === grp).map((g) => <GuideCard key={g.id} g={g} flip={flip} />)}</div>
+          {rows.filter((g) => g.group === grp).map((g) => <GuideCard key={g.id} g={g} flip={flip} record={area === "COMM" && sec === "speaking"} />)}</div>
       ))}
     </WsShell>
   );

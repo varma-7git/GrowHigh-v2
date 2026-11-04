@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import WsShell from "../Shell";
 import { Btn, Panel, Stats } from "../kit";
-import { Err, List, Row, Search, Select, all } from "../../admin/ui";
+import { Err, List, Row, Search, Select, all , subLabel } from "../../admin/ui";
 import { DAYS } from "../data";
 import api, { parseError } from "../../api/client";
 import { useAuth } from "../../context/AuthContext";
@@ -47,7 +47,7 @@ export function Questions() {
   const [q, setQ] = useState("");
   const [sub, setSub] = useState("");
   const [err, setErr] = useState("");
-  useEffect(() => { all("/subjects/").then(setSubs).catch(() => {}); }, []);
+  useEffect(() => { all("/subjects/", { area: "ALL" }).then(setSubs).catch(() => {}); }, []);
   const load = useCallback(() => { all("/questions/", { search: q || undefined, subject: sub || undefined }).then(setRows).catch((e) => setErr(errText(e))); }, [q, sub]);
   useEffect(() => { load(); }, [load]);
   const del = async (x) => {
@@ -59,7 +59,7 @@ export function Questions() {
   return (
     <W crumb="Question bank" title="Question bank" subtitle={`${rows.length} questions`} action={<Btn b={["Add question", "/faculty/questions/new"]} kind="c" />}>
       <Err e={err} />
-      <div className="ad-filters"><Search value={q} onChange={setQ} placeholder="Search questions" /><Select value={sub} onChange={setSub} options={[["", "All subjects"], ...subs.map((s) => [String(s.id), s.name])]} /></div>
+      <div className="ad-filters"><Search value={q} onChange={setQ} placeholder="Search questions" /><Select value={sub} onChange={setSub} options={[["", "All subjects"], ...subs.map((s) => [String(s.id), subLabel(s)])]} /></div>
       <List head={<><span>Question</span><span>Actions</span></>} empty="No questions yet. Add the first one." rows={rows.map((x) => (
         <Row key={x.id} title={<>{x.text}{!x.is_active && <span className="ad-pill bad">Hidden</span>}</>} meta={`${x.subject_name} · ${x.topic_name} · Answer ${L[x.correct]} · ${x.mine ? "Added by you" : x.created_by_name || ""}`}>
           {x.mine && <><Link className="ad-btn o s" to={`/faculty/questions/${x.id}`}>Edit</Link><button className="ad-btn o s" onClick={() => hide(x)}>{x.is_active ? "Hide" : "Show"}</button><button className="ad-btn d s" onClick={() => del(x)}>Delete</button></>}
@@ -78,7 +78,7 @@ export function QuestionForm() {
   const [err, setErr] = useState("");
   const set = (k, v) => setF((c) => ({ ...c, [k]: v }));
   useEffect(() => {
-    all("/subjects/").then((s) => { setSubs(s); if (!id && s[0]) setF((c) => ({ ...c, subject: String(s[0].id) })); }).catch(() => {});
+    all("/subjects/", { area: "ALL" }).then((s) => { setSubs(s); if (!id && s[0]) setF((c) => ({ ...c, subject: String(s[0].id) })); }).catch(() => {});
     if (id) api.get(`/questions/${id}/`).then((r) => setF({ subject: String(r.data.subject_id), topic_id: String(r.data.topic_id), text: r.data.text, options: r.data.options, correct: r.data.correct, explanation: r.data.explanation })).catch((e) => setErr(errText(e)));
   }, [id]);
   useEffect(() => {
@@ -96,7 +96,7 @@ export function QuestionForm() {
     <W crumb="Question bank / Question" title={id ? "Edit question" : "Add question"} subtitle="One correct answer, with an explanation students will see after the test.">
       <div className="ws-split">
         <div className="ad-card ws-form"><Err e={err} />
-          <div className="ws-two"><div><label>Subject</label><Select value={f.subject} onChange={(v) => set("subject", v)} options={subs.length ? subs.map((s) => [String(s.id), s.name]) : [["", "No subjects yet"]]} /></div>
+          <div className="ws-two"><div><label>Subject</label><Select value={f.subject} onChange={(v) => set("subject", v)} options={subs.length ? subs.map((s) => [String(s.id), subLabel(s)]) : [["", "No subjects yet"]]} /></div>
             <div><label>Topic</label><Select value={f.topic_id} onChange={(v) => set("topic_id", v)} options={topics.length ? topics.map((t) => [String(t.id), t.name]) : [["", "No topics yet"]]} /><Err e={er.topic_id} /></div></div>
           <label>Question</label><textarea className="ad-in" rows={3} value={f.text} onChange={(e) => set("text", e.target.value)} /><Err e={er.text} />
           {f.options.map((o, i) => <div key={i}><label>Option {L[i]}</label><input className="ad-in" value={o} onChange={(e) => opt(i, e.target.value)} /></div>)}<Err e={er.options} />
@@ -122,7 +122,7 @@ export function Schedule() {
   const [er, setEr] = useState({});
   const [err, setErr] = useState("");
   const set = (k) => (v) => setF((c) => ({ ...c, [k]: v }));
-  useEffect(() => { all("/branches/").then(setBranches).catch(() => {}); all("/subjects/").then(setSubs).catch(() => {}); }, []);
+  useEffect(() => { all("/branches/").then(setBranches).catch(() => {}); all("/subjects/", { area: "ALL" }).then(setSubs).catch(() => {}); }, []);
   useEffect(() => { all("/questions/", { subject: subF || undefined, is_active: "true" }).then(setQs).catch(() => {}); }, [subF]);
   const tog = (id) => setSel(sel.includes(id) ? sel.filter((x) => x !== id) : [...sel, id]);
   const go = async () => {
@@ -142,7 +142,7 @@ export function Schedule() {
           <div className="ws-two"><div><In l="Start time" k="start_time" type="time" /></div><div><In l="Duration (minutes)" k="duration_minutes" type="number" /></div></div>
           <div className="ws-two"><div><label>Branch</label><Select value={f.branch_id} onChange={set("branch_id")} options={[["", "All branches"], ...branches.map((b) => [String(b.id), b.code])]} /></div><div><label>Year</label><Select value={f.year_of_study} onChange={set("year_of_study")} options={[["", "All years"], ["1", "1st year"], ["2", "2nd year"], ["3", "3rd year"]]} /></div></div>
           <h2 style={{ marginTop: 26 }}>Select questions</h2>
-          <Select value={subF} onChange={setSubF} options={[["", "All subjects"], ...subs.map((s) => [String(s.id), s.name])]} /><Err e={er.question_ids} />
+          <Select value={subF} onChange={setSubF} options={[["", "All subjects"], ...subs.map((s) => [String(s.id), subLabel(s)])]} /><Err e={er.question_ids} />
           <div className="ws-ck hd"><span>Question</span><span>Subject</span></div>
           {qs.map((x) => <label className="ws-ck" key={x.id}><input type="checkbox" checked={sel.includes(x.id)} onChange={() => tog(x.id)} /><span>{x.text}</span><em>{x.subject_name}</em></label>)}
           {qs.length === 0 && <div className="ad-empty">No questions yet. <Link to="/faculty/questions/new">Add questions</Link> first.</div>}

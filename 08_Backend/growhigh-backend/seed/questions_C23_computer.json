@@ -1,0 +1,1864 @@
+{
+ "regulation": "C23",
+ "questions": [
+  {
+   "subject": "Programming in C",
+   "topic": "Introduction",
+   "text": "C language was developed by",
+   "options": [
+    "Dennis Ritchie",
+    "Bjarne Stroustrup",
+    "James Gosling",
+    "Guido van Rossum"
+   ],
+   "correct": 0,
+   "explanation": "Developed at Bell Labs in the early 1970s."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Introduction",
+   "text": "Every C program starts execution from the function",
+   "options": [
+    "start()",
+    "main()",
+    "begin()",
+    "run()"
+   ],
+   "correct": 1,
+   "explanation": "main is the entry point."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Input",
+   "text": "The format specifier for an integer in printf is",
+   "options": [
+    "%f",
+    "%c",
+    "%d",
+    "%s"
+   ],
+   "correct": 2,
+   "explanation": "%d prints a decimal integer."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Input",
+   "text": "The operator used to get the address of a variable is",
+   "options": [
+    "*",
+    "%",
+    "#",
+    "&"
+   ],
+   "correct": 3,
+   "explanation": "Address-of operator."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Input",
+   "text": "The value of 7 % 3 in C is",
+   "options": [
+    "1",
+    "2",
+    "0",
+    "3"
+   ],
+   "correct": 0,
+   "explanation": "Remainder of 7 ÷ 3."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Input",
+   "text": "The size of an int in most modern compilers is",
+   "options": [
+    "1 byte",
+    "4 bytes",
+    "2 bytes always",
+    "8 bytes always"
+   ],
+   "correct": 1,
+   "explanation": "Typically 4 bytes (compiler dependent)."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Decision",
+   "text": "Which loop executes its body at least once?",
+   "options": [
+    "while",
+    "for",
+    "do-while",
+    "none"
+   ],
+   "correct": 2,
+   "explanation": "do-while checks the condition after the body."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Decision",
+   "text": "The keyword used to exit a loop immediately is",
+   "options": [
+    "continue",
+    "exit_loop",
+    "stop",
+    "break"
+   ],
+   "correct": 3,
+   "explanation": "break leaves the nearest loop or switch."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Arrays",
+   "text": "The index of the first element of a C array is",
+   "options": [
+    "0",
+    "1",
+    "-1",
+    "depends on the size"
+   ],
+   "correct": 0,
+   "explanation": "C arrays are zero-indexed."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Arrays",
+   "text": "The string terminator in C is",
+   "options": [
+    "'\\n'",
+    "'\\0'",
+    "' '",
+    "'\\t'"
+   ],
+   "correct": 1,
+   "explanation": "A null character ends a string."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Arrays",
+   "text": "The function to find the length of a string is",
+   "options": [
+    "strcpy()",
+    "strcmp()",
+    "strlen()",
+    "strcat()"
+   ],
+   "correct": 2,
+   "explanation": "strlen returns the number of characters before '\\0'."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "Arrays",
+   "text": "A union differs from a structure because in a union",
+   "options": [
+    "members cannot be integers",
+    "it cannot have functions",
+    "it has no name",
+    "all members share the same memory"
+   ],
+   "correct": 3,
+   "explanation": "Union memory equals its largest member."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "User defined",
+   "text": "A pointer variable stores",
+   "options": [
+    "an address",
+    "a character only",
+    "a function body",
+    "a file name only"
+   ],
+   "correct": 0,
+   "explanation": "Pointers hold memory addresses."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "User defined",
+   "text": "The function used to allocate memory dynamically is",
+   "options": [
+    "alloc_mem()",
+    "malloc()",
+    "new()",
+    "create()"
+   ],
+   "correct": 1,
+   "explanation": "malloc is in stdlib.h."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "User defined",
+   "text": "The function to open a file in C is",
+   "options": [
+    "open_file()",
+    "fileopen()",
+    "fopen()",
+    "fread()"
+   ],
+   "correct": 2,
+   "explanation": "fopen returns a FILE pointer."
+  },
+  {
+   "subject": "Programming in C",
+   "topic": "User defined",
+   "text": "A function that calls itself is called",
+   "options": [
+    "nested",
+    "inline",
+    "static",
+    "recursive"
+   ],
+   "correct": 3,
+   "explanation": "Recursion."
+  },
+  {
+   "subject": "Basics of Computer Engineering",
+   "topic": "Fundamentals",
+   "text": "The brain of the computer is the",
+   "options": [
+    "CPU",
+    "RAM",
+    "hard disk",
+    "monitor"
+   ],
+   "correct": 0,
+   "explanation": "The CPU executes instructions."
+  },
+  {
+   "subject": "Basics of Computer Engineering",
+   "topic": "Fundamentals",
+   "text": "1 KB equals",
+   "options": [
+    "1000 bits",
+    "1024 bytes",
+    "100 bytes",
+    "1024 bits"
+   ],
+   "correct": 1,
+   "explanation": "Binary kilobyte."
+  },
+  {
+   "subject": "Basics of Computer Engineering",
+   "topic": "Fundamentals",
+   "text": "Which of the following is an input device?",
+   "options": [
+    "Printer",
+    "Monitor",
+    "Keyboard",
+    "Speaker"
+   ],
+   "correct": 2,
+   "explanation": "It sends data to the computer."
+  },
+  {
+   "subject": "Basics of Computer Engineering",
+   "topic": "Fundamentals",
+   "text": "RAM is a",
+   "options": [
+    "non-volatile memory",
+    "permanent storage",
+    "read-only memory",
+    "volatile memory"
+   ],
+   "correct": 3,
+   "explanation": "Data is lost when power is off."
+  },
+  {
+   "subject": "Basics of Computer Engineering",
+   "topic": "Programming",
+   "text": "A step-by-step procedure to solve a problem is called an",
+   "options": [
+    "algorithm",
+    "compiler",
+    "interpreter",
+    "assembler"
+   ],
+   "correct": 0,
+   "explanation": "Algorithm."
+  },
+  {
+   "subject": "Basics of Computer Engineering",
+   "topic": "Operating",
+   "text": "Windows, Linux and macOS are examples of",
+   "options": [
+    "compilers",
+    "operating systems",
+    "databases",
+    "browsers"
+   ],
+   "correct": 1,
+   "explanation": "System software that manages hardware."
+  },
+  {
+   "subject": "Basics of Computer Engineering",
+   "topic": "Hardware",
+   "text": "The device that connects a computer to a network is the",
+   "options": [
+    "sound card",
+    "graphics card",
+    "network interface card",
+    "power supply"
+   ],
+   "correct": 2,
+   "explanation": "NIC."
+  },
+  {
+   "subject": "Basics of Computer Engineering",
+   "topic": "Hardware",
+   "text": "An IP address of version 4 has",
+   "options": [
+    "64 bits",
+    "128 bits",
+    "16 bits",
+    "32 bits"
+   ],
+   "correct": 3,
+   "explanation": "IPv4 is 32-bit."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Number",
+   "text": "The binary equivalent of decimal 10 is",
+   "options": [
+    "1010",
+    "1001",
+    "1100",
+    "1110"
+   ],
+   "correct": 0,
+   "explanation": "8 + 2 = 10."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Number",
+   "text": "The decimal value of binary 1101 is",
+   "options": [
+    "11",
+    "13",
+    "14",
+    "12"
+   ],
+   "correct": 1,
+   "explanation": "8 + 4 + 1 = 13."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Number",
+   "text": "The hexadecimal digit F equals decimal",
+   "options": [
+    "16",
+    "14",
+    "15",
+    "10"
+   ],
+   "correct": 2,
+   "explanation": "Hex F = 15."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Logic",
+   "text": "The output of a 2-input AND gate is 1 only when",
+   "options": [
+    "any input is 1",
+    "both inputs are 0",
+    "inputs differ",
+    "both inputs are 1"
+   ],
+   "correct": 3,
+   "explanation": "AND needs all inputs high."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Logic",
+   "text": "A universal gate is",
+   "options": [
+    "NAND",
+    "AND",
+    "OR",
+    "XOR"
+   ],
+   "correct": 0,
+   "explanation": "NAND (and NOR) can build all other gates."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Logic",
+   "text": "De Morgan's law: (A + B)' equals",
+   "options": [
+    "A' + B'",
+    "A'B'",
+    "AB",
+    "A + B"
+   ],
+   "correct": 1,
+   "explanation": "The complement of OR is AND of complements."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Flip",
+   "text": "A flip-flop can store",
+   "options": [
+    "two bits",
+    "one byte",
+    "one bit",
+    "one nibble"
+   ],
+   "correct": 2,
+   "explanation": "Each flip-flop is a 1-bit memory."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Flip",
+   "text": "In a JK flip-flop with J = K = 1 the output",
+   "options": [
+    "sets",
+    "resets",
+    "holds",
+    "toggles"
+   ],
+   "correct": 3,
+   "explanation": "Toggle condition."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Counters",
+   "text": "The number of flip-flops needed for a mod-16 counter is",
+   "options": [
+    "4",
+    "3",
+    "5",
+    "16"
+   ],
+   "correct": 0,
+   "explanation": "2^4 = 16."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Additional",
+   "text": "A circuit that adds two single bits is a",
+   "options": [
+    "full adder",
+    "half adder",
+    "comparator",
+    "encoder"
+   ],
+   "correct": 1,
+   "explanation": "Half adder: sum and carry."
+  },
+  {
+   "subject": "Digital Electronics",
+   "topic": "Additional",
+   "text": "A multiplexer with 8 data inputs needs how many select lines?",
+   "options": [
+    "2",
+    "4",
+    "3",
+    "8"
+   ],
+   "correct": 2,
+   "explanation": "2^3 = 8."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Introduction",
+   "text": "The main function of an operating system is",
+   "options": [
+    "document editing",
+    "web browsing",
+    "virus creation",
+    "resource management"
+   ],
+   "correct": 3,
+   "explanation": "It manages CPU, memory and devices."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Introduction",
+   "text": "Which is a real-time operating system characteristic?",
+   "options": [
+    "guaranteed response time",
+    "large GUI",
+    "batch only",
+    "no scheduling"
+   ],
+   "correct": 0,
+   "explanation": "RTOS must meet deadlines."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Process",
+   "text": "A process in the ready state is waiting for the",
+   "options": [
+    "I/O",
+    "CPU",
+    "memory dump",
+    "keyboard only"
+   ],
+   "correct": 1,
+   "explanation": "Ready processes are queued for the CPU."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Process",
+   "text": "FCFS scheduling stands for",
+   "options": [
+    "Fast Core First Served",
+    "First Class First Served",
+    "First Come First Served",
+    "Final Call First Served"
+   ],
+   "correct": 2,
+   "explanation": "Non-preemptive scheduling."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Process",
+   "text": "In Round Robin scheduling each process gets a fixed",
+   "options": [
+    "priority",
+    "memory page",
+    "file",
+    "time quantum"
+   ],
+   "correct": 3,
+   "explanation": "The CPU is shared in time slices."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Deadlock",
+   "text": "Which is NOT a necessary condition for deadlock?",
+   "options": [
+    "Preemption",
+    "Mutual exclusion",
+    "Hold and wait",
+    "Circular wait"
+   ],
+   "correct": 0,
+   "explanation": "No preemption is required; preemption prevents deadlock."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Deadlock",
+   "text": "A semaphore is used for",
+   "options": [
+    "file compression",
+    "process synchronization",
+    "printing",
+    "booting"
+   ],
+   "correct": 1,
+   "explanation": "Semaphores control access to shared resources."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Memory",
+   "text": "Dividing memory into fixed-size blocks is called",
+   "options": [
+    "segmentation",
+    "swapping",
+    "paging",
+    "spooling"
+   ],
+   "correct": 2,
+   "explanation": "Pages and frames have equal size."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Memory",
+   "text": "A page fault occurs when",
+   "options": [
+    "the CPU is idle",
+    "the disk is full",
+    "a file is closed",
+    "the referenced page is not in memory"
+   ],
+   "correct": 3,
+   "explanation": "The OS must load the page."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Disk",
+   "text": "The scheduling algorithm that serves the nearest cylinder first is",
+   "options": [
+    "SSTF",
+    "FCFS",
+    "SCAN",
+    "C-LOOK"
+   ],
+   "correct": 0,
+   "explanation": "Shortest Seek Time First."
+  },
+  {
+   "subject": "Operating Systems",
+   "topic": "Disk",
+   "text": "In a file system, the directory stores",
+   "options": [
+    "only file data",
+    "file names and attributes",
+    "CPU registers",
+    "page tables"
+   ],
+   "correct": 1,
+   "explanation": "It maps names to files."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Introduction",
+   "text": "A stack follows the principle",
+   "options": [
+    "FIFO",
+    "FILO only for queues",
+    "LIFO",
+    "random access"
+   ],
+   "correct": 2,
+   "explanation": "Last In First Out."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Introduction",
+   "text": "The time complexity of linear search in the worst case is",
+   "options": [
+    "O(1)",
+    "O(log n)",
+    "O(n^2)",
+    "O(n)"
+   ],
+   "correct": 3,
+   "explanation": "All n elements may be checked."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Introduction",
+   "text": "The time complexity of binary search is",
+   "options": [
+    "O(log n)",
+    "O(n)",
+    "O(n log n)",
+    "O(1)"
+   ],
+   "correct": 0,
+   "explanation": "The search space halves each step."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Linked",
+   "text": "In a singly linked list each node contains data and",
+   "options": [
+    "a pointer to the previous node only",
+    "a pointer to the next node",
+    "two data fields",
+    "the head pointer"
+   ],
+   "correct": 1,
+   "explanation": "Next pointer."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Linked",
+   "text": "Insertion at the beginning of a singly linked list takes",
+   "options": [
+    "O(n)",
+    "O(log n)",
+    "O(1)",
+    "O(n^2)"
+   ],
+   "correct": 2,
+   "explanation": "Only the head pointer changes."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Stacks",
+   "text": "The operation to add an element to a stack is",
+   "options": [
+    "pop",
+    "peek",
+    "enqueue",
+    "push"
+   ],
+   "correct": 3,
+   "explanation": "Push inserts at the top."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Stacks",
+   "text": "The postfix form of A + B * C is",
+   "options": [
+    "ABC*+",
+    "AB+C*",
+    "+A*BC",
+    "ABC+*"
+   ],
+   "correct": 0,
+   "explanation": "Multiplication has higher precedence."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Queues",
+   "text": "A queue follows the principle",
+   "options": [
+    "LIFO",
+    "FIFO",
+    "LILO only for stacks",
+    "priority only"
+   ],
+   "correct": 1,
+   "explanation": "First In First Out."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Queues",
+   "text": "The operation to remove an element from a queue is",
+   "options": [
+    "push",
+    "pop from top",
+    "dequeue",
+    "insert"
+   ],
+   "correct": 2,
+   "explanation": "Removal from the front."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Trees",
+   "text": "A binary tree node has at most",
+   "options": [
+    "1 child",
+    "3 children",
+    "4 children",
+    "2 children"
+   ],
+   "correct": 3,
+   "explanation": "By definition."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Trees",
+   "text": "The inorder traversal of a binary search tree gives",
+   "options": [
+    "sorted order",
+    "reverse order",
+    "random order",
+    "level order"
+   ],
+   "correct": 0,
+   "explanation": "Left, root, right."
+  },
+  {
+   "subject": "Data Structures through C",
+   "topic": "Trees",
+   "text": "A complete binary tree with 7 nodes has height (levels) of",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "7"
+   ],
+   "correct": 1,
+   "explanation": "Levels 1+2+4 = 7."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "Concepts",
+   "text": "A primary key",
+   "options": [
+    "can contain duplicates",
+    "can be NULL",
+    "uniquely identifies each row",
+    "is always numeric"
+   ],
+   "correct": 2,
+   "explanation": "It must be unique and not NULL."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "Concepts",
+   "text": "DBMS stands for",
+   "options": [
+    "Data Backup Management System",
+    "Digital Base Management Software",
+    "Data Block Memory System",
+    "Database Management System"
+   ],
+   "correct": 3,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "Concepts",
+   "text": "RDBMS stores data in the form of",
+   "options": [
+    "tables",
+    "trees only",
+    "graphs only",
+    "files only"
+   ],
+   "correct": 0,
+   "explanation": "Relations (tables)."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "SQL",
+   "text": "The SQL command to retrieve data is",
+   "options": [
+    "INSERT",
+    "SELECT",
+    "UPDATE",
+    "DELETE"
+   ],
+   "correct": 1,
+   "explanation": "SELECT queries data."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "SQL",
+   "text": "Which SQL clause filters rows?",
+   "options": [
+    "ORDER BY",
+    "GROUP BY",
+    "WHERE",
+    "FROM"
+   ],
+   "correct": 2,
+   "explanation": "WHERE restricts rows."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "SQL",
+   "text": "Which of these is a DDL command?",
+   "options": [
+    "SELECT",
+    "UPDATE",
+    "INSERT",
+    "CREATE"
+   ],
+   "correct": 3,
+   "explanation": "DDL defines structure."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "SQL",
+   "text": "The aggregate function that counts rows is",
+   "options": [
+    "COUNT()",
+    "SUM()",
+    "AVG()",
+    "MAX()"
+   ],
+   "correct": 0,
+   "explanation": "COUNT returns the number of rows."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "PL/SQL",
+   "text": "PL/SQL is an extension of SQL developed by",
+   "options": [
+    "Microsoft",
+    "Oracle",
+    "MySQL AB only",
+    "IBM"
+   ],
+   "correct": 1,
+   "explanation": "Procedural language extension."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "PL/SQL",
+   "text": "A named block that does not return a value in PL/SQL is a",
+   "options": [
+    "function",
+    "trigger only",
+    "procedure",
+    "cursor only"
+   ],
+   "correct": 2,
+   "explanation": "Functions return values; procedures do not."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "nosql",
+   "text": "MongoDB stores data as",
+   "options": [
+    "tables only",
+    "rows and columns only",
+    "only key-value strings",
+    "documents"
+   ],
+   "correct": 3,
+   "explanation": "Document-oriented NoSQL database."
+  },
+  {
+   "subject": "DBMS",
+   "topic": "nosql",
+   "text": "Which one is a NoSQL database?",
+   "options": [
+    "MongoDB",
+    "MySQL",
+    "PostgreSQL",
+    "Oracle"
+   ],
+   "correct": 0,
+   "explanation": "MongoDB is NoSQL."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Introduction",
+   "text": "Python was created by",
+   "options": [
+    "Dennis Ritchie",
+    "Guido van Rossum",
+    "James Gosling",
+    "Bjarne Stroustrup"
+   ],
+   "correct": 1,
+   "explanation": "First released in 1991."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Introduction",
+   "text": "Which symbol starts a single-line comment in Python?",
+   "options": [
+    "//",
+    "/*",
+    "#",
+    "--"
+   ],
+   "correct": 2,
+   "explanation": "# is the comment marker."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Introduction",
+   "text": "The output of print(type(5)) is",
+   "options": [
+    "<class 'float'>",
+    "int",
+    "number",
+    "<class 'int'>"
+   ],
+   "correct": 3,
+   "explanation": "5 is an integer."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Control",
+   "text": "The output of len([1, 2, 3]) is",
+   "options": [
+    "3",
+    "2",
+    "4",
+    "1"
+   ],
+   "correct": 0,
+   "explanation": "Number of items."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Control",
+   "text": "range(5) produces numbers from",
+   "options": [
+    "1 to 5",
+    "0 to 4",
+    "0 to 5",
+    "1 to 4"
+   ],
+   "correct": 1,
+   "explanation": "The stop value is excluded."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Control",
+   "text": "The keyword to define a function in Python is",
+   "options": [
+    "function",
+    "fun",
+    "def",
+    "define"
+   ],
+   "correct": 2,
+   "explanation": "def starts a function definition."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Functions",
+   "text": "Python lists are",
+   "options": [
+    "immutable",
+    "fixed in size",
+    "unordered",
+    "mutable"
+   ],
+   "correct": 3,
+   "explanation": "Elements can be changed."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Data",
+   "text": "Which data type is immutable?",
+   "options": [
+    "tuple",
+    "list",
+    "dict",
+    "set"
+   ],
+   "correct": 0,
+   "explanation": "Tuples cannot be changed after creation."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Data",
+   "text": "A dictionary stores data as",
+   "options": [
+    "only values",
+    "key-value pairs",
+    "only keys",
+    "indexed rows"
+   ],
+   "correct": 1,
+   "explanation": "Dict maps keys to values."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Object",
+   "text": "The method called when an object is created is",
+   "options": [
+    "__new_obj__",
+    "create",
+    "__init__",
+    "start"
+   ],
+   "correct": 2,
+   "explanation": "The constructor in Python classes."
+  },
+  {
+   "subject": "Python Programming",
+   "topic": "Object",
+   "text": "The mode used to open a file for reading in Python is",
+   "options": [
+    "'w'",
+    "'a'",
+    "'x'",
+    "'r'"
+   ],
+   "correct": 3,
+   "explanation": "'r' is read mode."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "Object",
+   "text": "Java was developed by",
+   "options": [
+    "James Gosling",
+    "Dennis Ritchie",
+    "Guido van Rossum",
+    "Bjarne Stroustrup"
+   ],
+   "correct": 0,
+   "explanation": "Developed at Sun Microsystems."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "Object",
+   "text": "The Java compiler converts source code into",
+   "options": [
+    "machine code only",
+    "bytecode",
+    "assembly",
+    "HTML"
+   ],
+   "correct": 1,
+   "explanation": "Bytecode runs on the JVM."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "Object",
+   "text": "The keyword used to create an object in Java is",
+   "options": [
+    "create",
+    "object",
+    "new",
+    "alloc"
+   ],
+   "correct": 2,
+   "explanation": "new allocates and constructs."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "Object",
+   "text": "Java supports multiple inheritance of classes",
+   "options": [
+    "Yes, always",
+    "Only for abstract classes",
+    "Only for final classes",
+    "No, only through interfaces"
+   ],
+   "correct": 3,
+   "explanation": "Interfaces provide the effect."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "Inheritance",
+   "text": "The keyword used to inherit a class is",
+   "options": [
+    "extends",
+    "implements only for classes",
+    "inherits",
+    "super"
+   ],
+   "correct": 0,
+   "explanation": "extends is for classes; implements for interfaces."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "Inheritance",
+   "text": "Method overriding occurs in",
+   "options": [
+    "same class only",
+    "subclass and superclass",
+    "two unrelated classes",
+    "interfaces only without classes"
+   ],
+   "correct": 1,
+   "explanation": "Same signature redefined in a subclass."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "I/O",
+   "text": "Which class is used to read text from the keyboard?",
+   "options": [
+    "Printer",
+    "Writer only",
+    "Scanner",
+    "Display"
+   ],
+   "correct": 2,
+   "explanation": "java.util.Scanner."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "Exception",
+   "text": "Which block always executes after try-catch?",
+   "options": [
+    "throws",
+    "catch only",
+    "default",
+    "finally"
+   ],
+   "correct": 3,
+   "explanation": "finally runs regardless."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "Exception",
+   "text": "A thread is created by extending the class",
+   "options": [
+    "Thread",
+    "Runnable class",
+    "Process",
+    "Task"
+   ],
+   "correct": 0,
+   "explanation": "java.lang.Thread (or implement Runnable)."
+  },
+  {
+   "subject": "OOP through Java",
+   "topic": "Applets",
+   "text": "AWT stands for",
+   "options": [
+    "Advanced Web Toolkit",
+    "Abstract Window Toolkit",
+    "Applied Window Technology",
+    "Abstract Web Tool"
+   ],
+   "correct": 1,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "Principles",
+   "text": "HTML stands for",
+   "options": [
+    "HighText Machine Language",
+    "Hyperlinks and Text Markup Language",
+    "HyperText Markup Language",
+    "Home Tool Markup Language"
+   ],
+   "correct": 2,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "Principles",
+   "text": "The tag used for the largest heading in HTML is",
+   "options": [
+    "<h6>",
+    "<head>",
+    "<title>",
+    "<h1>"
+   ],
+   "correct": 3,
+   "explanation": "h1 is the top heading."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "HTML Tags",
+   "text": "CSS stands for",
+   "options": [
+    "Cascading Style Sheets",
+    "Creative Style System",
+    "Computer Style Sheets",
+    "Colorful Style Sheets"
+   ],
+   "correct": 0,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "HTML Tags",
+   "text": "The HTML tag to create a hyperlink is",
+   "options": [
+    "<link>",
+    "<a>",
+    "<href>",
+    "<url>"
+   ],
+   "correct": 1,
+   "explanation": "Anchor tag with href attribute."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "XML",
+   "text": "XML stands for",
+   "options": [
+    "eXtra Modern Language",
+    "Extended Machine Language",
+    "eXtensible Markup Language",
+    "eXecutable Markup Language"
+   ],
+   "correct": 2,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "XML",
+   "text": "Which symbol is used for ID selector in CSS?",
+   "options": [
+    ".",
+    "*",
+    "&",
+    "#"
+   ],
+   "correct": 3,
+   "explanation": "#id selects by id."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "XML",
+   "text": "JavaScript is executed",
+   "options": [
+    "in the browser (client side)",
+    "only on the database server",
+    "only in the compiler",
+    "only offline"
+   ],
+   "correct": 0,
+   "explanation": "It is a client-side scripting language."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "jQuery",
+   "text": "jQuery is a",
+   "options": [
+    "database",
+    "JavaScript library",
+    "programming language",
+    "web server"
+   ],
+   "correct": 1,
+   "explanation": "It simplifies DOM manipulation."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "Web Servers",
+   "text": "PHP is a",
+   "options": [
+    "client-side style language",
+    "database",
+    "server-side scripting language",
+    "markup language"
+   ],
+   "correct": 2,
+   "explanation": "Executed on the server."
+  },
+  {
+   "subject": "Web Technologies",
+   "topic": "Web Servers",
+   "text": "The PHP superglobal that receives form data sent by POST is",
+   "options": [
+    "$_GET only",
+    "$_FORM",
+    "$_DATA",
+    "$_POST"
+   ],
+   "correct": 3,
+   "explanation": "Holds POST variables."
+  },
+  {
+   "subject": "Software Engineering",
+   "topic": "Basics",
+   "text": "The waterfall model is",
+   "options": [
+    "a linear sequential model",
+    "an iterative model only",
+    "a prototype-only model",
+    "a spiral model"
+   ],
+   "correct": 0,
+   "explanation": "Each phase finishes before the next."
+  },
+  {
+   "subject": "Software Engineering",
+   "topic": "Basics",
+   "text": "SDLC stands for",
+   "options": [
+    "System Design Logic Code",
+    "Software Development Life Cycle",
+    "Software Design Language Code",
+    "Structured Data Life Cycle"
+   ],
+   "correct": 1,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Software Engineering",
+   "topic": "Project",
+   "text": "Which is a software project estimation technique?",
+   "options": [
+    "SQL",
+    "HTML",
+    "COCOMO",
+    "TCP"
+   ],
+   "correct": 2,
+   "explanation": "Constructive Cost Model."
+  },
+  {
+   "subject": "Software Engineering",
+   "topic": "Requirement",
+   "text": "The document that lists system requirements is the",
+   "options": [
+    "SDK",
+    "ERD only",
+    "GUI",
+    "SRS"
+   ],
+   "correct": 3,
+   "explanation": "Software Requirements Specification."
+  },
+  {
+   "subject": "Software Engineering",
+   "topic": "Design",
+   "text": "Cohesion should be",
+   "options": [
+    "high",
+    "low",
+    "zero",
+    "negative"
+   ],
+   "correct": 0,
+   "explanation": "High cohesion with low coupling is good design."
+  },
+  {
+   "subject": "Software Engineering",
+   "topic": "Testing",
+   "text": "Testing without knowing the internal code is",
+   "options": [
+    "white box testing",
+    "black box testing",
+    "unit testing only",
+    "dry run"
+   ],
+   "correct": 1,
+   "explanation": "Based on inputs and outputs only."
+  },
+  {
+   "subject": "Software Engineering",
+   "topic": "Testing",
+   "text": "Testing of individual modules is called",
+   "options": [
+    "system testing",
+    "acceptance testing",
+    "unit testing",
+    "regression"
+   ],
+   "correct": 2,
+   "explanation": "Unit testing."
+  },
+  {
+   "subject": "Internet of Things",
+   "topic": "Introduction",
+   "text": "IoT stands for",
+   "options": [
+    "Input of Technology",
+    "Internet of Tools",
+    "Integration of Things",
+    "Internet of Things"
+   ],
+   "correct": 3,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Internet of Things",
+   "topic": "Data",
+   "text": "MQTT is a",
+   "options": [
+    "lightweight messaging protocol",
+    "database",
+    "browser",
+    "sensor"
+   ],
+   "correct": 0,
+   "explanation": "Publish-subscribe protocol for IoT."
+  },
+  {
+   "subject": "Internet of Things",
+   "topic": "Communication",
+   "text": "Which is a short-range wireless technology used in IoT?",
+   "options": [
+    "Fibre optic",
+    "Bluetooth",
+    "Coaxial cable",
+    "Telephone line"
+   ],
+   "correct": 1,
+   "explanation": "Bluetooth Low Energy is common in IoT."
+  },
+  {
+   "subject": "Internet of Things",
+   "topic": "Wireless",
+   "text": "A device that senses physical parameters is a",
+   "options": [
+    "actuator",
+    "router only",
+    "sensor",
+    "switch"
+   ],
+   "correct": 2,
+   "explanation": "Sensors convert physical quantities to signals."
+  },
+  {
+   "subject": "Internet of Things",
+   "topic": "Role",
+   "text": "Which board is commonly used for IoT prototyping?",
+   "options": [
+    "Floppy drive",
+    "CRT monitor",
+    "Modem",
+    "Arduino"
+   ],
+   "correct": 3,
+   "explanation": "Arduino and Raspberry Pi."
+  },
+  {
+   "subject": "Industrial Management and Entrepreneurship",
+   "topic": "Principles",
+   "text": "Who is known as the father of scientific management?",
+   "options": [
+    "F. W. Taylor",
+    "Henri Fayol",
+    "Peter Drucker",
+    "Max Weber"
+   ],
+   "correct": 0,
+   "explanation": "Frederick Winslow Taylor."
+  },
+  {
+   "subject": "Industrial Management and Entrepreneurship",
+   "topic": "Principles",
+   "text": "The management function of setting goals is",
+   "options": [
+    "controlling",
+    "planning",
+    "staffing",
+    "directing"
+   ],
+   "correct": 1,
+   "explanation": "Planning comes first."
+  },
+  {
+   "subject": "Industrial Management and Entrepreneurship",
+   "topic": "Organization",
+   "text": "A person who starts a new business and bears the risk is a(n)",
+   "options": [
+    "employee",
+    "consumer",
+    "entrepreneur",
+    "auditor"
+   ],
+   "correct": 2,
+   "explanation": "Entrepreneur."
+  },
+  {
+   "subject": "Industrial Management and Entrepreneurship",
+   "topic": "Production",
+   "text": "ISO 9001 relates to",
+   "options": [
+    "fire safety only",
+    "food packaging only",
+    "tax law",
+    "quality management"
+   ],
+   "correct": 3,
+   "explanation": "Quality management systems."
+  },
+  {
+   "subject": "Industrial Management and Entrepreneurship",
+   "topic": "Entrepreneurship",
+   "text": "A startup's initial plan of business goals and strategies is the",
+   "options": [
+    "business plan",
+    "balance sheet",
+    "audit",
+    "invoice"
+   ],
+   "correct": 0,
+   "explanation": "Business plan."
+  },
+  {
+   "subject": "Computer Organization and Microprocessors",
+   "topic": "CPU",
+   "text": "The component that performs arithmetic and logic operations is the",
+   "options": [
+    "control unit only",
+    "ALU",
+    "cache",
+    "bus"
+   ],
+   "correct": 1,
+   "explanation": "Arithmetic Logic Unit."
+  },
+  {
+   "subject": "Computer Organization and Microprocessors",
+   "topic": "CPU",
+   "text": "The register that holds the address of the next instruction is the",
+   "options": [
+    "accumulator",
+    "stack pointer",
+    "program counter",
+    "flag register"
+   ],
+   "correct": 2,
+   "explanation": "PC."
+  },
+  {
+   "subject": "Computer Organization and Microprocessors",
+   "topic": "Memory",
+   "text": "The fastest memory in the hierarchy is",
+   "options": [
+    "hard disk",
+    "RAM",
+    "cache disk",
+    "registers"
+   ],
+   "correct": 3,
+   "explanation": "Registers are closest to the CPU."
+  },
+  {
+   "subject": "Computer Organization and Microprocessors",
+   "topic": "I/O",
+   "text": "DMA stands for",
+   "options": [
+    "Direct Memory Access",
+    "Data Memory Allocation",
+    "Direct Machine Access",
+    "Digital Memory Array"
+   ],
+   "correct": 0,
+   "explanation": "Transfers data without CPU involvement."
+  },
+  {
+   "subject": "Computer Organization and Microprocessors",
+   "topic": "8086",
+   "text": "The 8086 microprocessor is a",
+   "options": [
+    "8-bit processor",
+    "16-bit processor",
+    "32-bit processor",
+    "64-bit processor"
+   ],
+   "correct": 1,
+   "explanation": "Intel 8086 is 16-bit."
+  },
+  {
+   "subject": "Computer Networks and Cyber Security",
+   "topic": "Introduction",
+   "text": "The topology in which all devices connect to a central hub is",
+   "options": [
+    "ring",
+    "bus",
+    "star",
+    "mesh"
+   ],
+   "correct": 2,
+   "explanation": "Star topology."
+  },
+  {
+   "subject": "Computer Networks and Cyber Security",
+   "topic": "Introduction",
+   "text": "The OSI model has how many layers?",
+   "options": [
+    "5",
+    "4",
+    "6",
+    "7"
+   ],
+   "correct": 3,
+   "explanation": "Physical to application."
+  },
+  {
+   "subject": "Computer Networks and Cyber Security",
+   "topic": "Network",
+   "text": "Which protocol assigns IP addresses automatically?",
+   "options": [
+    "DHCP",
+    "DNS",
+    "FTP",
+    "SMTP"
+   ],
+   "correct": 0,
+   "explanation": "Dynamic Host Configuration Protocol."
+  },
+  {
+   "subject": "Computer Networks and Cyber Security",
+   "topic": "Cyber",
+   "text": "Phishing is",
+   "options": [
+    "a type of firewall",
+    "a fraudulent attempt to steal information",
+    "an encryption method",
+    "a network cable"
+   ],
+   "correct": 1,
+   "explanation": "Usually by fake emails or sites."
+  },
+  {
+   "subject": "Computer Networks and Cyber Security",
+   "topic": "Encryption",
+   "text": "In symmetric encryption",
+   "options": [
+    "two different keys are used",
+    "no key is used",
+    "the same key encrypts and decrypts",
+    "only public keys are used"
+   ],
+   "correct": 2,
+   "explanation": "AES is an example."
+  },
+  {
+   "subject": "Computer Networks and Cyber Security",
+   "topic": "System",
+   "text": "A firewall is used to",
+   "options": [
+    "increase bandwidth",
+    "store emails",
+    "compress files",
+    "filter network traffic"
+   ],
+   "correct": 3,
+   "explanation": "Controls incoming and outgoing traffic."
+  },
+  {
+   "subject": "Computer Networks",
+   "topic": "Introduction",
+   "text": "LAN stands for",
+   "options": [
+    "Local Area Network",
+    "Large Area Network",
+    "Long Access Network",
+    "Linked Area Node"
+   ],
+   "correct": 0,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Computer Networks",
+   "topic": "Components",
+   "text": "A device that connects different networks is a",
+   "options": [
+    "repeater only",
+    "router",
+    "hub",
+    "NIC"
+   ],
+   "correct": 1,
+   "explanation": "Routers forward packets between networks."
+  },
+  {
+   "subject": "Computer Networks",
+   "topic": "Addressing",
+   "text": "The default subnet mask of a Class C network is",
+   "options": [
+    "255.0.0.0",
+    "255.255.0.0",
+    "255.255.255.0",
+    "255.255.255.255"
+   ],
+   "correct": 2,
+   "explanation": "/24."
+  },
+  {
+   "subject": "Computer Networks",
+   "topic": "Protocols",
+   "text": "HTTP uses the default port",
+   "options": [
+    "21",
+    "25",
+    "443",
+    "80"
+   ],
+   "correct": 3,
+   "explanation": "HTTPS uses 443."
+  },
+  {
+   "subject": "Computer Networks",
+   "topic": "Administration",
+   "text": "The command to test connectivity to a host is",
+   "options": [
+    "ping",
+    "dir",
+    "cd",
+    "copy"
+   ],
+   "correct": 0,
+   "explanation": "ICMP echo."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "integra",
+   "text": "∫ x dx equals",
+   "options": [
+    "x^2 + C",
+    "x^2/2 + C",
+    "x + C",
+    "2x + C"
+   ],
+   "correct": 1,
+   "explanation": "Power rule."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "integra",
+   "text": "∫ cos x dx equals",
+   "options": [
+    "-sin x + C",
+    "cos x + C",
+    "sin x + C",
+    "tan x + C"
+   ],
+   "correct": 2,
+   "explanation": "Standard integral."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "integra",
+   "text": "∫ from 0 to 1 of 2x dx equals",
+   "options": [
+    "2",
+    "0",
+    "1/2",
+    "1"
+   ],
+   "correct": 3,
+   "explanation": "[x²] from 0 to 1 = 1."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "Differential",
+   "text": "The order of the differential equation d²y/dx² + y = 0 is",
+   "options": [
+    "2",
+    "1",
+    "0",
+    "3"
+   ],
+   "correct": 0,
+   "explanation": "Highest derivative order."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "Differential",
+   "text": "The solution of dy/dx = y is",
+   "options": [
+    "y = Cx",
+    "y = Ce^x",
+    "y = x^2",
+    "y = C + x"
+   ],
+   "correct": 1,
+   "explanation": "Separate the variables."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "Graph",
+   "text": "The probability of getting a head in one toss of a fair coin is",
+   "options": [
+    "1",
+    "1/4",
+    "1/2",
+    "0"
+   ],
+   "correct": 2,
+   "explanation": "Equally likely outcomes."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "Graph",
+   "text": "The sum of probabilities of all outcomes of an experiment is",
+   "options": [
+    "0",
+    "100",
+    "depends",
+    "1"
+   ],
+   "correct": 3,
+   "explanation": "Axiom of probability."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "Statistics",
+   "text": "The mean of 2, 4, 6 is",
+   "options": [
+    "4",
+    "3",
+    "5",
+    "6"
+   ],
+   "correct": 0,
+   "explanation": "12/3 = 4."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "Statistics",
+   "text": "The median of 1, 3, 5, 7, 9 is",
+   "options": [
+    "3",
+    "5",
+    "7",
+    "25"
+   ],
+   "correct": 1,
+   "explanation": "Middle value."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "Statistics",
+   "text": "The most frequently occurring value is the",
+   "options": [
+    "mean",
+    "median",
+    "mode",
+    "range"
+   ],
+   "correct": 2,
+   "explanation": "Mode."
+  }
+ ]
+}

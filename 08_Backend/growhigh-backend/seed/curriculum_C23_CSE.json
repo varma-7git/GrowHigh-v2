@@ -1,0 +1,445 @@
+{
+ "regulation": "C23",
+ "branch": "CSE",
+ "semesters": {
+  "1": [
+   {
+    "name": "English",
+    "code": "CM-101",
+    "marks": 100,
+    "topics": [
+     "English for Employability",
+     "Living in Harmony",
+     "Connect with Care",
+     "Humour for Happiness",
+     "Never Ever Give Up!",
+     "Preserve or Perish",
+     "The Rainbow of Diversity",
+     "New Challenges - Newer Ideas",
+     "The End Point First",
+     "The Equal Halves",
+     "Dealing with Disaster"
+    ]
+   },
+   {
+    "name": "Engineering Mathematics-I",
+    "code": "CM-102",
+    "marks": 100,
+    "topics": [
+     "Algebra",
+     "Trigonometry",
+     "Co-ordinate Geometry",
+     "Differential Calculus",
+     "Applications of Derivatives"
+    ]
+   },
+   {
+    "name": "Engineering Physics",
+    "code": "CM-103",
+    "marks": 100,
+    "topics": [
+     "Units and Measurements",
+     "Statics",
+     "Gravitation",
+     "Concepts of Energy",
+     "Thermal Physics",
+     "Sound",
+     "Electricity and Magnetism",
+     "Modern Physics"
+    ]
+   },
+   {
+    "name": "Engineering Chemistry and Environmental Studies",
+    "code": "CM-104",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of Chemistry",
+     "Solutions, Acids and Bases",
+     "Electrochemistry",
+     "Corrosion",
+     "Water Treatment",
+     "Polymers and Engineering Materials",
+     "Fuels",
+     "Environmental Studies"
+    ]
+   },
+   {
+    "name": "Basics of Computer Engineering",
+    "code": "CM-105",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of Computers",
+     "Programming Methodology",
+     "Operating System Basics",
+     "Computer Hardware and Networking Basics",
+     "Emerging Trends in Computer Technologies"
+    ]
+   },
+   {
+    "name": "Programming in C",
+    "code": "CM-106",
+    "marks": 100,
+    "topics": [
+     "Introduction to C Language",
+     "Input and Output Statements, Operators and Expressions",
+     "Decision Making, Iterative and Other Control Statements",
+     "Arrays, Strings, Structures and Unions",
+     "User Defined Functions, Pointers, File Management and Preprocessor Directives"
+    ]
+   },
+   {
+    "name": "Engineering Drawing",
+    "code": "CM-107",
+    "marks": 100,
+    "topics": [
+     "Drawing Instruments, Lettering and Dimensioning",
+     "Principles of Geometric Constructions",
+     "Projections of Points, Lines, Planes and Solids",
+     "Sectional Views",
+     "Orthographic Projection"
+    ]
+   },
+   {
+    "name": "Basics of Computers and AI",
+    "code": "CAI-105",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of Computers",
+     "Programming Methodology",
+     "Operating System Basics",
+     "Computer Hardware and Networking Basics",
+     "Fundamentals of Artificial Intelligence"
+    ]
+   },
+   {
+    "name": "Basics of Cloud Computing",
+    "code": "CBD-105",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of Computers",
+     "Programming Methodology",
+     "Operating System Basics",
+     "Computer Hardware and Networking Basics",
+     "Basics of Cloud Computing, Big Data and Ethical Hacking"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "name": "Mathematics-II",
+    "code": "CM-301",
+    "marks": 100,
+    "topics": [
+     "Integral Calculus",
+     "Differential Equations",
+     "Graph Theory and Probability",
+     "Statistics"
+    ]
+   },
+   {
+    "name": "Digital Electronics",
+    "code": "CM-302",
+    "marks": 100,
+    "topics": [
+     "Number Systems",
+     "Logic Gates, Boolean Algebra and Basic Combinational Circuits",
+     "Flip-Flops",
+     "Counters and Registers",
+     "Additional Combinational Circuits"
+    ]
+   },
+   {
+    "name": "Operating Systems",
+    "code": "CM-303",
+    "marks": 100,
+    "topics": [
+     "Introduction to Operating Systems",
+     "Process Management",
+     "Synchronization and Deadlocks",
+     "Memory Management",
+     "Disk Scheduling and File Management"
+    ]
+   },
+   {
+    "name": "Data Structures through C",
+    "code": "CM-304",
+    "marks": 100,
+    "topics": [
+     "Introduction to Data Structures and Sequential Storage",
+     "Linked Lists",
+     "Stacks",
+     "Queues",
+     "Trees"
+    ]
+   },
+   {
+    "name": "DBMS",
+    "code": "CM-305",
+    "marks": 100,
+    "topics": [
+     "Concepts of DBMS and RDBMS",
+     "Concepts of SQL",
+     "Basics of PL/SQL",
+     "Advanced PL/SQL",
+     "Concepts of NoSQL and MongoDB"
+    ]
+   },
+   {
+    "name": "Computer Networks and Cyber Security",
+    "code": "CAI-303",
+    "marks": 100,
+    "topics": [
+     "Introduction to Networks",
+     "Network Addressing and Management",
+     "Introduction to Cyber Security",
+     "Encryption Techniques",
+     "System Security"
+    ]
+   },
+   {
+    "name": "Computer Networks",
+    "code": "CBD-303",
+    "marks": 100,
+    "topics": [
+     "Introduction to Computer Networks",
+     "Network Components, Devices, Tools and Topologies",
+     "Network Addressing and Subnetting",
+     "Network Protocols and Management",
+     "Basic Network Administration"
+    ]
+   },
+   {
+    "name": "Cloud Computing Architecture",
+    "code": "CBD-305",
+    "marks": 100,
+    "topics": [
+     "Basics of Cloud Computing",
+     "Parallel and Distributed Computing",
+     "Virtualization",
+     "Cloud Computing Architecture and Services",
+     "Cloud Deployment Models"
+    ]
+   },
+   {
+    "name": "Digital Electronics and Computer Organization",
+    "code": "AIM-304",
+    "marks": 100,
+    "topics": [
+     "Number Systems",
+     "Flip-Flops and Counters",
+     "Basic Computer Organization",
+     "Memory Organization",
+     "I/O Organization"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "name": "Software Engineering",
+    "code": "CM-401",
+    "marks": 100,
+    "topics": [
+     "Software Engineering Basics, Design and Life Cycle Models",
+     "Software Project Management",
+     "Requirement Analysis and Specifications",
+     "Software Design and Coding",
+     "Software Testing, Debugging, Reliability and Quality Management"
+    ]
+   },
+   {
+    "name": "Web Technologies",
+    "code": "CM-402",
+    "marks": 100,
+    "topics": [
+     "Principles of Web Designing and HTML",
+     "HTML Tags and Style Sheets",
+     "XML and Client Side Scripting using JavaScript",
+     "jQuery",
+     "Web Servers and Server Side Scripting using PHP"
+    ]
+   },
+   {
+    "name": "Computer Organization and Microprocessors",
+    "code": "CM-403",
+    "marks": 100,
+    "topics": [
+     "CPU Organization",
+     "Information Representation and Arithmetic Operations",
+     "Memory Organization",
+     "I/O Organization",
+     "Introduction to 8086 and Advanced Processors"
+    ]
+   },
+   {
+    "name": "OOP through Java",
+    "code": "CM-404",
+    "marks": 100,
+    "topics": [
+     "Object Oriented Programming Concepts and Basics of Java",
+     "Inheritance, Overriding, Interfaces and Packages",
+     "I/O Streams and Collections",
+     "Exception Handling and Multithreaded Programming",
+     "Applets, AWT and Event Handling"
+    ]
+   },
+   {
+    "name": "Python Programming",
+    "code": "CBD-404",
+    "marks": 100,
+    "topics": [
+     "Introduction to Python",
+     "Control Flow and Loops",
+     "Functions and Arrays",
+     "Data Structures",
+     "Object Oriented Programming and File Handling"
+    ]
+   },
+   {
+    "name": "Artificial Intelligence",
+    "code": "AIM-403",
+    "marks": 100,
+    "topics": [
+     "Introduction to PROLOG",
+     "Problems and Search Methods in AI",
+     "Knowledge Representation",
+     "Game Theory",
+     "Fuzzy Logic"
+    ]
+   },
+   {
+    "name": "Fundamentals of Machine Learning",
+    "code": "AIM-405",
+    "marks": 100,
+    "topics": [
+     "Introduction to Machine Learning",
+     "Process of Machine Learning",
+     "Probability and Bayesian Learning",
+     "Supervised Learning",
+     "Unsupervised Learning"
+    ]
+   }
+  ],
+  "5": [
+   {
+    "name": "Industrial Management and Entrepreneurship",
+    "code": "CM-501",
+    "marks": 100,
+    "topics": [
+     "Principles of Management",
+     "Organization Structure and Organizational Behaviour",
+     "Production Management",
+     "Engineering Ethics, Safety and Labour Codes",
+     "Entrepreneurship and Start-ups"
+    ]
+   },
+   {
+    "name": "Big Data and Cloud Computing",
+    "code": "CM-502",
+    "marks": 100,
+    "topics": [
+     "Overview of Data Mining",
+     "Overview of Data Warehousing",
+     "Introduction to Big Data",
+     "Big Data Analytics",
+     "Cloud Computing"
+    ]
+   },
+   {
+    "name": "Android Programming",
+    "code": "CM-503",
+    "marks": 100,
+    "topics": [
+     "Android Basics and Anatomy",
+     "Components, Activity Life Cycle, Intents",
+     "Android User Interface",
+     "Android Advanced Concepts",
+     "Database Connectivity in Android"
+    ]
+   },
+   {
+    "name": "Internet of Things",
+    "code": "CM-504",
+    "marks": 100,
+    "topics": [
+     "Introduction to IoT",
+     "Data Protocols",
+     "Communication Technologies",
+     "Wireless Sensor Networks",
+     "Role of IoT"
+    ]
+   },
+   {
+    "name": "Natural Language Processing",
+    "code": "CAI-503",
+    "marks": 100,
+    "topics": [
+     "Introduction to Natural Language Processing",
+     "Word Level Analysis",
+     "Syntactic Analysis",
+     "Semantics and Pragmatics",
+     "Discourse Analysis and Lexical Resources"
+    ]
+   },
+   {
+    "name": "Data Science and Machine Learning",
+    "code": "CAI-504",
+    "marks": 100,
+    "topics": [
+     "Introduction to Data Science",
+     "Programming Tools for Data Science",
+     "Mathematical Foundations",
+     "Machine Learning",
+     "Classification and Regression Algorithms"
+    ]
+   },
+   {
+    "name": "Internet of Things and Cloud Computing",
+    "code": "CAI-505",
+    "marks": 100,
+    "topics": [
+     "Introduction to IoT",
+     "Data Protocols",
+     "Communication Technologies",
+     "Wireless Sensor Networks",
+     "Cloud Computing"
+    ]
+   },
+   {
+    "name": "Advanced Cloud Computing",
+    "code": "CBD-502",
+    "marks": 100,
+    "topics": [
+     "AWS Cloud Networks",
+     "Google Cloud Platform and Microsoft Azure",
+     "Cloud Security",
+     "Green Cloud Computing",
+     "Cloud Applications"
+    ]
+   },
+   {
+    "name": "Big Data Analytics",
+    "code": "CBD-505",
+    "marks": 100,
+    "topics": [
+     "Hadoop and Hadoop Distributed File System",
+     "MapReduce",
+     "HBase and Pig",
+     "Hive",
+     "Spark"
+    ]
+   },
+   {
+    "name": "Artificial Neural Networks and Deep Learning",
+    "code": "AIM-505",
+    "marks": 100,
+    "topics": [
+     "Introduction to Artificial Neural Networks",
+     "Feed Forward Neural Networks",
+     "Other ANN Architectures",
+     "Deep Learning",
+     "Recurrent Neural Networks"
+    ]
+   }
+  ]
+ }
+}

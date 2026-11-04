@@ -1,0 +1,295 @@
+{
+ "regulation": "C23",
+ "branch": "CE",
+ "semesters": {
+  "1": [
+   {
+    "name": "English",
+    "code": "C-101",
+    "marks": 100,
+    "topics": [
+     "English for Employability",
+     "Living in Harmony",
+     "Connect with Care",
+     "Humour for Happiness",
+     "Never Ever Give Up!",
+     "Preserve or Perish",
+     "The Rainbow of Diversity",
+     "New Challenges - Newer Ideas",
+     "The End Point First",
+     "The Equal Halves",
+     "Dealing with Disaster"
+    ]
+   },
+   {
+    "name": "Engineering Mathematics-I",
+    "code": "C-102",
+    "marks": 100,
+    "topics": [
+     "Algebra",
+     "Trigonometry",
+     "Co-ordinate Geometry",
+     "Differential Calculus",
+     "Applications of Derivatives"
+    ]
+   },
+   {
+    "name": "Engineering Physics",
+    "code": "C-103",
+    "marks": 100,
+    "topics": [
+     "Units and Measurements",
+     "Statics",
+     "Gravitation",
+     "Concepts of Energy",
+     "Thermal Physics",
+     "Sound",
+     "Electricity and Magnetism",
+     "Modern Physics"
+    ]
+   },
+   {
+    "name": "Engineering Chemistry and Environmental Studies",
+    "code": "C-104",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of Chemistry",
+     "Solutions, Acids and Bases",
+     "Electrochemistry",
+     "Corrosion",
+     "Water Treatment",
+     "Polymers and Engineering Materials",
+     "Fuels",
+     "Environmental Studies"
+    ]
+   },
+   {
+    "name": "Engineering Mechanics",
+    "code": "C-105",
+    "marks": 100,
+    "topics": [
+     "Introduction",
+     "Forces and Moments",
+     "Centroid",
+     "Shear Force and Bending Moment"
+    ]
+   },
+   {
+    "name": "Surveying-I",
+    "code": "C-106",
+    "marks": 100,
+    "topics": [
+     "Chain Surveying",
+     "Compass Surveying",
+     "Levelling",
+     "Minor Instruments"
+    ]
+   },
+   {
+    "name": "Engineering Drawing",
+    "code": "C-107",
+    "marks": 100,
+    "topics": [
+     "Drawing Instruments, Lettering and Dimensioning",
+     "Principles of Geometric Constructions",
+     "Projections of Points, Lines, Planes and Solids",
+     "Sectional Views",
+     "Orthographic Projection"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "name": "Mathematics-II",
+    "code": "C-301",
+    "marks": 100,
+    "topics": [
+     "Indefinite Integration",
+     "Definite Integration",
+     "Applications of Definite Integrals",
+     "Differential Equations"
+    ]
+   },
+   {
+    "name": "Mechanics of Solids and Theory of Structures",
+    "code": "C-302",
+    "marks": 100,
+    "topics": [
+     "Theory of Simple Bending",
+     "Deflection of Beams",
+     "Columns and Struts"
+    ]
+   },
+   {
+    "name": "Hydraulics",
+    "code": "C-303",
+    "marks": 100,
+    "topics": [
+     "Properties of Fluids",
+     "Fluid Pressure and its Measurement",
+     "Flow of Fluids",
+     "Flow through Orifices and Mouthpieces",
+     "Flow over Notches and Weirs",
+     "Flow through Pipes",
+     "Flow through Open Channels",
+     "Pumps and Turbines",
+     "Hydro-Electric Power Plants"
+    ]
+   },
+   {
+    "name": "Surveying-II",
+    "code": "C-304",
+    "marks": 100,
+    "topics": [
+     "Theodolite Survey",
+     "Trigonometric Levelling",
+     "Tacheometry",
+     "Curves",
+     "Advanced Surveying using GPS and GIS",
+     "Introduction to Drone Surveying"
+    ]
+   },
+   {
+    "name": "Construction Materials",
+    "code": "C-305",
+    "marks": 100,
+    "topics": [
+     "Stones",
+     "Bricks",
+     "Clay Products and Sand",
+     "Cement",
+     "Mortars and Concrete",
+     "Timber, Plastics, Glass and Asbestos"
+    ]
+   },
+   {
+    "name": "Civil Engineering Drawing-I",
+    "code": "C-306",
+    "marks": 100,
+    "topics": [
+     "Introduction",
+     "Residential Buildings",
+     "Public and Industrial Buildings",
+     "Working Drawings"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "name": "Construction Technology",
+    "code": "C-401",
+    "marks": 100,
+    "topics": [
+     "Concrete Technology",
+     "Construction Machinery and Equipment",
+     "Building Services",
+     "Earthquake Resistant Structures"
+    ]
+   },
+   {
+    "name": "Design and Detailing of R.C. Structures",
+    "code": "C-402",
+    "marks": 100,
+    "topics": [
+     "Introduction to R.C.C. and Working Stress Method",
+     "Philosophy of Limit State Design",
+     "Analysis and Design of Rectangular Beams",
+     "Design of Slabs",
+     "Analysis of T-Beams",
+     "Design of Columns",
+     "Design of Footings"
+    ]
+   },
+   {
+    "name": "Transportation Engineering",
+    "code": "C-404",
+    "marks": 100,
+    "topics": [
+     "Introduction to Highways and Geotechnical Engineering",
+     "Highway Surveys and Traffic Engineering",
+     "Highway Construction and Maintenance",
+     "Introduction and Permanent Way of Railways",
+     "Station Yards and Maintenance of Railways"
+    ]
+   },
+   {
+    "name": "Irrigation Engineering",
+    "code": "C-405",
+    "marks": 100,
+    "topics": [
+     "Nature and Scope of Irrigation",
+     "Elements of Hydrology",
+     "Head Works",
+     "Gravity Dams and Earth Dams",
+     "Distribution Works",
+     "Soil Erosion, Water Logging and River Training Works",
+     "Water and Watershed Management"
+    ]
+   },
+   {
+    "name": "Civil Engineering Drawing-II",
+    "code": "C-406",
+    "marks": 100,
+    "topics": [
+     "Culverts and T-Beam Bridges",
+     "Public Health Engineering Works",
+     "Irrigation Engineering Structures"
+    ]
+   }
+  ],
+  "5": [
+   {
+    "name": "Steel Structures",
+    "code": "C-501",
+    "marks": 100,
+    "topics": [
+     "Introduction and Fundamentals of Limit State Design of Steel",
+     "Design of Fillet Welded Joints",
+     "Design of Tension Members",
+     "Design of Compression Members, Columns and Column Bases",
+     "Design of Steel Beams",
+     "Roof Trusses"
+    ]
+   },
+   {
+    "name": "Quantity Surveying",
+    "code": "C-503",
+    "marks": 100,
+    "topics": [
+     "Introduction, Units and Specifications",
+     "Detailed Estimates of Buildings",
+     "Analysis of Rates and Abstract Estimates",
+     "Earthwork Calculations",
+     "Detailed Estimates of Roads, Culverts and Public Health Works"
+    ]
+   },
+   {
+    "name": "Advanced Civil Engineering Technologies",
+    "code": "C-504",
+    "marks": 100,
+    "topics": [
+     "IoT Applications in Civil Engineering",
+     "Prestressed Concrete",
+     "Advanced Methods in Earth Retaining Structures",
+     "Pre-fabricated Building Technology",
+     "Concepts of Green Buildings",
+     "Solar Energy Utilization in Buildings"
+    ]
+   },
+   {
+    "name": "Construction Management and Entrepreneurship",
+    "code": "C-505",
+    "marks": 100,
+    "topics": [
+     "Introduction",
+     "Organizational Aspects",
+     "Management Tools",
+     "Contracts, Tendering Systems and Arbitration",
+     "Management of Resources in Construction",
+     "Entrepreneurship",
+     "Human Relations and Professional Ethics"
+    ]
+   }
+  ]
+ }
+}

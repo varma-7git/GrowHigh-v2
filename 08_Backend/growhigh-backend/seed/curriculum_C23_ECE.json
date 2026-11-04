@@ -1,0 +1,472 @@
+{
+ "regulation": "C23",
+ "branch": "ECE",
+ "semesters": {
+  "1": [
+   {
+    "name": "English",
+    "code": "EC-101",
+    "marks": 100,
+    "topics": [
+     "English for Employability",
+     "Living in Harmony",
+     "Connect with Care",
+     "Humour for Happiness",
+     "Never Ever Give Up!",
+     "Preserve or Perish",
+     "The Rainbow of Diversity",
+     "New Challenges - Newer Ideas",
+     "The End Point First",
+     "The Equal Halves",
+     "Dealing with Disaster"
+    ]
+   },
+   {
+    "name": "Engineering Mathematics-I",
+    "code": "EC-102",
+    "marks": 100,
+    "topics": [
+     "Algebra",
+     "Trigonometry",
+     "Co-ordinate Geometry",
+     "Differential Calculus",
+     "Applications of Derivatives"
+    ]
+   },
+   {
+    "name": "Engineering Physics",
+    "code": "EC-103",
+    "marks": 100,
+    "topics": [
+     "Units and Measurements",
+     "Statics",
+     "Gravitation",
+     "Concepts of Energy",
+     "Thermal Physics",
+     "Sound",
+     "Electricity and Magnetism",
+     "Modern Physics"
+    ]
+   },
+   {
+    "name": "Engineering Chemistry and Environmental Studies",
+    "code": "EC-104",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of Chemistry",
+     "Solutions, Acids and Bases",
+     "Electrochemistry",
+     "Corrosion",
+     "Water Treatment",
+     "Polymers and Engineering Materials",
+     "Fuels",
+     "Environmental Studies"
+    ]
+   },
+   {
+    "name": "Engineering Drawing",
+    "code": "EC-107",
+    "marks": 100,
+    "topics": [
+     "Drawing Instruments, Lettering and Dimensioning",
+     "Principles of Geometric Constructions",
+     "Projections of Points, Lines, Planes and Solids",
+     "Sectional Views",
+     "Orthographic Projection"
+    ]
+   },
+   {
+    "name": "Electronic Components and Devices",
+    "code": "EC-105",
+    "marks": 100,
+    "topics": [
+     "Passive Components",
+     "Switches, Connectors, Relays and PCBs",
+     "Semiconductor Physics",
+     "Semiconductor Diodes",
+     "Bipolar Junction Transistor",
+     "Field Effect Transistor",
+     "Opto Electronic Devices",
+     "Audio Systems"
+    ]
+   },
+   {
+    "name": "Elements of Electrical Engineering",
+    "code": "EC-106",
+    "marks": 100,
+    "topics": [
+     "Basics of Electrical Engineering",
+     "Basic Electrical Circuits",
+     "AC Fundamentals",
+     "Transformers",
+     "Motors",
+     "Measuring and Test Instruments",
+     "Batteries"
+    ]
+   },
+   {
+    "name": "Programming in C",
+    "code": "CN-106",
+    "marks": 100,
+    "topics": [
+     "Introduction to C Language",
+     "Input and Output Statements, Operators and Expressions",
+     "Decision Making, Iterative and Other Control Statements",
+     "Arrays, Strings, Structures and Unions",
+     "User Defined Functions, Pointers, File Management and Preprocessor Directives"
+    ]
+   },
+   {
+    "name": "Basics of Communication and Computer Networking Engineering",
+    "code": "CN-105",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of Computers",
+     "Programming Methodology",
+     "Operating System Basics",
+     "Computer Hardware and Networking Basics"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "name": "Mathematics-II",
+    "code": "EC-301",
+    "marks": 100,
+    "topics": [
+     "Indefinite Integration",
+     "Definite Integration and its Applications",
+     "Differential Equations",
+     "Laplace Transforms and Fourier Series"
+    ]
+   },
+   {
+    "name": "Electronic Circuits-I",
+    "code": "EC-302",
+    "marks": 100,
+    "topics": [
+     "DC Power Supplies",
+     "Transistor Biasing and Stabilization",
+     "Small Signal Amplifiers",
+     "Large Signal Amplifiers",
+     "Feedback Amplifiers and Oscillators"
+    ]
+   },
+   {
+    "name": "Digital Electronics",
+    "code": "EC-303",
+    "marks": 100,
+    "topics": [
+     "Basics of Digital Electronics",
+     "Logic Families",
+     "Combinational Logic Circuits",
+     "Sequential Logic Circuits",
+     "Semiconductor Memories"
+    ]
+   },
+   {
+    "name": "Analog and Digital Communication Systems",
+    "code": "EC-304",
+    "marks": 100,
+    "topics": [
+     "Amplitude Modulation",
+     "Angle Modulation Techniques",
+     "Transmitters and Receivers",
+     "Digital Communication Principles",
+     "Digital Modulation Techniques"
+    ]
+   },
+   {
+    "name": "Network Analysis",
+    "code": "EC-305",
+    "marks": 100,
+    "topics": [
+     "Mesh Current and Node Voltage Analysis",
+     "Network Theorems",
+     "Resonance",
+     "Transient Analysis, Laplace Transforms and Applications",
+     "Filters and Attenuators"
+    ]
+   },
+   {
+    "name": "Programming in C and MATLAB",
+    "code": "EC-306",
+    "marks": 100,
+    "topics": [
+     "C Programming Basics",
+     "Conditional Statements and Arrays",
+     "Strings, Functions and Pointers",
+     "Structures and Unions",
+     "Basics of MATLAB"
+    ]
+   },
+   {
+    "name": "Python Programming",
+    "code": "CN-302",
+    "marks": 100,
+    "topics": [
+     "Introduction to Python",
+     "Control Flow and Loops",
+     "Functions and Arrays",
+     "Data Structures",
+     "Object Oriented Programming and File Handling"
+    ]
+   },
+   {
+    "name": "Operating Systems",
+    "code": "CN-303",
+    "marks": 100,
+    "topics": [
+     "Introduction to Operating Systems",
+     "Process Management",
+     "Synchronization and Deadlocks",
+     "Memory Management",
+     "Disk Scheduling and File Management"
+    ]
+   },
+   {
+    "name": "Data Communication and Computer Networks",
+    "code": "CN-304",
+    "marks": 100,
+    "topics": [
+     "Data Communication and Reference Models (OSI, TCP/IP)",
+     "Data Link Layer Protocols",
+     "Network Layer Routing Protocols",
+     "Transport Layer Protocols",
+     "Application Layer Protocols"
+    ]
+   },
+   {
+    "name": "DBMS",
+    "code": "CN-305",
+    "marks": 100,
+    "topics": [
+     "Concepts of DBMS and RDBMS",
+     "Concepts of SQL",
+     "Basics of PL/SQL",
+     "Advanced PL/SQL",
+     "Concepts of NoSQL and MongoDB"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "name": "Electronic Circuits-II",
+    "code": "EC-401",
+    "marks": 100,
+    "topics": [
+     "Wave Shaping Circuits",
+     "Linear Integrated Circuits",
+     "Op-Amp Applications",
+     "Timers and PLL",
+     "A/D and D/A Converters"
+    ]
+   },
+   {
+    "name": "Microcontrollers and Interfacing",
+    "code": "EC-402",
+    "marks": 100,
+    "topics": [
+     "Architecture of Microcontroller",
+     "Instruction Set of 8051",
+     "8051 Programming Concepts",
+     "Interfacing Simple I/O Devices",
+     "Programming in Embedded C"
+    ]
+   },
+   {
+    "name": "Microwave and Satellite Communication Systems",
+    "code": "EC-403",
+    "marks": 100,
+    "topics": [
+     "Transmission Lines and Wave Propagation",
+     "Antennas",
+     "Microwave Components and Devices",
+     "RADARs",
+     "Satellite Communication System"
+    ]
+   },
+   {
+    "name": "IoT and Sensors",
+    "code": "EC-404",
+    "marks": 100,
+    "topics": [
+     "Introduction to Industry 4.0 and IoT",
+     "Elements of IoT",
+     "Sensors and Actuators",
+     "Connectivity Technologies, Computing Hardware and Software",
+     "IoT Case Studies"
+    ]
+   },
+   {
+    "name": "Digital Logic Design through Verilog HDL",
+    "code": "EC-405",
+    "marks": 100,
+    "topics": [
+     "Introduction to Verilog HDL, Language Constructs",
+     "Gate Level and Data Flow Modelling",
+     "Behavioural Modelling",
+     "Modelling of Combinational and Sequential Logic Circuits",
+     "System Design"
+    ]
+   },
+   {
+    "name": "Network Management through TCP/IP",
+    "code": "CN-401",
+    "marks": 100,
+    "topics": [
+     "Concept of Internetworking",
+     "Internet Addresses and ARP",
+     "Connectionless Datagram Delivery",
+     "Routing IP Datagrams",
+     "Error and Control Messages (ICMP)"
+    ]
+   },
+   {
+    "name": "Web Technologies",
+    "code": "CN-402",
+    "marks": 100,
+    "topics": [
+     "Principles of Web Designing and HTML",
+     "HTML Tags and Style Sheets",
+     "XML and Client Side Scripting using JavaScript",
+     "jQuery",
+     "Web Servers and Server Side Scripting using PHP"
+    ]
+   },
+   {
+    "name": "Digital Electronics and Computer Organization",
+    "code": "CN-403",
+    "marks": 100,
+    "topics": [
+     "Number Systems",
+     "Flip-Flops and Counters",
+     "Basic Computer Organization",
+     "Memory Organization",
+     "I/O Organization"
+    ]
+   },
+   {
+    "name": "OOP through Java",
+    "code": "CN-404",
+    "marks": 100,
+    "topics": [
+     "Object Oriented Programming Concepts and Basics of Java",
+     "Inheritance, Overriding, Interfaces and Packages",
+     "I/O Streams and Collections",
+     "Exception Handling and Multithreaded Programming",
+     "Applets, AWT and Event Handling"
+    ]
+   },
+   {
+    "name": "Cryptography and Network Security",
+    "code": "CN-405",
+    "marks": 100,
+    "topics": [
+     "Concepts of Cryptography and Network Security",
+     "Encryption Algorithms and Ciphers",
+     "Integrity, Public/Private Keys and Digital Signatures",
+     "Securing Systems (VPN, IP Whitelisting, SSL)",
+     "Firewalls and Ethical Hacking"
+    ]
+   }
+  ],
+  "5": [
+   {
+    "name": "Industrial Management and Entrepreneurship",
+    "code": "EC-501",
+    "marks": 100,
+    "topics": [
+     "Basics of Industrial Management, Organisation Structure",
+     "Electronic Product Design and Development Stages",
+     "Electronic Product Testing and Documentation",
+     "Entrepreneurship Development",
+     "Industrial Safety and Legal Aspects"
+    ]
+   },
+   {
+    "name": "Embedded Systems",
+    "code": "EC-502",
+    "marks": 100,
+    "topics": [
+     "Introduction to Embedded Systems",
+     "Communication Standards and Real Time Operating System",
+     "ARM Cortex M3 Architecture",
+     "ARM Instruction Set and Programming",
+     "ARM Interfacing"
+    ]
+   },
+   {
+    "name": "Optical and Mobile Communications",
+    "code": "EC-503",
+    "marks": 100,
+    "topics": [
+     "Overview of Fibre Optic Communication",
+     "Fibre Optic Components and Devices",
+     "Cellular System Design Fundamentals",
+     "Digital Cellular Mobile System and Multiplexing Techniques"
+    ]
+   },
+   {
+    "name": "Industrial Electronics and Automation",
+    "code": "EC-504",
+    "marks": 100,
+    "topics": [
+     "Power Electronic Devices",
+     "Inverters, SMPS, UPS and Battery Management",
+     "Transducers and Ultrasonics",
+     "Control Systems",
+     "PLCs and SCADA"
+    ]
+   },
+   {
+    "name": "Wireless Networks",
+    "code": "CN-502",
+    "marks": 100,
+    "topics": [
+     "Wireless Communication Networks and Devices",
+     "Wireless Physical and Logical Architectures",
+     "Choosing Wireless Communication Technologies",
+     "Wireless LAN and PAN Standards",
+     "Advanced Wireless Technologies"
+    ]
+   },
+   {
+    "name": "Software Engineering",
+    "code": "CN-503",
+    "marks": 100,
+    "topics": [
+     "Software Engineering Basics, Design and Life Cycle Models",
+     "Software Project Management",
+     "Requirement Analysis and Specifications",
+     "Software Design and Coding",
+     "Software Testing, Debugging, Reliability and Quality Management"
+    ]
+   },
+   {
+    "name": "Internet of Things",
+    "code": "CN-504",
+    "marks": 100,
+    "topics": [
+     "Introduction to IoT",
+     "Data Protocols",
+     "Communication Technologies",
+     "Wireless Sensor Networks",
+     "Role of IoT"
+    ]
+   },
+   {
+    "name": "High Speed Networks",
+    "code": "CN-505",
+    "marks": 100,
+    "topics": [
+     "Protocols and Architecture of High-Speed Networks",
+     "Congestion Control and Traffic Management",
+     "QoS in IP Networks",
+     "Optical Networks",
+     "Logical Network Design"
+    ]
+   }
+  ]
+ }
+}

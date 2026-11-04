@@ -23,7 +23,7 @@ class StudentProgressView(APIView):
         prof = getattr(user, "student_profile", None)
         branch = getattr(prof, "branch_id", None)
         regulation = getattr(prof, "regulation_id", None)
-        subjects = Subject.objects.filter(is_active=True).filter(Q(branch__isnull=True) | Q(branch_id=branch)).filter(Q(regulation__isnull=True) | Q(regulation_id=regulation))
+        subjects = Subject.objects.filter(is_active=True, area="ECET").filter(Q(branch__isnull=True) | Q(branch_id=branch)).filter(Q(regulation__isnull=True) | Q(regulation_id=regulation))
         mats = Material.objects.filter(is_active=True, topic__is_active=True, topic__subject__in=subjects)
         total = mats.count()
         done = MaterialDone.objects.filter(user=user, material__in=mats).count()

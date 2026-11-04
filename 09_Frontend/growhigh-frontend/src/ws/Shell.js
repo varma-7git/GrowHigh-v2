@@ -17,7 +17,7 @@ const CFG = {
   faculty: {
     base: "/faculty", label: "FACULTY WORKSPACE", name: "Faculty",
     nav: [["", "Dashboard", "dashboard"], ["/questions", "Question bank", "qbank"], ["/materials", "Learning material", "book"], ["/schedule", "Create & schedule", "calendar"], ["/assign", "Assign tests", "send"],
-      ["/students", "Students", "users"], ["/performance", "Performance", "bars"], ["/profile", "My profile", "user"]],
+      ["/students", "Students", "users"], ["/performance", "Performance", "bars"], ["/reviews", "Speaking reviews", "chat"], ["/profile", "My profile", "user"]],
     tab: [["", "Home", "dashboard"], ["/questions", "Questions", "qbank"], ["/schedule", "Tests", "calendar"], ["/profile", "Profile", "user"]],
   },
 };

@@ -74,7 +74,7 @@ export function Practice() {
     catch (e) { setErr(parseError(e).message); setBusy(false); }
   };
   return (
-    <WsShell role="student" crumb="ECET preparation / Practice" title="Practice" subtitle="Ten focused questions with explanations after you finish." action={<Btn b={["Back to subjects", "/student/ecet/explore"]} />}>
+    <WsShell role="student" crumb="ECET preparation / Practice" title="Practice" subtitle="Ten focused questions with explanations after you finish." action={<button className="ad-btn o" onClick={() => nav(-1)}>Back</button>}>
       <Err e={err} />
       {!topic && <div className="ad-card"><h2>Choose a topic first</h2><p className="ws-p">Open a subject, pick a topic and press Practise.</p><Btn b={["Explore subjects", "/student/ecet/explore"]} kind="c" /></div>}
       {run && <Runner key={run.id} qs={run.questions} secs={null} busy={busy} onPick={answerSaver(run.id)} onSubmit={submit} />}

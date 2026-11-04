@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import WsShell from "../Shell";
-import { Err, List, Row, Select, all } from "../../admin/ui";
+import { Err, List, Row, Select, all , subLabel } from "../../admin/ui";
 import api, { parseError } from "../../api/client";
 
 const KINDS = [["VIDEO", "Video"], ["NOTES", "Notes"], ["PDF", "PDF"], ["LINK", "Web link"]];
@@ -19,7 +19,7 @@ export default function Materials() {
   const [ok, setOk] = useState("");
   const [pct, setPct] = useState(null);
 
-  useEffect(() => { all("/subjects/").then((r) => { setSubs(r); if (r[0]) setSub(String(r[0].id)); }).catch((e) => setErr(parseError(e).message)); }, []);
+  useEffect(() => { all("/subjects/", { area: "ALL" }).then((r) => { setSubs(r); if (r[0]) setSub(String(r[0].id)); }).catch((e) => setErr(parseError(e).message)); }, []);
   useEffect(() => {
     if (!sub) return;
     all("/topics/", { subject: sub }).then((r) => { setTopics(r); setTopic(r[0] ? String(r[0].id) : ""); }).catch(() => {});
@@ -55,7 +55,7 @@ export default function Materials() {
     <WsShell role="faculty" crumb="Learning material" title="Learning material" subtitle="Upload videos, share notes and links. Students see them on the topic page.">
       <Err e={err} />{ok && <div className="ad-alert">{ok}</div>}
       <div className="ad-filters">
-        <Select value={sub} onChange={setSub} options={subs.length ? subs.map((s) => [String(s.id), s.name]) : [["", "No subjects yet"]]} />
+        <Select value={sub} onChange={setSub} options={subs.length ? subs.map((s) => [String(s.id), subLabel(s)]) : [["", "No subjects yet"]]} />
         <Select value={topic} onChange={setTopic} options={topics.length ? topics.map((t) => [String(t.id), t.name]) : [["", "No topics yet"]]} />
         <button className="ad-btn c" disabled={!topic} onClick={() => { setF({ ...EMPTY }); setEr({}); }}>Add material</button>
       </div>

@@ -13,7 +13,7 @@ export function QuestionBank({ message, notify }) {
   const [q, setQ] = useState("");
   const [sub, setSub] = useState("");
   const [open, setOpen] = useState(null);
-  useEffect(() => { all("/subjects/").then(setSubs).catch(() => {}); }, []);
+  useEffect(() => { all("/subjects/", { area: "ALL" }).then(setSubs).catch(() => {}); }, []);
   const load = useCallback(() => { all("/questions/", { search: q || undefined, subject: sub || undefined }).then(setRows).catch((e) => notify(parseError(e).message, "danger")); }, [q, sub, notify]);
   useEffect(() => { load(); }, [load]);
   const hide = async (x) => { try { await api.patch(`/questions/${x.id}/`, { is_active: !x.is_active }); load(); } catch (e) { notify(parseError(e).message, "danger"); } };
@@ -124,7 +124,7 @@ const AREAS = {
   CAREER: ["Career growth", [["technologies", "Technologies"], ["paths", "Career paths"], ["roadmap", "Roadmap (one lesson per stage, in order)"], ["projects", "Projects"]]],
   COMM: ["Communication", [["spoken", "Spoken English"], ["vocabulary", "Vocabulary"], ["grammar", "Grammar"], ["speaking", "Speaking"], ["listening", "Listening"], ["gd", "Group discussion"], ["presentation", "Presentation"], ["interview", "Interview"], ["professional", "Professional"]]],
 };
-const GKIND = [["NOTES", "Written notes"], ["VIDEO", "Video"], ["PDF", "PDF"], ["LINK", "Web link"]];
+const GKIND = [["NOTES", "Written notes"], ["VIDEO", "Video"], ["AUDIO", "Audio"], ["PDF", "PDF"], ["LINK", "Web link"]];
 
 export function AdminContent({ message, notify }) {
   const [area, setArea] = useState("JOB_PREP");
@@ -175,7 +175,7 @@ export function AdminContent({ message, notify }) {
             <label>Heading inside the section (optional)</label><input className="ad-in" placeholder="e.g. Quantitative" value={f.group} onChange={(e) => setF({ ...f, group: e.target.value })} />
             {f.kind === "NOTES" ? <><label>Notes</label><textarea className="ad-in" rows={8} value={f.body} onChange={(e) => setF({ ...f, body: e.target.value })} /><Err e={er.body} /></>
               : <><label>Link</label><input className="ad-in" placeholder="https://" value={f.url} onChange={(e) => setF({ ...f, url: e.target.value })} /><Err e={er.url} />
-                {(f.kind === "VIDEO" || f.kind === "PDF") && <><label>Or upload a file ({f.kind === "VIDEO" ? "MP4, WebM or MOV, up to 300 MB" : "PDF, up to 25 MB"})</label><input className="ad-in" type="file" accept={f.kind === "VIDEO" ? "video/*" : "application/pdf"} onChange={(e) => setF({ ...f, file: e.target.files[0] })} /><Err e={er.file} /></>}</>}
+                {(f.kind === "VIDEO" || f.kind === "PDF" || f.kind === "AUDIO") && <><label>Or upload a file ({f.kind === "VIDEO" ? "MP4, WebM or MOV, up to 300 MB" : f.kind === "AUDIO" ? "MP3, M4A, WAV or OGG, up to 50 MB" : "PDF, up to 25 MB"})</label><input className="ad-in" type="file" accept={f.kind === "VIDEO" ? "video/*" : f.kind === "AUDIO" ? "audio/*" : "application/pdf"} onChange={(e) => setF({ ...f, file: e.target.files[0] })} /><Err e={er.file} /></>}</>}
             <label>Order (smaller shows first)</label><input className="ad-in" type="number" value={f.order_no} onChange={(e) => setF({ ...f, order_no: e.target.value })} />
             <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 14 }}><button className="ad-btn p" disabled={busy}>{busy ? "Saving…" : "Save"}</button><button type="button" className="ad-btn o" onClick={() => setF(null)}>Cancel</button></div>
           </form>

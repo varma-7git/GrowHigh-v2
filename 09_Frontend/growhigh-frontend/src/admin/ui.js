@@ -25,6 +25,10 @@ const P = {
 };
 export const Icon = ({ n }) => <svg viewBox="0 0 24 24" aria-hidden="true"><path d={P[n]} /></svg>;
 
+export const SUBJECT_AREAS = [["ECET", "ECET and curriculum"], ["APTITUDE", "Job prep · Aptitude"], ["REASONING", "Job prep · Reasoning"], ["CODING", "Job prep · Coding"], ["TECHNICAL", "Job prep · Technical interview"], ["HR", "Job prep · HR interview"]];
+
+export const subLabel = (s) => (s.area && s.area !== "ECET" ? `${s.name} · ${SUBJECT_AREAS.find((a) => a[0] === s.area)?.[1] || ""}` : s.name);
+
 export const NAV = [
   ["", "Dashboard", "dashboard"], ["users", "Users", "users"], ["students", "Students", "students"], ["faculty", "Faculty", "faculty"],
   ["branches", "Branches", "branches"], ["subjects", "Subjects & topics", "subjects"], ["questions", "Question bank", "questions"],

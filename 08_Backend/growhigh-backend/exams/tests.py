@@ -260,3 +260,66 @@ class ProgressTests(ExamsBase):
         self.assertEqual(p["week"][-1]["questions"], 1)
         self.client.force_authenticate(self.fac)
         self.assertEqual(self.client.get("/api/v1/student/progress/").status_code, 403)
+
+
+class JobPrepQuestionTests(ExamsBase):
+    def test_job_prep_questions_stay_out_of_ecet(self):
+        self.client.force_authenticate(self.admin)
+        r = self.client.post("/api/v1/subjects/", {"name": "Quantitative aptitude", "area": "APTITUDE"}, format="json")
+        self.assertEqual(r.status_code, 201, r.data)
+        sid = r.data["id"]
+        tid = self.client.post("/api/v1/topics/", {"subject_id": sid, "name": "Percentages"}, format="json").data["id"]
+        self.client.force_authenticate(self.fac)
+        self.assertEqual(self.client.post("/api/v1/questions/", mk_question(tid, "What is 10% of 50?"), format="json").status_code, 201)
+        self.client.force_authenticate(self.s1)
+        names = [s["name"] for s in self.client.get("/api/v1/subjects/").data["results"]]
+        self.assertNotIn("Quantitative aptitude", names)
+        self.assertEqual([s["name"] for s in self.client.get("/api/v1/subjects/?area=APTITUDE").data["results"]], ["Quantitative aptitude"])
+        self.assertEqual(self.client.post("/api/v1/practice/start/", {"kind": "mock"}, format="json").status_code, 409)  # not part of the ECET mock
+        p = self.client.post("/api/v1/practice/start/", {"topic_id": tid}, format="json")
+        self.assertEqual(p.status_code, 201, p.data)
+        self.assertEqual(len(p.data["questions"]), 1)
+        self.client.force_authenticate(self.fac)
+        self.assertIn("Quantitative aptitude", [s["name"] for s in self.client.get("/api/v1/subjects/?area=ALL").data["results"]])
+
+
+class ImportPapersTests(ExamsBase):
+    def test_import_from_folder(self):
+        import tempfile
+        from pathlib import Path
+        from django.core.management import call_command
+        from django.test import override_settings
+        from .models import Paper
+        with tempfile.TemporaryDirectory() as src, tempfile.TemporaryDirectory() as media, override_settings(MEDIA_ROOT=media):
+            (Path(src) / "2023_ALL.pdf").write_bytes(b"%PDF-1.4 a")
+            (Path(src) / "2023_CME_Paper 1.pdf").write_bytes(b"%PDF-1.4 b")
+            (Path(src) / "bad name.pdf").write_bytes(b"%PDF-1.4 c")
+            (Path(src) / "2022_XXX.pdf").write_bytes(b"%PDF-1.4 d")
+            call_command("import_papers", folder=src)
+            call_command("import_papers", folder=src)  # second run adds nothing
+            self.assertEqual(Paper.objects.count(), 2)
+            self.assertTrue(Paper.objects.filter(year=2023, branch=self.cse, title="Paper 1").exists())
+            self.assertTrue(Paper.objects.filter(year=2023, branch=None, title="AP ECET 2023").exists())
+
+
+class ImportQuestionsTests(ExamsBase):
+    def test_import_into_every_branch_with_subject(self):
+        import json, tempfile
+        from pathlib import Path
+        from django.core.management import call_command
+        from academics.models import Regulation
+        from .models import Question
+        reg = Regulation.objects.create(code="C23")
+        for br in (self.cse, self.civ):
+            s = Subject.objects.create(name="Mathematics-II", regulation=reg, branch=br, semester=3)
+            Topic.objects.create(subject=s, name="Integral Calculus", order_no=1)
+            Topic.objects.create(subject=s, name="Statistics", order_no=2)
+        q = {"subject": "Mathematics-II", "topic": "stat", "text": "Mean of 2, 4, 6?", "options": ["3", "4", "5", "6"], "correct": 1, "explanation": "12/3 = 4"}
+        bad_subject = dict(q, subject="Nope", text="x")
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / "q.json"
+            f.write_text(json.dumps({"regulation": "C23", "questions": [q, bad_subject]}), encoding="utf-8")
+            call_command("import_questions", file=str(f))
+            call_command("import_questions", file=str(f))  # second run adds nothing
+        self.assertEqual(Question.objects.filter(text="Mean of 2, 4, 6?").count(), 2)
+        self.assertTrue(Question.objects.filter(topic__name="Statistics", correct=1, created_by=self.admin).exists())

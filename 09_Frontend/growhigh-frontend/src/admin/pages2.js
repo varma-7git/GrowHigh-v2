@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Applicants from "../components/Applicants";
 import api, { parseError } from "../api/client";
-import { AdminShell, Bar, Err, Icon, List, Row, Search, Select, Stat, all } from "./ui";
+import { AdminShell, Bar, Err, Icon, List, Row, Search, Select, Stat, SUBJECT_AREAS, all } from "./ui";
 
 const pct = (a, b) => (b ? Math.round((a / b) * 100) : 0);
 const SL = <span className="ad-sl">/</span>;
@@ -105,7 +105,7 @@ export function Subjects({ message, notify }) {
   };
   const toggleReg = async (r) => { try { await api.patch(`/regulations/${r.id}/`, { is_active: !r.is_active }); loadRegs(); } catch (x2) { notify(parseError(x2).message, "danger"); } };
   const load = useCallback(async () => {
-    try { const [s, t] = await Promise.all([all("/subjects/"), all("/topics/")]); setSubs(s); setTopics(t); setSel((c) => c || s[0]?.id || null); }
+    try { const [s, t] = await Promise.all([all("/subjects/", { area: "ALL" }), all("/topics/")]); setSubs(s); setTopics(t); setSel((c) => c || s[0]?.id || null); }
     catch (e) { notify(parseError(e).message, "danger"); }
   }, [notify]);
   useEffect(() => { load(); all("/branches/").then(setBranches); }, [load]);
@@ -113,19 +113,20 @@ export function Subjects({ message, notify }) {
   const shown = subs.filter((s) => s.name.toLowerCase().includes(q.toLowerCase()) && (regScope === "" || (regScope === "none" ? !s.regulation_id : String(s.regulation_id) === regScope)) && (scope === "" || (scope === "common" ? !s.branch_id : String(s.branch_id) === scope)));
   const save = async (e) => {
     e.preventDefault(); setEr({});
-    const body = { name: sf.name, code: sf.code || null, marks: sf.marks === "" || sf.marks == null ? null : Number(sf.marks), branch_id: sf.branch_id ? Number(sf.branch_id) : null, regulation_id: sf.regulation_id ? Number(sf.regulation_id) : null, semester: sf.semester ? Number(sf.semester) : null, is_active: sf.is_active !== false };
+    const body = { area: sf.area || "ECET", name: sf.name, code: sf.code || null, marks: sf.marks === "" || sf.marks == null ? null : Number(sf.marks), branch_id: sf.branch_id ? Number(sf.branch_id) : null, regulation_id: sf.regulation_id ? Number(sf.regulation_id) : null, semester: sf.semester ? Number(sf.semester) : null, is_active: sf.is_active !== false };
     try { sf.id ? await api.patch(`/subjects/${sf.id}/`, body) : await api.post("/subjects/", body); notify("Subject saved.", "success"); setSf(null); load(); }
     catch (x) { const p = parseError(x); setEr(p.fields || {}); notify(p.message, "danger"); }
   };
-  const editS = (s) => setSf({ id: s.id, name: s.name, code: s.code || "", marks: s.marks ?? "", branch_id: s.branch_id || "", regulation_id: s.regulation_id || "", semester: s.semester || "", is_active: s.is_active });
+  const editS = (s) => setSf({ id: s.id, area: s.area || "ECET", name: s.name, code: s.code || "", marks: s.marks ?? "", branch_id: s.branch_id || "", regulation_id: s.regulation_id || "", semester: s.semester || "", is_active: s.is_active });
   return (
     <AdminShell title="Subjects & topics" crumb="Subjects & topics" subtitle="A relationship-first workspace for syllabus content and question coverage." message={message}
-      action={<button className="ad-btn p" onClick={() => setSf({ name: "", code: "", marks: "", branch_id: "", regulation_id: "", semester: "", is_active: true })}>Add subject</button>}>
+      action={<button className="ad-btn p" onClick={() => setSf({ area: "ECET", name: "", code: "", marks: "", branch_id: "", regulation_id: "", semester: "", is_active: true })}>Add subject</button>}>
       <div className="ad-filters"><Search value={q} onChange={setQ} placeholder="Search subject or linked topic" />
         <Select value={scope} onChange={setScope} options={[["", "All subjects"], ["common", "Common subjects"], ...branches.map((b) => [String(b.id), b.code])]} />
         <Select value={regScope} onChange={setRegScope} options={[["", "All regulations"], ["none", "ECET subjects"], ...regs.map((r) => [String(r.id), r.code])]} /></div>
       {sf && <form className="ad-card ad-form" style={{ marginBottom: 24 }} onSubmit={save}><h2>{sf.id ? "Edit subject" : "Add subject"}</h2>
         <div className="ad-grid g2" style={{ marginBottom: 0 }}>
+          <div><label>Used for</label><select className="ad-in" value={sf.area || "ECET"} onChange={(e) => setSf({ ...sf, area: e.target.value })}>{SUBJECT_AREAS.map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select><Err e={er.area} /></div>
           <div><label>Subject name</label><input className="ad-in" value={sf.name} onChange={(e) => setSf({ ...sf, name: e.target.value })} /><Err e={er.name} /></div>
           <div><label>Branch</label><select className="ad-in" value={sf.branch_id} onChange={(e) => setSf({ ...sf, branch_id: e.target.value })}><option value="">Common (all branches)</option>{branches.map((b) => <option key={b.id} value={b.id}>{b.name}</option>)}</select></div>
           <div><label>Regulation</label><select className="ad-in" value={sf.regulation_id} onChange={(e) => setSf({ ...sf, regulation_id: e.target.value })}><option value="">Not tied to a regulation (ECET subject)</option>{regs.filter((r) => r.is_active).map((r) => <option key={r.id} value={r.id}>{r.code}</option>)}</select><Err e={er.regulation_id} /></div>
@@ -138,9 +139,9 @@ export function Subjects({ message, notify }) {
         <div className="ad-card"><h2>Subject library</h2>{cur && <span className="ad-eyebrow">{cur.name} selected</span>}
           <div style={{ marginTop: 16 }}><List head="Subject / Topics / Marks / Action" empty="No subjects." rows={shown.map((s) => (
             <Row key={s.id} title={<span style={{ cursor: "pointer", color: s.id === sel ? "#0aa5c0" : "" }} onClick={() => setSel(s.id)}>{s.name}{!s.is_active && <span className="ad-pill bad">Hidden</span>}</span>}
-              meta={`Topics: ${topics.filter((t) => t.subject_id === s.id).length} · Marks: ${s.marks ?? "-"} · ${s.regulation_id ? `${regs.find((r) => r.id === s.regulation_id)?.code || ""} Sem ${s.semester || "-"}` : "ECET"} · ${s.branch_id ? branches.find((b) => b.id === s.branch_id)?.code || "Branch" : "Common"}`}>
+              meta={`Topics: ${topics.filter((t) => t.subject_id === s.id).length} · Marks: ${s.marks ?? "-"} · ${s.area && s.area !== "ECET" ? SUBJECT_AREAS.find((a) => a[0] === s.area)?.[1] : s.regulation_id ? `${regs.find((r) => r.id === s.regulation_id)?.code || ""} Sem ${s.semester || "-"}` : "ECET"} · ${s.branch_id ? branches.find((b) => b.id === s.branch_id)?.code || "Branch" : "Common"}`}>
               <button className="ad-link" onClick={() => editS(s)}>Edit</button>{SL}<button className="ad-link r" onClick={() => remove(`/subjects/${s.id}/`, s.name, notify, () => { setSel(null); load(); })}>Delete</button></Row>))} /></div>
-          <button className="ad-btn o" onClick={() => setSf({ name: "", code: "", marks: "", branch_id: "", regulation_id: "", semester: "", is_active: true })}>Add subject</button></div>
+          <button className="ad-btn o" onClick={() => setSf({ area: "ECET", name: "", code: "", marks: "", branch_id: "", regulation_id: "", semester: "", is_active: true })}>Add subject</button></div>
         <div className="ad-card"><h2>{cur ? `${cur.name} → linked topics` : "Linked topics"}</h2>
           <List head="Topic / Questions / Action" empty={cur ? "No topics yet." : "Select a subject."} rows={mine.map((t) => (
             <Row key={t.id} title={t.name} meta="Questions: 0"><Link className="ad-link" to={`/admin/topics?edit=${t.id}`}>Edit</Link></Row>))} />
@@ -171,7 +172,7 @@ export function Topics({ message, notify }) {
   const [subj, setSubj] = useState(qs.get("subject") || ""); const [cov, setCov] = useState("");
   const [f, setF] = useState({ subject_id: qs.get("subject") || "", name: "", description: "", order_no: 0 }); const [editId, setEditId] = useState(null); const [er, setEr] = useState({});
   const load = useCallback(async () => {
-    try { const [s, t] = await Promise.all([all("/subjects/"), all("/topics/")]); setSubs(s); setTopics(t);
+    try { const [s, t] = await Promise.all([all("/subjects/", { area: "ALL" }), all("/topics/")]); setSubs(s); setTopics(t);
       const eid = Number(qs.get("edit")); if (eid && !editId) { const x = t.find((y) => y.id === eid); if (x) startEdit(x); }
       setF((c) => (c.subject_id ? c : { ...c, subject_id: s[0]?.id || "" })); }
     catch (e) { notify(parseError(e).message, "danger"); }

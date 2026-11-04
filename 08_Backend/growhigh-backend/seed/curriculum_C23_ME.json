@@ -1,0 +1,299 @@
+{
+ "regulation": "C23",
+ "branch": "ME",
+ "semesters": {
+  "1": [
+   {
+    "name": "English",
+    "code": "A-101",
+    "marks": 100,
+    "topics": [
+     "English for Employability",
+     "Living in Harmony",
+     "Connect with Care",
+     "Humour for Happiness",
+     "Never Ever Give Up!",
+     "Preserve or Perish",
+     "The Rainbow of Diversity",
+     "New Challenges - Newer Ideas",
+     "The End Point First",
+     "The Equal Halves",
+     "Dealing with Disaster"
+    ]
+   },
+   {
+    "name": "Engineering Mathematics-I",
+    "code": "A-102",
+    "marks": 100,
+    "topics": [
+     "Algebra",
+     "Trigonometry",
+     "Co-ordinate Geometry",
+     "Differential Calculus",
+     "Applications of Derivatives"
+    ]
+   },
+   {
+    "name": "Engineering Physics",
+    "code": "A-103",
+    "marks": 100,
+    "topics": [
+     "Units and Measurements",
+     "Statics",
+     "Gravitation",
+     "Concepts of Energy",
+     "Thermal Physics",
+     "Sound",
+     "Electricity and Magnetism",
+     "Modern Physics"
+    ]
+   },
+   {
+    "name": "Engineering Chemistry and Environmental Studies",
+    "code": "A-104",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of Chemistry",
+     "Solutions, Acids and Bases",
+     "Electrochemistry",
+     "Corrosion",
+     "Water Treatment",
+     "Polymers and Engineering Materials",
+     "Fuels",
+     "Environmental Studies"
+    ]
+   },
+   {
+    "name": "Basic Mechanical Engineering",
+    "code": "A-105",
+    "marks": 100,
+    "topics": [
+     "Statics",
+     "Simple Machines",
+     "Basic Link Mechanisms",
+     "Transmission of Power",
+     "Fundamentals of Thermodynamics",
+     "Thermodynamic Processes"
+    ]
+   },
+   {
+    "name": "Elements of Automobile Engineering",
+    "code": "A-106",
+    "marks": 100,
+    "topics": [
+     "Introduction",
+     "Engines",
+     "Basics of Engine Systems",
+     "Basics of Transmission System",
+     "Basics of Electrical System",
+     "Basics of Chassis and Body",
+     "Basics of Steering, Braking and Suspension Systems"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "name": "Mathematics-II",
+    "code": "A-301",
+    "marks": 100,
+    "topics": [
+     "Indefinite Integration",
+     "Definite Integration",
+     "Applications of Definite Integrals",
+     "Differential Equations"
+    ]
+   },
+   {
+    "name": "Automobile Power Plant",
+    "code": "A-302",
+    "marks": 100,
+    "topics": [
+     "Engine Construction",
+     "Inlet and Exhaust System",
+     "Petrol Engine Fuel System",
+     "Diesel Engine Fuel System",
+     "Lubrication and Cooling System",
+     "Fuels and Combustion",
+     "Air Standard Cycles and Performance of Engine"
+    ]
+   },
+   {
+    "name": "Automobile Transmission Systems",
+    "code": "A-303",
+    "marks": 100,
+    "topics": [
+     "Clutch",
+     "Transmission Systems",
+     "Propeller Shaft and Universal Joint",
+     "Front Axle",
+     "Rear Axle and Differential",
+     "Wheels and Tyres"
+    ]
+   },
+   {
+    "name": "Autotronics",
+    "code": "A-304",
+    "marks": 100,
+    "topics": [
+     "Lighting Circuits and Accessories",
+     "Body Computer and Instrumentation",
+     "Vehicle Communication Networks and Diagnostics",
+     "Modern Vehicle Electronics"
+    ]
+   },
+   {
+    "name": "Engineering Materials and Manufacturing Process",
+    "code": "A-305",
+    "marks": 100,
+    "topics": [
+     "Mechanical Properties and Testing of Materials",
+     "Manufacture of Iron and Steel and Heat Treatment",
+     "Engineering Materials and their Applications",
+     "Conventional Manufacturing Processes",
+     "Mechanical Working of Metals"
+    ]
+   },
+   {
+    "name": "Machine Drawing",
+    "code": "A-306",
+    "marks": 100,
+    "topics": [
+     "Nuts and Bolts",
+     "Rivets and Riveted Joints",
+     "Keys",
+     "Assembly Drawing"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "name": "Two and Three Wheeler Technology",
+    "code": "A-401",
+    "marks": 100,
+    "topics": [
+     "Introduction and Power Unit",
+     "Fuel, Lubrication and Electrical Systems",
+     "Two-Wheeler Chassis and Sub-Systems",
+     "Three-Wheeler Chassis and Sub-Systems",
+     "Electric Two and Three Wheelers"
+    ]
+   },
+   {
+    "name": "Strength of Materials and Fluid Mechanics",
+    "code": "A-402",
+    "marks": 100,
+    "topics": [
+     "Simple Stresses and Strains and Torsion",
+     "Geometrical Properties of Sections",
+     "S.F. and B.M. Diagrams",
+     "Properties of Fluids",
+     "Flow of Fluids",
+     "Oil Power Hydraulics and Pneumatics",
+     "Hydraulic Machinery"
+    ]
+   },
+   {
+    "name": "Automobile Chassis and Body Engineering",
+    "code": "A-403",
+    "marks": 100,
+    "topics": [
+     "Steering System",
+     "Braking System",
+     "Suspension System",
+     "Body Design, Construction and Safety",
+     "Automobile Air Conditioning System"
+    ]
+   },
+   {
+    "name": "Vehicle Service and Maintenance Technology",
+    "code": "A-404",
+    "marks": 100,
+    "topics": [
+     "Servicing Equipment and Maintenance",
+     "Engine Maintenance",
+     "Cooling and Lubrication System Maintenance",
+     "Transmission System Maintenance",
+     "Braking, Steering and Suspension Maintenance",
+     "Auto Electrical and Body Maintenance"
+    ]
+   },
+   {
+    "name": "Farm Tractors and Earth Movers",
+    "code": "A-405",
+    "marks": 100,
+    "topics": [
+     "Introduction",
+     "Farm Tractors",
+     "Special Features and Recent Trends in Tractors",
+     "Special Purpose Vehicles for Industrial Applications",
+     "Earth Movers"
+    ]
+   }
+  ],
+  "5": [
+   {
+    "name": "Industrial and Transport Management",
+    "code": "A-501",
+    "marks": 100,
+    "topics": [
+     "Principles and Functions of Industrial Management",
+     "Organization Structure and Organizational Behavior",
+     "Production Management and Industrial Safety",
+     "Entrepreneurship Development",
+     "Transport Management",
+     "Legal Aspects"
+    ]
+   },
+   {
+    "name": "Design of Machine Elements",
+    "code": "A-502",
+    "marks": 100,
+    "topics": [
+     "Bolts and Nuts",
+     "Shafts",
+     "Keys and Couplings",
+     "Balancing and Vibrations",
+     "Governors and Flywheel",
+     "Design of Automobile Components"
+    ]
+   },
+   {
+    "name": "Advanced Manufacturing Processes",
+    "code": "A-503",
+    "marks": 100,
+    "topics": [
+     "Introduction to Modern Manufacturing Processes",
+     "Advanced Casting, Welding and Surface Finishing Processes",
+     "Additive Manufacturing (3D Printing)",
+     "Processing of Plastics",
+     "Automation and Robotics in Manufacturing"
+    ]
+   },
+   {
+    "name": "Alternative Fuels and Emission Control",
+    "code": "A-504",
+    "marks": 100,
+    "topics": [
+     "Introduction",
+     "Bio Diesel and Alcohol Fuels",
+     "Gaseous Fuels",
+     "Emissions from SI Engines and their Control",
+     "Emissions from CI Engines and their Control",
+     "Emission Measurement and Emission Standards"
+    ]
+   },
+   {
+    "name": "Electric and Hybrid Electric Vehicle",
+    "code": "A-505",
+    "marks": 100,
+    "topics": [
+     "Introduction to Electric and Hybrid Electric Vehicles",
+     "Energy Storage",
+     "Design of Drive Train",
+     "Electric Propulsion",
+     "Regenerative Braking"
+    ]
+   }
+  ]
+ }
+}

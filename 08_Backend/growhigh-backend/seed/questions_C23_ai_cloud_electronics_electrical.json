@@ -1,0 +1,1864 @@
+{
+ "regulation": "C23",
+ "questions": [
+  {
+   "subject": "Artificial Intelligence",
+   "topic": "PROLOG",
+   "text": "PROLOG is a language based on",
+   "options": [
+    "logic programming",
+    "object orientation only",
+    "assembly",
+    "markup"
+   ],
+   "correct": 0,
+   "explanation": "Programming in Logic."
+  },
+  {
+   "subject": "Artificial Intelligence",
+   "topic": "PROLOG",
+   "text": "In PROLOG, a variable name starts with",
+   "options": [
+    "a lowercase letter",
+    "an uppercase letter",
+    "a digit",
+    "a symbol only"
+   ],
+   "correct": 1,
+   "explanation": "Lowercase starts atoms."
+  },
+  {
+   "subject": "Artificial Intelligence",
+   "topic": "Problems",
+   "text": "BFS explores the search tree",
+   "options": [
+    "depth first",
+    "randomly",
+    "level by level",
+    "from the goal only"
+   ],
+   "correct": 2,
+   "explanation": "Uses a queue."
+  },
+  {
+   "subject": "Artificial Intelligence",
+   "topic": "Problems",
+   "text": "Which search uses a heuristic function?",
+   "options": [
+    "BFS",
+    "DFS",
+    "uniform blind search only",
+    "A* search"
+   ],
+   "correct": 3,
+   "explanation": "A* uses f(n) = g(n) + h(n)."
+  },
+  {
+   "subject": "Artificial Intelligence",
+   "topic": "Knowledge",
+   "text": "Which is a knowledge representation technique?",
+   "options": [
+    "Semantic network",
+    "Binary tree sort",
+    "Hash table only",
+    "Bubble sort"
+   ],
+   "correct": 0,
+   "explanation": "Semantic networks, frames, logic."
+  },
+  {
+   "subject": "Artificial Intelligence",
+   "topic": "Game",
+   "text": "Minimax is used in",
+   "options": [
+    "sorting",
+    "two-player games",
+    "networking",
+    "file systems"
+   ],
+   "correct": 1,
+   "explanation": "Adversarial search."
+  },
+  {
+   "subject": "Artificial Intelligence",
+   "topic": "Fuzzy",
+   "text": "In fuzzy logic membership values lie between",
+   "options": [
+    "-1 and 1",
+    "0 and 100 only",
+    "0 and 1",
+    "1 and 10"
+   ],
+   "correct": 2,
+   "explanation": "Degree of membership."
+  },
+  {
+   "subject": "Fundamentals of Machine Learning",
+   "topic": "Introduction",
+   "text": "Machine learning is a subset of",
+   "options": [
+    "database systems",
+    "operating systems",
+    "computer graphics",
+    "artificial intelligence"
+   ],
+   "correct": 3,
+   "explanation": "ML is a branch of AI."
+  },
+  {
+   "subject": "Fundamentals of Machine Learning",
+   "topic": "Process",
+   "text": "Splitting data into training and testing sets is done to",
+   "options": [
+    "evaluate model performance",
+    "delete data",
+    "compress data",
+    "encrypt data"
+   ],
+   "correct": 0,
+   "explanation": "Checks generalization."
+  },
+  {
+   "subject": "Fundamentals of Machine Learning",
+   "topic": "Supervised",
+   "text": "Which is a supervised learning task?",
+   "options": [
+    "Clustering",
+    "Classification",
+    "Dimensionality reduction",
+    "Association mining"
+   ],
+   "correct": 1,
+   "explanation": "Uses labelled data."
+  },
+  {
+   "subject": "Fundamentals of Machine Learning",
+   "topic": "Supervised",
+   "text": "Linear regression predicts",
+   "options": [
+    "a class label only",
+    "clusters",
+    "a continuous value",
+    "rules"
+   ],
+   "correct": 2,
+   "explanation": "Output is numeric."
+  },
+  {
+   "subject": "Fundamentals of Machine Learning",
+   "topic": "Unsupervised",
+   "text": "K-means is an example of",
+   "options": [
+    "regression",
+    "classification",
+    "reinforcement",
+    "clustering"
+   ],
+   "correct": 3,
+   "explanation": "Unsupervised grouping."
+  },
+  {
+   "subject": "Fundamentals of Machine Learning",
+   "topic": "Probability",
+   "text": "Bayes theorem relates",
+   "options": [
+    "conditional probabilities",
+    "only sums",
+    "only averages",
+    "sorting orders"
+   ],
+   "correct": 0,
+   "explanation": "P(A|B) = P(B|A)P(A)/P(B)."
+  },
+  {
+   "subject": "Natural Language Processing",
+   "topic": "Introduction",
+   "text": "NLP stands for",
+   "options": [
+    "Network Layer Protocol",
+    "Natural Language Processing",
+    "Neural Logic Programming",
+    "Normal Language Parsing"
+   ],
+   "correct": 1,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Natural Language Processing",
+   "topic": "Word",
+   "text": "Splitting text into words is called",
+   "options": [
+    "stemming",
+    "parsing",
+    "tokenization",
+    "tagging"
+   ],
+   "correct": 2,
+   "explanation": "Tokenization."
+  },
+  {
+   "subject": "Natural Language Processing",
+   "topic": "Word",
+   "text": "Reducing a word to its root form is called",
+   "options": [
+    "tokenization",
+    "chunking",
+    "encoding",
+    "stemming"
+   ],
+   "correct": 3,
+   "explanation": "e.g., running to run."
+  },
+  {
+   "subject": "Natural Language Processing",
+   "topic": "Syntactic",
+   "text": "POS tagging assigns each word its",
+   "options": [
+    "part of speech",
+    "meaning only",
+    "length",
+    "frequency"
+   ],
+   "correct": 0,
+   "explanation": "Noun, verb, etc."
+  },
+  {
+   "subject": "Natural Language Processing",
+   "topic": "Semantics",
+   "text": "Word sense disambiguation deals with",
+   "options": [
+    "splitting sentences",
+    "choosing the correct meaning of a word",
+    "counting words",
+    "spelling"
+   ],
+   "correct": 1,
+   "explanation": "Semantics."
+  },
+  {
+   "subject": "Artificial Neural Networks and Deep Learning",
+   "topic": "Introduction",
+   "text": "The basic unit of a neural network is the",
+   "options": [
+    "register",
+    "packet",
+    "neuron",
+    "pixel only"
+   ],
+   "correct": 2,
+   "explanation": "Artificial neuron."
+  },
+  {
+   "subject": "Artificial Neural Networks and Deep Learning",
+   "topic": "Feed",
+   "text": "In a feed forward network information flows",
+   "options": [
+    "in loops",
+    "backwards only",
+    "randomly",
+    "in one direction"
+   ],
+   "correct": 3,
+   "explanation": "No cycles."
+  },
+  {
+   "subject": "Artificial Neural Networks and Deep Learning",
+   "topic": "Feed",
+   "text": "The algorithm used to train multilayer networks is",
+   "options": [
+    "backpropagation",
+    "bubble sort",
+    "Dijkstra",
+    "Huffman"
+   ],
+   "correct": 0,
+   "explanation": "Gradient-based error propagation."
+  },
+  {
+   "subject": "Artificial Neural Networks and Deep Learning",
+   "topic": "Deep",
+   "text": "CNNs are mainly used for",
+   "options": [
+    "only text sorting",
+    "image data",
+    "only audio hardware",
+    "only databases"
+   ],
+   "correct": 1,
+   "explanation": "Convolutional neural networks."
+  },
+  {
+   "subject": "Artificial Neural Networks and Deep Learning",
+   "topic": "Recurrent",
+   "text": "RNNs are suited for",
+   "options": [
+    "only static images",
+    "only tabular sorting",
+    "sequential data",
+    "hardware design"
+   ],
+   "correct": 2,
+   "explanation": "Have loops/memory."
+  },
+  {
+   "subject": "Data Science and Machine Learning",
+   "topic": "Introduction",
+   "text": "Which language is widely used in data science?",
+   "options": [
+    "COBOL",
+    "Assembly",
+    "Pascal",
+    "Python"
+   ],
+   "correct": 3,
+   "explanation": "Rich libraries like pandas."
+  },
+  {
+   "subject": "Data Science and Machine Learning",
+   "topic": "Programming",
+   "text": "The Python library for data frames is",
+   "options": [
+    "pandas",
+    "tkinter",
+    "turtle",
+    "socket"
+   ],
+   "correct": 0,
+   "explanation": "pandas."
+  },
+  {
+   "subject": "Data Science and Machine Learning",
+   "topic": "Mathematical",
+   "text": "The mean of a data set is its",
+   "options": [
+    "middle value",
+    "average",
+    "most frequent value",
+    "range"
+   ],
+   "correct": 1,
+   "explanation": "Sum divided by count."
+  },
+  {
+   "subject": "Data Science and Machine Learning",
+   "topic": "Classification",
+   "text": "Logistic regression is used for",
+   "options": [
+    "only clustering",
+    "image drawing",
+    "classification",
+    "compression"
+   ],
+   "correct": 2,
+   "explanation": "Predicts class probabilities."
+  },
+  {
+   "subject": "Digital Electronics and Computer Organization",
+   "topic": "Number",
+   "text": "The binary equivalent of decimal 5 is",
+   "options": [
+    "110",
+    "011",
+    "100",
+    "101"
+   ],
+   "correct": 3,
+   "explanation": "4 + 1 = 5."
+  },
+  {
+   "subject": "Digital Electronics and Computer Organization",
+   "topic": "Flip",
+   "text": "A T flip-flop with T = 1 will",
+   "options": [
+    "toggle",
+    "hold",
+    "set",
+    "reset"
+   ],
+   "correct": 0,
+   "explanation": "Toggle."
+  },
+  {
+   "subject": "Digital Electronics and Computer Organization",
+   "topic": "Basic",
+   "text": "The unit that decodes instructions is the",
+   "options": [
+    "ALU",
+    "control unit",
+    "memory",
+    "bus"
+   ],
+   "correct": 1,
+   "explanation": "Control unit."
+  },
+  {
+   "subject": "Digital Electronics and Computer Organization",
+   "topic": "Memory",
+   "text": "Cache memory is",
+   "options": [
+    "slower than disk",
+    "non-addressable",
+    "faster than main memory",
+    "only for output"
+   ],
+   "correct": 2,
+   "explanation": "Placed between CPU and RAM."
+  },
+  {
+   "subject": "Big Data and Cloud Computing",
+   "topic": "Data Mining",
+   "text": "Data mining is the process of",
+   "options": [
+    "printing documents",
+    "designing circuits",
+    "assembling hardware",
+    "discovering patterns in large data"
+   ],
+   "correct": 3,
+   "explanation": "Pattern discovery."
+  },
+  {
+   "subject": "Big Data and Cloud Computing",
+   "topic": "Ware",
+   "text": "A data warehouse stores",
+   "options": [
+    "historical integrated data",
+    "only live voice",
+    "temporary cache only",
+    "firmware"
+   ],
+   "correct": 0,
+   "explanation": "Used for analysis."
+  },
+  {
+   "subject": "Big Data and Cloud Computing",
+   "topic": "Big Data",
+   "text": "Which of the following is a 'V' of big data?",
+   "options": [
+    "Voltage",
+    "Volume",
+    "Version",
+    "Visual"
+   ],
+   "correct": 1,
+   "explanation": "Volume, velocity, variety."
+  },
+  {
+   "subject": "Big Data and Cloud Computing",
+   "topic": "Cloud",
+   "text": "IaaS stands for",
+   "options": [
+    "Internet as a Service",
+    "Information as a Service",
+    "Infrastructure as a Service",
+    "Integration as a System"
+   ],
+   "correct": 2,
+   "explanation": "Cloud service model."
+  },
+  {
+   "subject": "Cloud Computing Architecture",
+   "topic": "Basics",
+   "text": "Which is a public cloud provider?",
+   "options": [
+    "Linux kernel",
+    "MySQL",
+    "Python",
+    "Amazon Web Services"
+   ],
+   "correct": 3,
+   "explanation": "AWS."
+  },
+  {
+   "subject": "Cloud Computing Architecture",
+   "topic": "Virtualization",
+   "text": "A hypervisor is used for",
+   "options": [
+    "creating virtual machines",
+    "printing",
+    "compiling",
+    "drawing"
+   ],
+   "correct": 0,
+   "explanation": "It runs multiple VMs on one host."
+  },
+  {
+   "subject": "Cloud Computing Architecture",
+   "topic": "Deployment",
+   "text": "A cloud shared by several organizations with common concerns is a",
+   "options": [
+    "private cloud",
+    "community cloud",
+    "public cloud",
+    "hybrid cloud only"
+   ],
+   "correct": 1,
+   "explanation": "Community cloud."
+  },
+  {
+   "subject": "Cloud Computing Architecture",
+   "topic": "Architecture",
+   "text": "SaaS provides",
+   "options": [
+    "only hardware",
+    "only networks",
+    "ready-to-use software over the internet",
+    "only compilers"
+   ],
+   "correct": 2,
+   "explanation": "Software as a Service."
+  },
+  {
+   "subject": "Advanced Cloud Computing",
+   "topic": "AWS",
+   "text": "Amazon S3 is used for",
+   "options": [
+    "virtual desktop only",
+    "DNS only",
+    "email only",
+    "object storage"
+   ],
+   "correct": 3,
+   "explanation": "Simple Storage Service."
+  },
+  {
+   "subject": "Advanced Cloud Computing",
+   "topic": "AWS",
+   "text": "Amazon EC2 provides",
+   "options": [
+    "resizable virtual servers",
+    "object storage",
+    "DNS",
+    "email"
+   ],
+   "correct": 0,
+   "explanation": "Elastic Compute Cloud."
+  },
+  {
+   "subject": "Advanced Cloud Computing",
+   "topic": "Security",
+   "text": "IAM in cloud stands for",
+   "options": [
+    "Internet Access Module",
+    "Identity and Access Management",
+    "Integrated Application Model",
+    "Internal Access Method"
+   ],
+   "correct": 1,
+   "explanation": "Controls who can access what."
+  },
+  {
+   "subject": "Big Data Analytics",
+   "topic": "Hadoop",
+   "text": "HDFS stands for",
+   "options": [
+    "High Data File Storage",
+    "Hadoop Digital File Server",
+    "Hadoop Distributed File System",
+    "Hyper Distributed File System"
+   ],
+   "correct": 2,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Big Data Analytics",
+   "topic": "MapReduce",
+   "text": "MapReduce is a",
+   "options": [
+    "database language",
+    "graphics library",
+    "operating system",
+    "programming model for processing large data"
+   ],
+   "correct": 3,
+   "explanation": "Map then reduce."
+  },
+  {
+   "subject": "Big Data Analytics",
+   "topic": "Hive",
+   "text": "Hive provides a ___ interface to Hadoop",
+   "options": [
+    "SQL-like",
+    "assembly-like",
+    "graphical only",
+    "voice"
+   ],
+   "correct": 0,
+   "explanation": "HiveQL."
+  },
+  {
+   "subject": "Big Data Analytics",
+   "topic": "Spark",
+   "text": "Apache Spark processes data mainly",
+   "options": [
+    "only on tape",
+    "in memory",
+    "only on paper",
+    "only on floppy"
+   ],
+   "correct": 1,
+   "explanation": "Faster than disk-based MapReduce."
+  },
+  {
+   "subject": "Android Programming",
+   "topic": "Basics",
+   "text": "Android applications are mainly written in",
+   "options": [
+    "COBOL",
+    "Fortran",
+    "Kotlin or Java",
+    "Pascal"
+   ],
+   "correct": 2,
+   "explanation": "Officially supported languages."
+  },
+  {
+   "subject": "Android Programming",
+   "topic": "Components",
+   "text": "The four main Android components include",
+   "options": [
+    "Compiler",
+    "Kernel",
+    "Registry",
+    "Activity"
+   ],
+   "correct": 3,
+   "explanation": "Activity, Service, Broadcast Receiver, Content Provider."
+  },
+  {
+   "subject": "Android Programming",
+   "topic": "Components",
+   "text": "The method called when an activity is first created is",
+   "options": [
+    "onCreate()",
+    "onStart() only",
+    "onDestroy()",
+    "onPause()"
+   ],
+   "correct": 0,
+   "explanation": "Start of the lifecycle."
+  },
+  {
+   "subject": "Android Programming",
+   "topic": "Database",
+   "text": "Android's built-in lightweight database is",
+   "options": [
+    "Oracle",
+    "SQLite",
+    "MongoDB",
+    "DB2"
+   ],
+   "correct": 1,
+   "explanation": "Embedded SQLite."
+  },
+  {
+   "subject": "Basics of Computers and AI",
+   "topic": "Fundamentals",
+   "text": "AI stands for",
+   "options": [
+    "Automatic Input",
+    "Applied Internet",
+    "Artificial Intelligence",
+    "Analog Interface"
+   ],
+   "correct": 2,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Basics of Computers and AI",
+   "topic": "Artificial",
+   "text": "Which of these is an example of AI?",
+   "options": [
+    "Keyboard",
+    "Mouse",
+    "Cable",
+    "Voice assistant"
+   ],
+   "correct": 3,
+   "explanation": "Speech understanding."
+  },
+  {
+   "subject": "Basics of Computers and AI",
+   "topic": "Fundamentals",
+   "text": "The part of a computer that stores programs currently running is",
+   "options": [
+    "RAM",
+    "ROM",
+    "CPU",
+    "printer"
+   ],
+   "correct": 0,
+   "explanation": "Main memory."
+  },
+  {
+   "subject": "Basics of Cloud Computing",
+   "topic": "Fundamentals",
+   "text": "Which is a cloud storage service?",
+   "options": [
+    "Notepad",
+    "Google Drive",
+    "Paint",
+    "Calculator"
+   ],
+   "correct": 1,
+   "explanation": "Online storage."
+  },
+  {
+   "subject": "Basics of Cloud Computing",
+   "topic": "Basics of Cloud",
+   "text": "Pay-as-you-use is a feature of",
+   "options": [
+    "only offline computing",
+    "typewriters",
+    "cloud computing",
+    "batch cards"
+   ],
+   "correct": 2,
+   "explanation": "Metered usage."
+  },
+  {
+   "subject": "Internet of Things and Cloud Computing",
+   "topic": "Introduction",
+   "text": "IoT devices usually send data to the",
+   "options": [
+    "printer only",
+    "keyboard",
+    "floppy",
+    "cloud"
+   ],
+   "correct": 3,
+   "explanation": "Cloud platforms store and analyse it."
+  },
+  {
+   "subject": "Internet of Things and Cloud Computing",
+   "topic": "Cloud",
+   "text": "PaaS stands for",
+   "options": [
+    "Platform as a Service",
+    "Program as a System",
+    "Protocol as a Service",
+    "Process as a Server"
+   ],
+   "correct": 0,
+   "explanation": "Cloud service model."
+  },
+  {
+   "subject": "Electronic Components and Devices",
+   "topic": "Passive",
+   "text": "Which is a passive component?",
+   "options": [
+    "Transistor",
+    "Resistor",
+    "Diode",
+    "SCR"
+   ],
+   "correct": 1,
+   "explanation": "It does not amplify."
+  },
+  {
+   "subject": "Electronic Components and Devices",
+   "topic": "Passive",
+   "text": "The unit of capacitance is",
+   "options": [
+    "henry",
+    "ohm",
+    "farad",
+    "tesla"
+   ],
+   "correct": 2,
+   "explanation": "Farad (F)."
+  },
+  {
+   "subject": "Electronic Components and Devices",
+   "topic": "Diodes",
+   "text": "A PN junction diode conducts when it is",
+   "options": [
+    "reverse biased",
+    "unbiased",
+    "open",
+    "forward biased"
+   ],
+   "correct": 3,
+   "explanation": "P side positive."
+  },
+  {
+   "subject": "Electronic Components and Devices",
+   "topic": "Bipolar",
+   "text": "A BJT has how many terminals?",
+   "options": [
+    "3",
+    "2",
+    "4",
+    "5"
+   ],
+   "correct": 0,
+   "explanation": "Emitter, base, collector."
+  },
+  {
+   "subject": "Electronic Components and Devices",
+   "topic": "Field",
+   "text": "FET is a ___ controlled device",
+   "options": [
+    "current",
+    "voltage",
+    "temperature",
+    "light only"
+   ],
+   "correct": 1,
+   "explanation": "Gate voltage controls current."
+  },
+  {
+   "subject": "Electronic Components and Devices",
+   "topic": "Semiconductor",
+   "text": "Silicon is a",
+   "options": [
+    "conductor",
+    "insulator",
+    "semiconductor",
+    "superconductor"
+   ],
+   "correct": 2,
+   "explanation": "Group IV element."
+  },
+  {
+   "subject": "Elements of Electrical Engineering",
+   "topic": "Basics",
+   "text": "The unit of electric current is",
+   "options": [
+    "volt",
+    "ohm",
+    "watt",
+    "ampere"
+   ],
+   "correct": 3,
+   "explanation": "SI unit."
+  },
+  {
+   "subject": "Elements of Electrical Engineering",
+   "topic": "Basic Electrical",
+   "text": "In a series circuit the current is",
+   "options": [
+    "the same through all elements",
+    "different in each element",
+    "zero",
+    "infinite"
+   ],
+   "correct": 0,
+   "explanation": "One path."
+  },
+  {
+   "subject": "Elements of Electrical Engineering",
+   "topic": "AC",
+   "text": "The frequency of the Indian AC supply is",
+   "options": [
+    "60 Hz",
+    "50 Hz",
+    "100 Hz",
+    "25 Hz"
+   ],
+   "correct": 1,
+   "explanation": "Standard in India."
+  },
+  {
+   "subject": "Elements of Electrical Engineering",
+   "topic": "Transformers",
+   "text": "A transformer works on the principle of",
+   "options": [
+    "self induction only",
+    "Ohm's law",
+    "mutual induction",
+    "photoelectric effect"
+   ],
+   "correct": 2,
+   "explanation": "Changing flux induces voltage."
+  },
+  {
+   "subject": "Elements of Electrical Engineering",
+   "topic": "Motors",
+   "text": "A DC motor converts",
+   "options": [
+    "mechanical to electrical",
+    "heat to light",
+    "sound to light",
+    "electrical energy to mechanical energy"
+   ],
+   "correct": 3,
+   "explanation": "Motor action."
+  },
+  {
+   "subject": "Electronic Circuits-I",
+   "topic": "DC",
+   "text": "A rectifier converts",
+   "options": [
+    "AC to DC",
+    "DC to AC",
+    "AC to AC",
+    "DC to DC"
+   ],
+   "correct": 0,
+   "explanation": "Rectification."
+  },
+  {
+   "subject": "Electronic Circuits-I",
+   "topic": "DC",
+   "text": "The ripple factor of an ideal power supply is",
+   "options": [
+    "1",
+    "0",
+    "100",
+    "infinite"
+   ],
+   "correct": 1,
+   "explanation": "No AC component."
+  },
+  {
+   "subject": "Electronic Circuits-I",
+   "topic": "Small",
+   "text": "The transistor configuration with highest current gain used as buffer is",
+   "options": [
+    "common base",
+    "common emitter only",
+    "common collector",
+    "none"
+   ],
+   "correct": 2,
+   "explanation": "Emitter follower."
+  },
+  {
+   "subject": "Electronic Circuits-I",
+   "topic": "Feedback",
+   "text": "Negative feedback in amplifiers",
+   "options": [
+    "increases gain",
+    "adds noise",
+    "removes power",
+    "reduces gain and improves stability"
+   ],
+   "correct": 3,
+   "explanation": "Trade-off."
+  },
+  {
+   "subject": "Analog and Digital Communication Systems",
+   "topic": "Amplitude",
+   "text": "In AM the ___ of the carrier varies with the message",
+   "options": [
+    "amplitude",
+    "frequency",
+    "phase",
+    "speed"
+   ],
+   "correct": 0,
+   "explanation": "Amplitude modulation."
+  },
+  {
+   "subject": "Analog and Digital Communication Systems",
+   "topic": "Angle",
+   "text": "FM stands for",
+   "options": [
+    "Fast Modulation",
+    "Frequency Modulation",
+    "Fixed Modulation",
+    "Final Mix"
+   ],
+   "correct": 1,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Analog and Digital Communication Systems",
+   "topic": "Digital",
+   "text": "PCM stands for",
+   "options": [
+    "Phase Code Method",
+    "Pulse Carrier Mode",
+    "Pulse Code Modulation",
+    "Power Code Modulation"
+   ],
+   "correct": 2,
+   "explanation": "Digital voice coding."
+  },
+  {
+   "subject": "Analog and Digital Communication Systems",
+   "topic": "Transmitters",
+   "text": "A superheterodyne receiver converts the signal to a fixed",
+   "options": [
+    "audio frequency only",
+    "radio frequency only",
+    "DC",
+    "intermediate frequency"
+   ],
+   "correct": 3,
+   "explanation": "IF."
+  },
+  {
+   "subject": "Network Analysis",
+   "topic": "Network",
+   "text": "Kirchhoff's current law states that the algebraic sum of currents at a node is",
+   "options": [
+    "zero",
+    "maximum",
+    "infinite",
+    "one"
+   ],
+   "correct": 0,
+   "explanation": "Charge conservation."
+  },
+  {
+   "subject": "Network Analysis",
+   "topic": "Theorems",
+   "text": "Thevenin's theorem replaces a network by",
+   "options": [
+    "a current source only",
+    "a voltage source and series resistance",
+    "a capacitor",
+    "a diode"
+   ],
+   "correct": 1,
+   "explanation": "Equivalent circuit."
+  },
+  {
+   "subject": "Network Analysis",
+   "topic": "Resonance",
+   "text": "At series resonance the circuit impedance is",
+   "options": [
+    "maximum",
+    "zero always",
+    "minimum (equal to R)",
+    "infinite"
+   ],
+   "correct": 2,
+   "explanation": "Reactances cancel."
+  },
+  {
+   "subject": "Microcontrollers and Interfacing",
+   "topic": "Architecture",
+   "text": "The 8051 microcontroller is",
+   "options": [
+    "16-bit",
+    "32-bit",
+    "64-bit",
+    "8-bit"
+   ],
+   "correct": 3,
+   "explanation": "Intel 8051 is 8-bit."
+  },
+  {
+   "subject": "Microcontrollers and Interfacing",
+   "topic": "Instruction",
+   "text": "In 8051 the instruction to move data is",
+   "options": [
+    "MOV",
+    "LOAD",
+    "PUSHD",
+    "GET"
+   ],
+   "correct": 0,
+   "explanation": "MOV."
+  },
+  {
+   "subject": "Microcontrollers and Interfacing",
+   "topic": "Architecture",
+   "text": "The 8051 has how many I/O ports?",
+   "options": [
+    "2",
+    "4",
+    "8",
+    "1"
+   ],
+   "correct": 1,
+   "explanation": "P0 to P3."
+  },
+  {
+   "subject": "Embedded Systems",
+   "topic": "Introduction",
+   "text": "An RTOS is used when",
+   "options": [
+    "graphics are heavy",
+    "no CPU exists",
+    "tasks must meet deadlines",
+    "batch printing"
+   ],
+   "correct": 2,
+   "explanation": "Real-time systems."
+  },
+  {
+   "subject": "Embedded Systems",
+   "topic": "ARM",
+   "text": "ARM Cortex-M3 is based on",
+   "options": [
+    "8-bit architecture",
+    "4-bit architecture",
+    "64-bit only",
+    "32-bit architecture"
+   ],
+   "correct": 3,
+   "explanation": "32-bit RISC core."
+  },
+  {
+   "subject": "Industrial Electronics and Automation",
+   "topic": "Power",
+   "text": "SCR stands for",
+   "options": [
+    "Silicon Controlled Rectifier",
+    "Static Current Regulator",
+    "Series Control Resistor",
+    "Signal Control Relay"
+   ],
+   "correct": 0,
+   "explanation": "Thyristor."
+  },
+  {
+   "subject": "Industrial Electronics and Automation",
+   "topic": "PLCs",
+   "text": "PLC stands for",
+   "options": [
+    "Power Line Cable",
+    "Programmable Logic Controller",
+    "Program Loop Counter",
+    "Primary Logic Circuit"
+   ],
+   "correct": 1,
+   "explanation": "Industrial controller."
+  },
+  {
+   "subject": "Industrial Electronics and Automation",
+   "topic": "Control",
+   "text": "A system with feedback is called a",
+   "options": [
+    "open loop system",
+    "manual system",
+    "closed loop system",
+    "dead system"
+   ],
+   "correct": 2,
+   "explanation": "Closed loop."
+  },
+  {
+   "subject": "Data Communication and Computer Networks",
+   "topic": "Data",
+   "text": "The OSI layer responsible for routing is the",
+   "options": [
+    "data link layer",
+    "transport layer",
+    "session layer",
+    "network layer"
+   ],
+   "correct": 3,
+   "explanation": "IP works here."
+  },
+  {
+   "subject": "Data Communication and Computer Networks",
+   "topic": "Transport",
+   "text": "TCP is",
+   "options": [
+    "connection-oriented",
+    "connectionless",
+    "only for broadcast",
+    "physical layer"
+   ],
+   "correct": 0,
+   "explanation": "Reliable delivery."
+  },
+  {
+   "subject": "Data Communication and Computer Networks",
+   "topic": "Application",
+   "text": "Which protocol is used to send email?",
+   "options": [
+    "FTP",
+    "SMTP",
+    "HTTP",
+    "SNMP"
+   ],
+   "correct": 1,
+   "explanation": "Simple Mail Transfer Protocol."
+  },
+  {
+   "subject": "Network Management through TCP/IP",
+   "topic": "Internetworking",
+   "text": "ARP maps",
+   "options": [
+    "MAC to IP",
+    "domain to IP",
+    "IP address to MAC address",
+    "port to IP"
+   ],
+   "correct": 2,
+   "explanation": "Address Resolution Protocol."
+  },
+  {
+   "subject": "Network Management through TCP/IP",
+   "topic": "Error",
+   "text": "ICMP is used for",
+   "options": [
+    "file transfer",
+    "email",
+    "web hosting",
+    "error reporting"
+   ],
+   "correct": 3,
+   "explanation": "ping uses ICMP."
+  },
+  {
+   "subject": "Cryptography and Network Security",
+   "topic": "Encryption",
+   "text": "RSA is a",
+   "options": [
+    "public key algorithm",
+    "symmetric algorithm",
+    "hash function",
+    "stream cipher"
+   ],
+   "correct": 0,
+   "explanation": "Asymmetric."
+  },
+  {
+   "subject": "Cryptography and Network Security",
+   "topic": "Integrity",
+   "text": "A digital signature provides",
+   "options": [
+    "only compression",
+    "authentication and integrity",
+    "only speed",
+    "only storage"
+   ],
+   "correct": 1,
+   "explanation": "Uses private key signing."
+  },
+  {
+   "subject": "Cryptography and Network Security",
+   "topic": "Firewalls",
+   "text": "A firewall",
+   "options": [
+    "stores data",
+    "edits images",
+    "controls network traffic",
+    "prints"
+   ],
+   "correct": 2,
+   "explanation": "Packet filtering."
+  },
+  {
+   "subject": "Wireless Networks",
+   "topic": "Wireless",
+   "text": "Wi-Fi is based on the standard",
+   "options": [
+    "IEEE 802.3",
+    "IEEE 802.5",
+    "IEEE 802.1",
+    "IEEE 802.11"
+   ],
+   "correct": 3,
+   "explanation": "Wireless LAN."
+  },
+  {
+   "subject": "Wireless Networks",
+   "topic": "Wireless LAN",
+   "text": "Bluetooth is an example of",
+   "options": [
+    "wireless PAN",
+    "WAN",
+    "MAN",
+    "SAN"
+   ],
+   "correct": 0,
+   "explanation": "Personal area network."
+  },
+  {
+   "subject": "High Speed Networks",
+   "topic": "Protocols",
+   "text": "ATM transfers data in fixed-size",
+   "options": [
+    "packets of 1500 bytes",
+    "cells of 53 bytes",
+    "frames of 64 bytes",
+    "blocks of 512 bytes"
+   ],
+   "correct": 1,
+   "explanation": "ATM cell is 53 bytes."
+  },
+  {
+   "subject": "High Speed Networks",
+   "topic": "QoS",
+   "text": "QoS stands for",
+   "options": [
+    "Quantity of Signal",
+    "Queue of Services",
+    "Quality of Service",
+    "Quick Operating System"
+   ],
+   "correct": 2,
+   "explanation": "Standard expansion."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "Laplace",
+   "text": "The Laplace transform of 1 is",
+   "options": [
+    "s",
+    "1",
+    "0",
+    "1/s"
+   ],
+   "correct": 3,
+   "explanation": "L{1} = 1/s."
+  },
+  {
+   "subject": "Mathematics-II",
+   "topic": "integra",
+   "text": "∫ e^x dx equals",
+   "options": [
+    "e^x + C",
+    "e^(x+1) + C",
+    "x e^x + C",
+    "1/e^x + C"
+   ],
+   "correct": 0,
+   "explanation": "Derivative of e^x is e^x."
+  },
+  {
+   "subject": "Electrical Engineering Materials",
+   "topic": "Conducting",
+   "text": "Which has the lowest resistivity among common metals?",
+   "options": [
+    "Copper",
+    "Silver",
+    "Aluminium",
+    "Iron"
+   ],
+   "correct": 1,
+   "explanation": "Silver is the best conductor."
+  },
+  {
+   "subject": "Electrical Engineering Materials",
+   "topic": "Insulating",
+   "text": "The unit of dielectric strength is",
+   "options": [
+    "ohm",
+    "henry",
+    "kV/mm",
+    "tesla"
+   ],
+   "correct": 2,
+   "explanation": "Voltage per thickness."
+  },
+  {
+   "subject": "Electrical Engineering Materials",
+   "topic": "Magnetic",
+   "text": "Soft magnetic materials have",
+   "options": [
+    "high coercivity",
+    "permanent magnetism",
+    "no permeability",
+    "low hysteresis loss"
+   ],
+   "correct": 3,
+   "explanation": "Used in transformer cores."
+  },
+  {
+   "subject": "Electrical Engineering Materials",
+   "topic": "Electrostatics",
+   "text": "The unit of capacitance is",
+   "options": [
+    "farad",
+    "henry",
+    "weber",
+    "siemens"
+   ],
+   "correct": 0,
+   "explanation": "Farad."
+  },
+  {
+   "subject": "Basic Electrical Technology",
+   "topic": "Principles",
+   "text": "Ohm's law relates voltage, current and",
+   "options": [
+    "power only",
+    "resistance",
+    "capacitance",
+    "frequency"
+   ],
+   "correct": 1,
+   "explanation": "V = IR."
+  },
+  {
+   "subject": "Basic Electrical Technology",
+   "topic": "Resistive",
+   "text": "Two 10 Ω resistors in parallel give",
+   "options": [
+    "20 Ω",
+    "10 Ω",
+    "5 Ω",
+    "100 Ω"
+   ],
+   "correct": 2,
+   "explanation": "R = (10×10)/(20) = 5 Ω."
+  },
+  {
+   "subject": "Basic Electrical Technology",
+   "topic": "Work",
+   "text": "Electrical power is",
+   "options": [
+    "V / I",
+    "I / V",
+    "V + I",
+    "V × I"
+   ],
+   "correct": 3,
+   "explanation": "P = VI."
+  },
+  {
+   "subject": "Basic Electrical Technology",
+   "topic": "Network",
+   "text": "Superposition theorem applies to",
+   "options": [
+    "linear networks",
+    "non-linear networks only",
+    "any network",
+    "digital circuits only"
+   ],
+   "correct": 0,
+   "explanation": "Linear bilateral networks."
+  },
+  {
+   "subject": "Electrical Machines-I",
+   "topic": "DC Generators",
+   "text": "A DC generator works on",
+   "options": [
+    "Ohm's law only",
+    "Faraday's law of induction",
+    "Coulomb's law",
+    "Lenz's law only"
+   ],
+   "correct": 1,
+   "explanation": "EMF induced in a conductor cutting flux."
+  },
+  {
+   "subject": "Electrical Machines-I",
+   "topic": "DC motors",
+   "text": "The back EMF in a DC motor",
+   "options": [
+    "aids the supply",
+    "is zero",
+    "opposes the applied voltage",
+    "is infinite"
+   ],
+   "correct": 2,
+   "explanation": "Eb = V − IaRa."
+  },
+  {
+   "subject": "Electrical Machines-I",
+   "topic": "Speed",
+   "text": "Speed of a DC shunt motor can be increased by",
+   "options": [
+    "strengthening the field",
+    "increasing armature resistance only",
+    "shorting the armature",
+    "weakening the field"
+   ],
+   "correct": 3,
+   "explanation": "Field control."
+  },
+  {
+   "subject": "Electrical Machines-I",
+   "topic": "Measuring",
+   "text": "A voltmeter is connected",
+   "options": [
+    "in parallel",
+    "in series",
+    "anywhere",
+    "via a shunt"
+   ],
+   "correct": 0,
+   "explanation": "Measures potential difference."
+  },
+  {
+   "subject": "AC Circuits and Transformers",
+   "topic": "Fundamentals",
+   "text": "The RMS value of a sinusoidal current with peak Im is",
+   "options": [
+    "Im√2",
+    "Im/√2",
+    "Im/2",
+    "2Im"
+   ],
+   "correct": 1,
+   "explanation": "Standard result."
+  },
+  {
+   "subject": "AC Circuits and Transformers",
+   "topic": "Single",
+   "text": "Power factor of a purely resistive circuit is",
+   "options": [
+    "0",
+    "0.5",
+    "1",
+    "infinite"
+   ],
+   "correct": 2,
+   "explanation": "Voltage and current in phase."
+  },
+  {
+   "subject": "AC Circuits and Transformers",
+   "topic": "Poly",
+   "text": "In a star connection, line voltage equals",
+   "options": [
+    "phase voltage",
+    "phase voltage / √3",
+    "3 × phase voltage",
+    "√3 × phase voltage"
+   ],
+   "correct": 3,
+   "explanation": "VL = √3 Vph."
+  },
+  {
+   "subject": "AC Circuits and Transformers",
+   "topic": "Transformers",
+   "text": "Transformer efficiency is maximum when",
+   "options": [
+    "copper loss equals iron loss",
+    "no load",
+    "short circuit",
+    "zero load voltage"
+   ],
+   "correct": 0,
+   "explanation": "Condition for maximum efficiency."
+  },
+  {
+   "subject": "Electronics Engineering",
+   "topic": "Semiconductor",
+   "text": "A zener diode is used as a",
+   "options": [
+    "amplifier only",
+    "voltage regulator",
+    "oscillator only",
+    "switch only"
+   ],
+   "correct": 1,
+   "explanation": "Operates in reverse breakdown."
+  },
+  {
+   "subject": "Electronics Engineering",
+   "topic": "Power",
+   "text": "A full-wave rectifier has an output frequency of ___ times the input",
+   "options": [
+    "1",
+    "4",
+    "2",
+    "0.5"
+   ],
+   "correct": 2,
+   "explanation": "Both half cycles used."
+  },
+  {
+   "subject": "Electronics Engineering",
+   "topic": "Oscillators",
+   "text": "An oscillator produces",
+   "options": [
+    "only DC",
+    "no output",
+    "pulses only from battery",
+    "continuous waveform without input signal"
+   ],
+   "correct": 3,
+   "explanation": "Uses positive feedback."
+  },
+  {
+   "subject": "Electronics Engineering",
+   "topic": "Linear",
+   "text": "An ideal op-amp has input impedance",
+   "options": [
+    "infinite",
+    "zero",
+    "100 Ω",
+    "1 kΩ"
+   ],
+   "correct": 0,
+   "explanation": "Ideal characteristics."
+  },
+  {
+   "subject": "Electrical Installation and Estimation",
+   "topic": "Wiring",
+   "text": "The colour of the neutral wire in India (new code) is",
+   "options": [
+    "red",
+    "black",
+    "green",
+    "yellow"
+   ],
+   "correct": 1,
+   "explanation": "Phase red/yellow/blue; neutral black."
+  },
+  {
+   "subject": "Electrical Installation and Estimation",
+   "topic": "Earthing",
+   "text": "Earthing protects against",
+   "options": [
+    "low voltage",
+    "overheating of bulbs only",
+    "electric shock",
+    "noise only"
+   ],
+   "correct": 2,
+   "explanation": "Provides a path for fault current."
+  },
+  {
+   "subject": "Electrical Installation and Estimation",
+   "topic": "Safety",
+   "text": "A fuse protects a circuit from",
+   "options": [
+    "low frequency",
+    "over-illumination",
+    "dust",
+    "overcurrent"
+   ],
+   "correct": 3,
+   "explanation": "It melts on overload."
+  },
+  {
+   "subject": "Power Systems-I",
+   "topic": "Sources",
+   "text": "The most widely used source of electricity generation in India is",
+   "options": [
+    "thermal (coal)",
+    "wind",
+    "tidal",
+    "geothermal"
+   ],
+   "correct": 0,
+   "explanation": "Coal-based thermal power."
+  },
+  {
+   "subject": "Power Systems-I",
+   "topic": "Switchgear",
+   "text": "A circuit breaker",
+   "options": [
+    "measures voltage",
+    "interrupts fault currents",
+    "generates power",
+    "stores energy"
+   ],
+   "correct": 1,
+   "explanation": "Opens the circuit on faults."
+  },
+  {
+   "subject": "Power Systems-I",
+   "topic": "Combined",
+   "text": "Load factor is the ratio of",
+   "options": [
+    "maximum demand to connected load",
+    "connected load to demand",
+    "average load to maximum demand",
+    "installed capacity to output"
+   ],
+   "correct": 2,
+   "explanation": "Definition."
+  },
+  {
+   "subject": "Power Electronics and PLC",
+   "topic": "Devices",
+   "text": "SCR has how many terminals?",
+   "options": [
+    "2",
+    "4",
+    "5",
+    "3"
+   ],
+   "correct": 3,
+   "explanation": "Anode, cathode, gate."
+  },
+  {
+   "subject": "Power Electronics and PLC",
+   "topic": "Converters",
+   "text": "An inverter converts",
+   "options": [
+    "DC to AC",
+    "AC to DC",
+    "AC to AC",
+    "none"
+   ],
+   "correct": 0,
+   "explanation": "Inversion."
+  },
+  {
+   "subject": "Power Electronics and PLC",
+   "topic": "PLC",
+   "text": "PLC programs are commonly written in",
+   "options": [
+    "HTML",
+    "ladder logic",
+    "SQL",
+    "Java applets"
+   ],
+   "correct": 1,
+   "explanation": "Ladder diagram."
+  },
+  {
+   "subject": "General Mechanical Engineering",
+   "topic": "Simple",
+   "text": "Stress is defined as",
+   "options": [
+    "force × area",
+    "area per force",
+    "force per unit area",
+    "mass per area"
+   ],
+   "correct": 2,
+   "explanation": "σ = P/A."
+  },
+  {
+   "subject": "General Mechanical Engineering",
+   "topic": "I.C.",
+   "text": "In a four-stroke engine the power stroke occurs once every ___ revolutions",
+   "options": [
+    "1",
+    "4",
+    "0.5",
+    "2"
+   ],
+   "correct": 3,
+   "explanation": "Four strokes complete in two revolutions."
+  },
+  {
+   "subject": "Industrial Management and Entrepreneurship",
+   "topic": "Quality",
+   "text": "TQM stands for",
+   "options": [
+    "Total Quality Management",
+    "Total Quantity Measure",
+    "Technical Quality Method",
+    "Total Query Model"
+   ],
+   "correct": 0,
+   "explanation": "Quality philosophy."
+  },
+  {
+   "subject": "Electric Vehicle Technology",
+   "topic": "Environmental",
+   "text": "Which battery type is most used in modern EVs?",
+   "options": [
+    "Lead-acid only",
+    "Lithium-ion",
+    "Zinc-carbon",
+    "Alkaline"
+   ],
+   "correct": 1,
+   "explanation": "High energy density."
+  },
+  {
+   "subject": "Electric Vehicle Technology",
+   "topic": "Hybrid",
+   "text": "A hybrid electric vehicle combines",
+   "options": [
+    "two electric motors only",
+    "two IC engines",
+    "IC engine and electric motor",
+    "fuel cell only"
+   ],
+   "correct": 2,
+   "explanation": "Hybrid."
+  },
+  {
+   "subject": "Electric Vehicle Technology",
+   "topic": "Energy",
+   "text": "Regenerative braking",
+   "options": [
+    "wastes energy",
+    "stops the motor permanently",
+    "charges the fuel",
+    "recovers energy during braking"
+   ],
+   "correct": 3,
+   "explanation": "Converts kinetic energy to electrical."
+  },
+  {
+   "subject": "Power Systems-II",
+   "topic": "Transmission",
+   "text": "High voltage is used for transmission to",
+   "options": [
+    "reduce line losses",
+    "increase current",
+    "reduce voltage drop only",
+    "increase resistance"
+   ],
+   "correct": 0,
+   "explanation": "I²R loss falls as current falls."
+  },
+  {
+   "subject": "Power Systems-II",
+   "topic": "Line",
+   "text": "Insulators in transmission lines are made of",
+   "options": [
+    "copper",
+    "porcelain or glass",
+    "aluminium",
+    "steel"
+   ],
+   "correct": 1,
+   "explanation": "They prevent leakage."
+  },
+  {
+   "subject": "Digital Electronics and Microcontrollers",
+   "topic": "Logic",
+   "text": "The output of a NOT gate for input 1 is",
+   "options": [
+    "1",
+    "2",
+    "0",
+    "undefined"
+   ],
+   "correct": 2,
+   "explanation": "Inversion."
+  },
+  {
+   "subject": "Digital Electronics and Microcontrollers",
+   "topic": "Basics",
+   "text": "The 8051 is an",
+   "options": [
+    "16-bit microprocessor",
+    "32-bit DSP",
+    "64-bit CPU",
+    "8-bit microcontroller"
+   ],
+   "correct": 3,
+   "explanation": "Standard."
+  },
+  {
+   "subject": "Electrical Utilization and Traction",
+   "topic": "Lighting",
+   "text": "The unit of luminous intensity is",
+   "options": [
+    "candela",
+    "lumen",
+    "lux",
+    "watt"
+   ],
+   "correct": 0,
+   "explanation": "SI base unit."
+  },
+  {
+   "subject": "Electrical Utilization and Traction",
+   "topic": "Heating",
+   "text": "Induction heating works on",
+   "options": [
+    "corona",
+    "eddy currents",
+    "photoelectric effect",
+    "chemical reaction"
+   ],
+   "correct": 1,
+   "explanation": "Eddy currents heat the metal."
+  },
+  {
+   "subject": "Electrical Utilization and Traction",
+   "topic": "Traction",
+   "text": "The most common traction system in Indian main line electrification is",
+   "options": [
+    "1.5 kV DC",
+    "600 V DC",
+    "25 kV AC",
+    "3 kV DC"
+   ],
+   "correct": 2,
+   "explanation": "25 kV 50 Hz AC."
+  }
+ ]
+}

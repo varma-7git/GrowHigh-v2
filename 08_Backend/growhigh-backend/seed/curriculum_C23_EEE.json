@@ -1,0 +1,295 @@
+{
+ "regulation": "C23",
+ "branch": "EEE",
+ "semesters": {
+  "1": [
+   {
+    "name": "English",
+    "code": "EE-101",
+    "marks": 100,
+    "topics": [
+     "English for Employability",
+     "Living in Harmony",
+     "Connect with Care",
+     "Humour for Happiness",
+     "Never Ever Give Up!",
+     "Preserve or Perish",
+     "The Rainbow of Diversity",
+     "New Challenges - Newer Ideas",
+     "The End Point First",
+     "The Equal Halves",
+     "Dealing with Disaster"
+    ]
+   },
+   {
+    "name": "Engineering Mathematics-I",
+    "code": "EE-102",
+    "marks": 100,
+    "topics": [
+     "Algebra",
+     "Trigonometry",
+     "Co-ordinate Geometry",
+     "Differential Calculus",
+     "Applications of Derivatives"
+    ]
+   },
+   {
+    "name": "Engineering Physics",
+    "code": "EE-103",
+    "marks": 100,
+    "topics": [
+     "Units and Measurements",
+     "Statics",
+     "Gravitation",
+     "Concepts of Energy",
+     "Thermal Physics",
+     "Sound",
+     "Electricity and Magnetism",
+     "Modern Physics"
+    ]
+   },
+   {
+    "name": "Engineering Chemistry and Environmental Studies",
+    "code": "EE-104",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of Chemistry",
+     "Solutions, Acids and Bases",
+     "Electrochemistry",
+     "Corrosion",
+     "Water Treatment",
+     "Polymers and Engineering Materials",
+     "Fuels",
+     "Environmental Studies"
+    ]
+   },
+   {
+    "name": "Electrical Engineering Materials",
+    "code": "EE-105",
+    "marks": 100,
+    "topics": [
+     "Conducting and Semiconducting Materials",
+     "Insulating and Dielectric Materials",
+     "Magnetic Materials",
+     "Magnetic Effects of Electric Current and Electromagnetism",
+     "Electrostatics and Capacitance"
+    ]
+   },
+   {
+    "name": "Basic Electrical Technology",
+    "code": "EE-106",
+    "marks": 100,
+    "topics": [
+     "Basic Principles of Electricity",
+     "Resistive Circuits",
+     "Work, Power, Energy and Heating Effects of Electric Current",
+     "Conversion Techniques",
+     "Network Theorems"
+    ]
+   },
+   {
+    "name": "Engineering Drawing",
+    "code": "EE-107",
+    "marks": 100,
+    "topics": [
+     "Drawing Instruments, Lettering and Dimensioning",
+     "Principles of Geometric Constructions",
+     "Projections of Points, Lines, Planes and Solids",
+     "Sectional Views",
+     "Orthographic Projection"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "name": "Mathematics-II",
+    "code": "EE-301",
+    "marks": 100,
+    "topics": [
+     "Indefinite Integration",
+     "Definite Integration",
+     "Applications of Definite Integrals",
+     "Differential Equations"
+    ]
+   },
+   {
+    "name": "Electrical Machines-I",
+    "code": "EE-302",
+    "marks": 100,
+    "topics": [
+     "DC Generators, Armature Reaction and Commutation",
+     "DC Motors",
+     "Speed Control and Testing of DC Motors",
+     "Electrical Measuring Instruments",
+     "Transducers, Sensors and Electronic and Digital Instruments"
+    ]
+   },
+   {
+    "name": "AC Circuits and Transformers",
+    "code": "EE-303",
+    "marks": 100,
+    "topics": [
+     "Fundamentals of AC",
+     "Single Phase AC Circuits",
+     "Polyphase Circuits",
+     "Single Phase Transformers",
+     "Three Phase Transformers and Auto Transformers"
+    ]
+   },
+   {
+    "name": "Electronics Engineering",
+    "code": "EE-304",
+    "marks": 100,
+    "topics": [
+     "Semiconductor Devices",
+     "Power Supplies",
+     "Amplifiers",
+     "Oscillators",
+     "Linear Integrated Circuits"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "name": "Electrical Installation and Estimation",
+    "code": "EE-401",
+    "marks": 100,
+    "topics": [
+     "Wiring Systems",
+     "Estimation of Lighting and Power Loads",
+     "Estimation of Overhead Lines and Earthing Systems",
+     "Departmental Tests",
+     "Electrical Safety"
+    ]
+   },
+   {
+    "name": "Power Systems-I",
+    "code": "EE-403",
+    "marks": 100,
+    "topics": [
+     "Sources of Electrical Energy",
+     "Thermal, Hydro, Nuclear and Gas Power Stations",
+     "Combined Operation and Economics",
+     "Switchgear and Reactors",
+     "Protective Relays, Protection of Alternators and Transformers"
+    ]
+   },
+   {
+    "name": "Power Electronics and PLC",
+    "code": "EE-404",
+    "marks": 100,
+    "topics": [
+     "Power Electronic Devices",
+     "Power Transistors",
+     "Converters, AC Voltage Controllers and Inverters",
+     "Applications of Power Electronic Circuits",
+     "PLC and SCADA"
+    ]
+   },
+   {
+    "name": "General Mechanical Engineering",
+    "code": "EE-405",
+    "marks": 100,
+    "topics": [
+     "Simple Stresses and Strains",
+     "Torsion in Shafts",
+     "I.C. Engines",
+     "Boilers and Turbines",
+     "Pumps"
+    ]
+   },
+   {
+    "name": "Electrical Engineering Drawing",
+    "code": "EE-406",
+    "marks": 100,
+    "topics": [
+     "Graphical Symbols, Couplings and Guarding Systems",
+     "DC Machines",
+     "Induction Motors",
+     "Transformers",
+     "DC and AC Windings"
+    ]
+   }
+  ],
+  "5": [
+   {
+    "name": "Industrial Management and Entrepreneurship",
+    "code": "EE-501",
+    "marks": 100,
+    "topics": [
+     "Basics of Industrial Management and Organisation Structure",
+     "Material Management and Industrial Safety Management",
+     "Entrepreneurship Development",
+     "Total Quality Management",
+     "Smart Technologies"
+    ]
+   },
+   {
+    "name": "Electric Vehicle Technology",
+    "code": "EE-502",
+    "marks": 100,
+    "topics": [
+     "Environmental Impact, History and Electric Vehicle Types",
+     "Hybrid Electric Vehicle",
+     "Energy Storage",
+     "Charging Techniques and Battery Management System",
+     "Electrical Drives and Braking of Electric Motors"
+    ]
+   },
+   {
+    "name": "Power Systems-II",
+    "code": "EE-503",
+    "marks": 100,
+    "topics": [
+     "Transmission Lines",
+     "Line Structures and Underground Cables",
+     "Substations and Distribution",
+     "Protection of Transmission Lines",
+     "Modern Trends in Power Systems"
+    ]
+   },
+   {
+    "name": "Digital Electronics and Microcontrollers",
+    "code": "EE-509",
+    "marks": 100,
+    "topics": [
+     "Logic Gates",
+     "Combinational Logic Circuits",
+     "Sequential Logic Circuits",
+     "Basics of Microcontrollers",
+     "Programming on Microcontrollers"
+    ]
+   },
+   {
+    "name": "Electrical Utilization and Traction",
+    "code": "EE-505",
+    "marks": 100,
+    "topics": [
+     "Electric Lighting",
+     "Electric Heating",
+     "Energy Saving Devices",
+     "Electric Traction",
+     "Traction Supply Systems"
+    ]
+   },
+   {
+    "name": "Life Skills",
+    "code": "EE-508",
+    "marks": 100,
+    "topics": [
+     "Attitude",
+     "Adaptability",
+     "Goal Setting",
+     "Motivation",
+     "Time Management",
+     "Critical Thinking",
+     "Creativity",
+     "Problem Solving",
+     "Team Work",
+     "Leadership",
+     "Stress Management"
+    ]
+   }
+  ]
+ }
+}

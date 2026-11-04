@@ -134,7 +134,7 @@ def start_mock(user):
     """Timed mock from the ECET subjects (no regulation) that apply to the student's branch, up to 200 questions."""
     from academics.models import Subject
     branch = getattr(getattr(user, "student_profile", None), "branch_id", None)
-    subjects = Subject.objects.filter(is_active=True, regulation__isnull=True).filter(Q(branch__isnull=True) | Q(branch_id=branch))
+    subjects = Subject.objects.filter(is_active=True, area="ECET", regulation__isnull=True).filter(Q(branch__isnull=True) | Q(branch_id=branch))
     ids = list(Question.objects.filter(is_active=True, topic__is_active=True, topic__subject__in=subjects).values_list("pk", flat=True))
     if not ids:
         raise Conflict("There are no mock test questions yet.")

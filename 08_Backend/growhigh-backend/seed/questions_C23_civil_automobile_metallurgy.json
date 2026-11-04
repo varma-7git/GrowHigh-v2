@@ -1,0 +1,1201 @@
+{
+ "regulation": "C23",
+ "questions": [
+  {
+   "subject": "Engineering Mechanics",
+   "topic": "Introduction",
+   "text": "The SI unit of force is",
+   "options": [
+    "newton",
+    "joule",
+    "pascal",
+    "watt"
+   ],
+   "correct": 0,
+   "explanation": "kg·m/s²."
+  },
+  {
+   "subject": "Engineering Mechanics",
+   "topic": "Forces",
+   "text": "Moment of a force equals force multiplied by",
+   "options": [
+    "time",
+    "perpendicular distance",
+    "mass",
+    "velocity"
+   ],
+   "correct": 1,
+   "explanation": "M = F × d."
+  },
+  {
+   "subject": "Engineering Mechanics",
+   "topic": "Forces",
+   "text": "If a body is in equilibrium, the resultant force is",
+   "options": [
+    "maximum",
+    "infinite",
+    "zero",
+    "equal to weight"
+   ],
+   "correct": 2,
+   "explanation": "Net force zero."
+  },
+  {
+   "subject": "Engineering Mechanics",
+   "topic": "Centroid",
+   "text": "The centroid of a rectangle lies at",
+   "options": [
+    "a corner",
+    "midpoint of a side",
+    "outside the shape",
+    "the intersection of its diagonals"
+   ],
+   "correct": 3,
+   "explanation": "Geometric centre."
+  },
+  {
+   "subject": "Engineering Mechanics",
+   "topic": "Shear",
+   "text": "Bending moment is maximum where shear force is",
+   "options": [
+    "zero",
+    "maximum",
+    "infinite",
+    "negative only"
+   ],
+   "correct": 0,
+   "explanation": "dM/dx = V."
+  },
+  {
+   "subject": "Surveying-I",
+   "topic": "Chain",
+   "text": "A metric chain used in surveying is commonly",
+   "options": [
+    "10 m long only",
+    "20 m long",
+    "50 m long only",
+    "100 m long only"
+   ],
+   "correct": 1,
+   "explanation": "Also 30 m."
+  },
+  {
+   "subject": "Surveying-I",
+   "topic": "Compass",
+   "text": "The prismatic compass measures",
+   "options": [
+    "heights only",
+    "areas",
+    "bearings",
+    "volumes"
+   ],
+   "correct": 2,
+   "explanation": "Magnetic bearings."
+  },
+  {
+   "subject": "Surveying-I",
+   "topic": "Levelling",
+   "text": "Levelling is used to find",
+   "options": [
+    "horizontal distance only",
+    "area",
+    "volume of earth only",
+    "difference in elevation"
+   ],
+   "correct": 3,
+   "explanation": "Reduced levels."
+  },
+  {
+   "subject": "Surveying-I",
+   "topic": "Levelling",
+   "text": "A benchmark is a point of",
+   "options": [
+    "known elevation",
+    "unknown elevation only",
+    "zero bearing",
+    "maximum slope"
+   ],
+   "correct": 0,
+   "explanation": "Fixed reference level."
+  },
+  {
+   "subject": "Mechanics of Solids and Theory of Structures",
+   "topic": "Bending",
+   "text": "The bending equation is",
+   "options": [
+    "M = σ A",
+    "M/I = σ/y = E/R",
+    "σ = E/ε only for beams",
+    "M/I = y/σ"
+   ],
+   "correct": 1,
+   "explanation": "Flexure formula."
+  },
+  {
+   "subject": "Mechanics of Solids and Theory of Structures",
+   "topic": "Deflection",
+   "text": "A cantilever beam is fixed at",
+   "options": [
+    "both ends",
+    "no end",
+    "one end",
+    "middle only"
+   ],
+   "correct": 2,
+   "explanation": "Free at the other end."
+  },
+  {
+   "subject": "Mechanics of Solids and Theory of Structures",
+   "topic": "Columns",
+   "text": "Euler's formula is used for",
+   "options": [
+    "shear stress",
+    "torsion",
+    "bearing capacity",
+    "buckling load of long columns"
+   ],
+   "correct": 3,
+   "explanation": "Crippling load."
+  },
+  {
+   "subject": "Hydraulics",
+   "topic": "Properties",
+   "text": "The unit of dynamic viscosity in SI is",
+   "options": [
+    "Pa·s",
+    "N",
+    "m²/s",
+    "kg"
+   ],
+   "correct": 0,
+   "explanation": "N·s/m²."
+  },
+  {
+   "subject": "Hydraulics",
+   "topic": "Pressure",
+   "text": "The pressure at depth h in a liquid of density ρ is",
+   "options": [
+    "ρ h",
+    "ρ g h",
+    "g h / ρ",
+    "ρ / (g h)"
+   ],
+   "correct": 1,
+   "explanation": "Hydrostatic pressure."
+  },
+  {
+   "subject": "Hydraulics",
+   "topic": "Flow",
+   "text": "Bernoulli's equation is based on conservation of",
+   "options": [
+    "mass only",
+    "momentum only",
+    "energy",
+    "charge"
+   ],
+   "correct": 2,
+   "explanation": "Energy per unit weight."
+  },
+  {
+   "subject": "Hydraulics",
+   "topic": "Notches",
+   "text": "A notch is used to measure",
+   "options": [
+    "pressure only",
+    "velocity of sound",
+    "density",
+    "discharge"
+   ],
+   "correct": 3,
+   "explanation": "Flow over notches and weirs."
+  },
+  {
+   "subject": "Hydraulics",
+   "topic": "Pipes",
+   "text": "The Darcy-Weisbach equation gives",
+   "options": [
+    "head loss due to friction",
+    "pump power only",
+    "pressure of vapour",
+    "viscosity"
+   ],
+   "correct": 0,
+   "explanation": "Pipe friction."
+  },
+  {
+   "subject": "Surveying-II",
+   "topic": "Theodolite",
+   "text": "A theodolite measures",
+   "options": [
+    "only areas",
+    "horizontal and vertical angles",
+    "only volumes",
+    "only weights"
+   ],
+   "correct": 1,
+   "explanation": "Angular measurement."
+  },
+  {
+   "subject": "Surveying-II",
+   "topic": "Tacheometry",
+   "text": "Tacheometry is used for",
+   "options": [
+    "area computation only",
+    "water testing",
+    "rapid measurement of distance and elevation",
+    "soil sampling"
+   ],
+   "correct": 2,
+   "explanation": "Stadia method."
+  },
+  {
+   "subject": "Surveying-II",
+   "topic": "Curves",
+   "text": "A curve connecting two straight lines in roads is a",
+   "options": [
+    "hyperbola only",
+    "straight line",
+    "cube",
+    "simple circular curve"
+   ],
+   "correct": 3,
+   "explanation": "Horizontal curve."
+  },
+  {
+   "subject": "Surveying-II",
+   "topic": "Advanced",
+   "text": "GPS stands for",
+   "options": [
+    "Global Positioning System",
+    "General Position Survey",
+    "Geo Plan System",
+    "Ground Point System"
+   ],
+   "correct": 0,
+   "explanation": "Satellite-based."
+  },
+  {
+   "subject": "Construction Materials",
+   "topic": "Stones",
+   "text": "The compressive strength is high in",
+   "options": [
+    "chalk",
+    "granite",
+    "clay",
+    "peat"
+   ],
+   "correct": 1,
+   "explanation": "Igneous rock."
+  },
+  {
+   "subject": "Construction Materials",
+   "topic": "Bricks",
+   "text": "The standard size of a modular brick (with mortar) is",
+   "options": [
+    "19 × 9 × 9 cm",
+    "30 × 15 × 15 cm",
+    "20 × 10 × 10 cm",
+    "10 × 10 × 10 cm"
+   ],
+   "correct": 2,
+   "explanation": "Nominal modular size."
+  },
+  {
+   "subject": "Construction Materials",
+   "topic": "Cement",
+   "text": "The chemical compound mainly responsible for early strength in cement is",
+   "options": [
+    "gypsum",
+    "lime only",
+    "iron",
+    "tricalcium silicate"
+   ],
+   "correct": 3,
+   "explanation": "C3S."
+  },
+  {
+   "subject": "Construction Materials",
+   "topic": "Mortars",
+   "text": "The ingredient used to retard setting of cement is",
+   "options": [
+    "gypsum",
+    "sand",
+    "lime",
+    "water only"
+   ],
+   "correct": 0,
+   "explanation": "Controls setting time."
+  },
+  {
+   "subject": "Construction Technology",
+   "topic": "Concrete",
+   "text": "The ratio 1:2:4 in concrete refers to",
+   "options": [
+    "water : cement : sand",
+    "cement : sand : aggregate",
+    "sand : cement : aggregate",
+    "lime : sand : cement"
+   ],
+   "correct": 1,
+   "explanation": "M15 nominal mix."
+  },
+  {
+   "subject": "Construction Technology",
+   "topic": "Concrete",
+   "text": "The workability of concrete is tested by",
+   "options": [
+    "tension test",
+    "impact test",
+    "slump test",
+    "hardness test"
+   ],
+   "correct": 2,
+   "explanation": "Slump cone."
+  },
+  {
+   "subject": "Construction Technology",
+   "topic": "Earthquake",
+   "text": "Earthquake magnitude is commonly measured on the",
+   "options": [
+    "Beaufort scale",
+    "Mohs scale",
+    "pH scale",
+    "Richter scale for magnitude"
+   ],
+   "correct": 3,
+   "explanation": "Magnitude measure."
+  },
+  {
+   "subject": "Design and Detailing of R.C. Structures",
+   "topic": "Introduction",
+   "text": "In R.C.C., steel is provided mainly to resist",
+   "options": [
+    "tension",
+    "compression only",
+    "shear only",
+    "fire"
+   ],
+   "correct": 0,
+   "explanation": "Concrete is weak in tension."
+  },
+  {
+   "subject": "Design and Detailing of R.C. Structures",
+   "topic": "Philosophy",
+   "text": "Limit state design considers",
+   "options": [
+    "only cost",
+    "safety and serviceability",
+    "only appearance",
+    "only weight"
+   ],
+   "correct": 1,
+   "explanation": "Limit states."
+  },
+  {
+   "subject": "Design and Detailing of R.C. Structures",
+   "topic": "Slabs",
+   "text": "A slab is called one-way when the ratio of long span to short span is greater than",
+   "options": [
+    "1",
+    "0.5",
+    "2",
+    "4"
+   ],
+   "correct": 2,
+   "explanation": "Ly/Lx > 2."
+  },
+  {
+   "subject": "Design and Detailing of R.C. Structures",
+   "topic": "Beams",
+   "text": "The grade M20 concrete has characteristic strength of",
+   "options": [
+    "20 kN",
+    "2 N/mm²",
+    "200 N/mm²",
+    "20 N/mm²"
+   ],
+   "correct": 3,
+   "explanation": "fck = 20 MPa."
+  },
+  {
+   "subject": "Transportation Engineering",
+   "topic": "Highways",
+   "text": "The width of one lane of a highway is commonly",
+   "options": [
+    "3.5 m",
+    "1.5 m",
+    "7 m",
+    "10 m"
+   ],
+   "correct": 0,
+   "explanation": "Standard lane width."
+  },
+  {
+   "subject": "Transportation Engineering",
+   "topic": "Railways",
+   "text": "The gauge of Indian broad gauge is",
+   "options": [
+    "1000 mm",
+    "1676 mm",
+    "1435 mm",
+    "762 mm"
+   ],
+   "correct": 1,
+   "explanation": "5 ft 6 in."
+  },
+  {
+   "subject": "Transportation Engineering",
+   "topic": "Highways",
+   "text": "The binder used in flexible pavement is",
+   "options": [
+    "cement",
+    "gypsum",
+    "bitumen",
+    "lime only"
+   ],
+   "correct": 2,
+   "explanation": "Bituminous pavement."
+  },
+  {
+   "subject": "Irrigation Engineering",
+   "topic": "Nature",
+   "text": "Irrigation is the artificial supply of",
+   "options": [
+    "fertilizer",
+    "seed",
+    "electricity",
+    "water to crops"
+   ],
+   "correct": 3,
+   "explanation": "Definition."
+  },
+  {
+   "subject": "Irrigation Engineering",
+   "topic": "Hydrology",
+   "text": "Rainfall is measured by a",
+   "options": [
+    "rain gauge",
+    "anemometer",
+    "barometer",
+    "hygrometer"
+   ],
+   "correct": 0,
+   "explanation": "Rain gauge."
+  },
+  {
+   "subject": "Irrigation Engineering",
+   "topic": "Gravity",
+   "text": "A dam that resists water pressure by its weight is a",
+   "options": [
+    "arch dam",
+    "gravity dam",
+    "earth dam only",
+    "barrage only"
+   ],
+   "correct": 1,
+   "explanation": "Gravity dam."
+  },
+  {
+   "subject": "Irrigation Engineering",
+   "topic": "Head",
+   "text": "A weir is built across a river to",
+   "options": [
+    "produce electricity only",
+    "measure rain",
+    "raise water level",
+    "filter silt only"
+   ],
+   "correct": 2,
+   "explanation": "Diversion structure."
+  },
+  {
+   "subject": "Civil Engineering Drawing-II",
+   "topic": "Culverts",
+   "text": "A culvert is a structure that",
+   "options": [
+    "stores water",
+    "is a tall building",
+    "is a dam",
+    "carries water below a road"
+   ],
+   "correct": 3,
+   "explanation": "Cross drainage."
+  },
+  {
+   "subject": "Steel Structures",
+   "topic": "Introduction",
+   "text": "The modulus of elasticity of structural steel is about",
+   "options": [
+    "2 × 10^5 N/mm²",
+    "2 × 10^3 N/mm²",
+    "2 × 10^2 N/mm²",
+    "2 × 10^7 N/mm²"
+   ],
+   "correct": 0,
+   "explanation": "200 GPa."
+  },
+  {
+   "subject": "Steel Structures",
+   "topic": "Tension",
+   "text": "A member designed to resist pulling forces is a",
+   "options": [
+    "compression member",
+    "tension member",
+    "beam",
+    "column"
+   ],
+   "correct": 1,
+   "explanation": "Tie."
+  },
+  {
+   "subject": "Steel Structures",
+   "topic": "Roof",
+   "text": "A frame of triangular units supporting a roof is a",
+   "options": [
+    "arch",
+    "raft",
+    "truss",
+    "slab"
+   ],
+   "correct": 2,
+   "explanation": "Roof truss."
+  },
+  {
+   "subject": "Quantity Surveying",
+   "topic": "Introduction",
+   "text": "The volume of a rectangular excavation is",
+   "options": [
+    "length + breadth",
+    "area + depth",
+    "length × depth only",
+    "length × breadth × depth"
+   ],
+   "correct": 3,
+   "explanation": "V = L×B×D."
+  },
+  {
+   "subject": "Quantity Surveying",
+   "topic": "Rates",
+   "text": "Analysis of rates finds",
+   "options": [
+    "cost per unit of work",
+    "area",
+    "volume",
+    "height"
+   ],
+   "correct": 0,
+   "explanation": "Rate analysis."
+  },
+  {
+   "subject": "Advanced Civil Engineering Technologies",
+   "topic": "Prestressed",
+   "text": "Prestressed concrete uses",
+   "options": [
+    "only plain concrete",
+    "high-strength tensioned steel",
+    "only timber",
+    "sand only"
+   ],
+   "correct": 1,
+   "explanation": "Compressive stress introduced before loading."
+  },
+  {
+   "subject": "Advanced Civil Engineering Technologies",
+   "topic": "Green",
+   "text": "A 'green building' aims to",
+   "options": [
+    "use maximum energy",
+    "remove ventilation",
+    "reduce environmental impact",
+    "avoid plants"
+   ],
+   "correct": 2,
+   "explanation": "Sustainable design."
+  },
+  {
+   "subject": "Construction Management and Entrepreneurship",
+   "topic": "Management",
+   "text": "A bar chart used in project scheduling is a",
+   "options": [
+    "pie chart",
+    "Venn diagram",
+    "flowchart",
+    "Gantt chart"
+   ],
+   "correct": 3,
+   "explanation": "Gantt chart."
+  },
+  {
+   "subject": "Construction Management and Entrepreneurship",
+   "topic": "Contract",
+   "text": "Tender means",
+   "options": [
+    "offer to carry out work at a price",
+    "completed work",
+    "audit",
+    "insurance"
+   ],
+   "correct": 0,
+   "explanation": "Bid."
+  },
+  {
+   "subject": "Basic Mechanical Engineering",
+   "topic": "Statics",
+   "text": "Newton's first law is also called the law of",
+   "options": [
+    "acceleration",
+    "inertia",
+    "action-reaction",
+    "gravitation"
+   ],
+   "correct": 1,
+   "explanation": "Inertia."
+  },
+  {
+   "subject": "Basic Mechanical Engineering",
+   "topic": "Simple",
+   "text": "A lever is a",
+   "options": [
+    "engine",
+    "boiler",
+    "simple machine",
+    "turbine"
+   ],
+   "correct": 2,
+   "explanation": "Simple machine."
+  },
+  {
+   "subject": "Basic Mechanical Engineering",
+   "topic": "Thermodynamics",
+   "text": "The first law of thermodynamics deals with",
+   "options": [
+    "entropy only",
+    "pressure only",
+    "specific volume",
+    "conservation of energy"
+   ],
+   "correct": 3,
+   "explanation": "Energy conservation."
+  },
+  {
+   "subject": "Basic Mechanical Engineering",
+   "topic": "Transmission",
+   "text": "Power is transmitted between parallel shafts by",
+   "options": [
+    "gears",
+    "bolts",
+    "clutches only",
+    "nuts"
+   ],
+   "correct": 0,
+   "explanation": "Gear drive."
+  },
+  {
+   "subject": "Elements of Automobile Engineering",
+   "topic": "Engines",
+   "text": "A four-stroke petrol engine works on the ___ cycle",
+   "options": [
+    "Diesel",
+    "Otto",
+    "Rankine",
+    "Carnot"
+   ],
+   "correct": 1,
+   "explanation": "Constant volume heat addition."
+  },
+  {
+   "subject": "Elements of Automobile Engineering",
+   "topic": "Engines",
+   "text": "The device that mixes air and petrol is the",
+   "options": [
+    "radiator",
+    "alternator",
+    "carburettor",
+    "clutch"
+   ],
+   "correct": 2,
+   "explanation": "Mixture formation."
+  },
+  {
+   "subject": "Elements of Automobile Engineering",
+   "topic": "Transmission",
+   "text": "The clutch is placed between",
+   "options": [
+    "gearbox and wheels",
+    "wheel and tyre",
+    "tank and engine",
+    "engine and gearbox"
+   ],
+   "correct": 3,
+   "explanation": "Engages/disengages power."
+  },
+  {
+   "subject": "Automobile Power Plant",
+   "topic": "Engine",
+   "text": "The number of strokes in one cycle of a four-stroke engine is",
+   "options": [
+    "4",
+    "2",
+    "6",
+    "8"
+   ],
+   "correct": 0,
+   "explanation": "Suction, compression, power, exhaust."
+  },
+  {
+   "subject": "Automobile Power Plant",
+   "topic": "Petrol",
+   "text": "The octane number rates petrol's",
+   "options": [
+    "calorific value",
+    "anti-knock quality",
+    "colour",
+    "viscosity"
+   ],
+   "correct": 1,
+   "explanation": "Resistance to knocking."
+  },
+  {
+   "subject": "Automobile Power Plant",
+   "topic": "Diesel",
+   "text": "In a diesel engine fuel is ignited by",
+   "options": [
+    "spark plug",
+    "glow only for all engines",
+    "compression heat",
+    "magneto"
+   ],
+   "correct": 2,
+   "explanation": "Compression ignition."
+  },
+  {
+   "subject": "Automobile Power Plant",
+   "topic": "Lubrication",
+   "text": "The function of engine oil is to",
+   "options": [
+    "cool exhaust only",
+    "filter air",
+    "power starter",
+    "reduce friction"
+   ],
+   "correct": 3,
+   "explanation": "Lubrication."
+  },
+  {
+   "subject": "Automobile Transmission Systems",
+   "topic": "Clutch",
+   "text": "A single plate clutch works by",
+   "options": [
+    "friction",
+    "gravity",
+    "magnetism only",
+    "adhesion"
+   ],
+   "correct": 0,
+   "explanation": "Friction plate."
+  },
+  {
+   "subject": "Automobile Transmission Systems",
+   "topic": "Transmission",
+   "text": "The gear ratio of a gearbox in first gear is",
+   "options": [
+    "lowest",
+    "highest",
+    "zero",
+    "one always"
+   ],
+   "correct": 1,
+   "explanation": "High torque at low speed."
+  },
+  {
+   "subject": "Automobile Transmission Systems",
+   "topic": "Rear",
+   "text": "A differential allows",
+   "options": [
+    "engine to start",
+    "fuel flow",
+    "wheels to rotate at different speeds",
+    "braking"
+   ],
+   "correct": 2,
+   "explanation": "Needed in turns."
+  },
+  {
+   "subject": "Automobile Transmission Systems",
+   "topic": "Wheels",
+   "text": "Tyre aspect ratio refers to",
+   "options": [
+    "tyre pressure",
+    "weight",
+    "colour",
+    "height of sidewall to width"
+   ],
+   "correct": 3,
+   "explanation": "Ratio."
+  },
+  {
+   "subject": "Autotronics",
+   "topic": "Lighting",
+   "text": "The standard battery voltage in a car is",
+   "options": [
+    "12 V",
+    "6 V only",
+    "220 V",
+    "48 V only"
+   ],
+   "correct": 0,
+   "explanation": "Typical."
+  },
+  {
+   "subject": "Autotronics",
+   "topic": "Modern",
+   "text": "ECU stands for",
+   "options": [
+    "Engine Cooling Unit",
+    "Electronic Control Unit",
+    "Electric Clutch Unit",
+    "Energy Control Utility"
+   ],
+   "correct": 1,
+   "explanation": "Controls engine functions."
+  },
+  {
+   "subject": "Engineering Materials and Manufacturing Process",
+   "topic": "Mechanical",
+   "text": "Hardness is the resistance to",
+   "options": [
+    "bending only",
+    "melting",
+    "indentation or scratching",
+    "corrosion"
+   ],
+   "correct": 2,
+   "explanation": "Hardness."
+  },
+  {
+   "subject": "Engineering Materials and Manufacturing Process",
+   "topic": "Manufacture",
+   "text": "Steel is an alloy of iron and",
+   "options": [
+    "copper",
+    "zinc",
+    "tin",
+    "carbon"
+   ],
+   "correct": 3,
+   "explanation": "Up to ~2% carbon."
+  },
+  {
+   "subject": "Engineering Materials and Manufacturing Process",
+   "topic": "Conventional",
+   "text": "Casting is a process in which",
+   "options": [
+    "molten metal is poured into a mould",
+    "metal is cut",
+    "metal is bent only",
+    "metal is pressed cold"
+   ],
+   "correct": 0,
+   "explanation": "Foundry process."
+  },
+  {
+   "subject": "Two and Three Wheeler Technology",
+   "topic": "Introduction",
+   "text": "A two-stroke engine completes a cycle in",
+   "options": [
+    "two revolutions",
+    "one revolution",
+    "four revolutions",
+    "half revolution"
+   ],
+   "correct": 1,
+   "explanation": "Two strokes."
+  },
+  {
+   "subject": "Strength of Materials and Fluid Mechanics",
+   "topic": "Simple",
+   "text": "Hooke's law states stress is proportional to strain within the",
+   "options": [
+    "breaking point",
+    "yield point only",
+    "elastic limit",
+    "plastic range"
+   ],
+   "correct": 2,
+   "explanation": "Proportional limit."
+  },
+  {
+   "subject": "Strength of Materials and Fluid Mechanics",
+   "topic": "Properties",
+   "text": "Density of water is about",
+   "options": [
+    "100 kg/m³",
+    "10 kg/m³",
+    "1 kg/m³",
+    "1000 kg/m³"
+   ],
+   "correct": 3,
+   "explanation": "At 4 °C."
+  },
+  {
+   "subject": "Strength of Materials and Fluid Mechanics",
+   "topic": "Oil",
+   "text": "Pascal's law concerns",
+   "options": [
+    "transmission of fluid pressure",
+    "heat flow",
+    "sound",
+    "light"
+   ],
+   "correct": 0,
+   "explanation": "Pressure transmitted equally."
+  },
+  {
+   "subject": "Automobile Chassis and Body Engineering",
+   "topic": "Steering",
+   "text": "Ackermann steering gear ensures",
+   "options": [
+    "engine cooling",
+    "correct steering geometry",
+    "tyre inflation",
+    "fuel economy"
+   ],
+   "correct": 1,
+   "explanation": "Wheels turn about a common centre."
+  },
+  {
+   "subject": "Automobile Chassis and Body Engineering",
+   "topic": "Braking",
+   "text": "Hydraulic brakes work on",
+   "options": [
+    "Ohm's law",
+    "Boyle's law",
+    "Pascal's law",
+    "Hooke's law"
+   ],
+   "correct": 2,
+   "explanation": "Fluid pressure."
+  },
+  {
+   "subject": "Automobile Chassis and Body Engineering",
+   "topic": "Suspension",
+   "text": "A shock absorber",
+   "options": [
+    "adds fuel",
+    "charges battery",
+    "cools engine",
+    "damps vibrations"
+   ],
+   "correct": 3,
+   "explanation": "Damping."
+  },
+  {
+   "subject": "Vehicle Service and Maintenance Technology",
+   "topic": "Engine",
+   "text": "Which is checked during routine engine maintenance?",
+   "options": [
+    "Engine oil level",
+    "Seat colour",
+    "Radio",
+    "Mirror"
+   ],
+   "correct": 0,
+   "explanation": "Basic service."
+  },
+  {
+   "subject": "Farm Tractors and Earth Movers",
+   "topic": "Tractors",
+   "text": "The power take-off (PTO) is used to",
+   "options": [
+    "steer the tractor",
+    "drive implements",
+    "cool the engine",
+    "start the engine"
+   ],
+   "correct": 1,
+   "explanation": "PTO shaft."
+  },
+  {
+   "subject": "Industrial and Transport Management",
+   "topic": "Transport",
+   "text": "The motor vehicles act in India is related to",
+   "options": [
+    "water supply",
+    "telecom",
+    "road transport regulation",
+    "banking"
+   ],
+   "correct": 2,
+   "explanation": "Motor Vehicles Act."
+  },
+  {
+   "subject": "Design of Machine Elements",
+   "topic": "Shafts",
+   "text": "Shafts primarily transmit",
+   "options": [
+    "heat",
+    "light",
+    "sound",
+    "torque"
+   ],
+   "correct": 3,
+   "explanation": "Power transmission."
+  },
+  {
+   "subject": "Design of Machine Elements",
+   "topic": "Keys",
+   "text": "A key is used to connect",
+   "options": [
+    "shaft and hub",
+    "two plates only",
+    "two bolts only",
+    "tyre and rim"
+   ],
+   "correct": 0,
+   "explanation": "Prevents relative rotation."
+  },
+  {
+   "subject": "Advanced Manufacturing Processes",
+   "topic": "Additive",
+   "text": "3D printing is an example of",
+   "options": [
+    "subtractive only",
+    "additive manufacturing",
+    "casting only",
+    "forging"
+   ],
+   "correct": 1,
+   "explanation": "Layer-by-layer."
+  },
+  {
+   "subject": "Alternative Fuels and Emission Control",
+   "topic": "Gaseous",
+   "text": "CNG mainly consists of",
+   "options": [
+    "propane",
+    "butane",
+    "methane",
+    "ethylene"
+   ],
+   "correct": 2,
+   "explanation": "Compressed natural gas."
+  },
+  {
+   "subject": "Alternative Fuels and Emission Control",
+   "topic": "SI Engines",
+   "text": "A catalytic converter reduces",
+   "options": [
+    "fuel consumption only",
+    "noise only",
+    "engine weight",
+    "harmful exhaust emissions"
+   ],
+   "correct": 3,
+   "explanation": "Converts CO, HC and NOx."
+  },
+  {
+   "subject": "Electric and Hybrid Electric Vehicle",
+   "topic": "Introduction",
+   "text": "An electric vehicle produces ___ tailpipe emissions",
+   "options": [
+    "zero",
+    "high",
+    "medium",
+    "only CO"
+   ],
+   "correct": 0,
+   "explanation": "No exhaust."
+  },
+  {
+   "subject": "Electric and Hybrid Electric Vehicle",
+   "topic": "Regenerative",
+   "text": "Regenerative braking",
+   "options": [
+    "wastes energy",
+    "recovers energy to the battery",
+    "heats the brake only",
+    "stops the battery"
+   ],
+   "correct": 1,
+   "explanation": "Converts motion to electrical energy."
+  },
+  {
+   "subject": "Material Testing",
+   "topic": "Tension",
+   "text": "The tension test is done on a",
+   "options": [
+    "microscope",
+    "lathe",
+    "universal testing machine",
+    "kiln"
+   ],
+   "correct": 2,
+   "explanation": "UTM."
+  },
+  {
+   "subject": "Material Testing",
+   "topic": "Hardness",
+   "text": "The Brinell test uses a",
+   "options": [
+    "diamond cone only",
+    "pendulum",
+    "wedge",
+    "steel or carbide ball indenter"
+   ],
+   "correct": 3,
+   "explanation": "Brinell hardness."
+  },
+  {
+   "subject": "Material Testing",
+   "topic": "Impact",
+   "text": "The Charpy test measures",
+   "options": [
+    "impact toughness",
+    "hardness",
+    "fatigue life",
+    "creep rate"
+   ],
+   "correct": 0,
+   "explanation": "Energy absorbed at fracture."
+  },
+  {
+   "subject": "Material Testing",
+   "topic": "Fatigue",
+   "text": "Fatigue failure occurs due to",
+   "options": [
+    "static load only",
+    "repeated cyclic loading",
+    "heat only",
+    "corrosion only"
+   ],
+   "correct": 1,
+   "explanation": "Cyclic stress."
+  },
+  {
+   "subject": "Material Testing",
+   "topic": "Creep",
+   "text": "Creep is slow deformation under constant load at",
+   "options": [
+    "low temperature only",
+    "zero load",
+    "high temperature",
+    "vacuum only"
+   ],
+   "correct": 2,
+   "explanation": "Time-dependent strain."
+  },
+  {
+   "subject": "Material Testing",
+   "topic": "Non Destructive",
+   "text": "Which is a non-destructive test?",
+   "options": [
+    "Tension test",
+    "Impact test",
+    "Bend test to failure",
+    "Ultrasonic testing"
+   ],
+   "correct": 3,
+   "explanation": "Material is not damaged."
+  }
+ ]
+}

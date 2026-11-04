@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from "../../pages/NotFound";
 import Materials from "./Materials";
 import Profile from "../student/Profile";
+import Reviews from "./Reviews";
 import { Assign, Dashboard, Performance, QuestionForm, Questions, Schedule, Students } from "./Faculty";
 
 export default function FacultyApp() {
@@ -15,6 +16,7 @@ export default function FacultyApp() {
       <Route path="schedule" element={<Schedule />} />
       <Route path="assign" element={<Assign />} />
       <Route path="students" element={<Students />} />
+      <Route path="reviews" element={<Reviews />} />
       <Route path="performance" element={<Performance />} />
       <Route path="profile/*" element={<Profile role="faculty" />} />
       <Route path="*" element={<NotFound />} />

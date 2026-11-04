@@ -10,14 +10,20 @@ from common.mixins import ActiveOnlyForNonAdminMixin, AdminWriteMixin, SafeDelet
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from .models import GUIDE_SECTIONS, Branch, Guide, GuideDone, Material, MaterialDone, Regulation, Subject, Topic
-from .serializers import BranchSerializer, GuideSerializer, MaterialSerializer, RegulationSerializer, SubjectSerializer, TopicSerializer
+from .models import GUIDE_SECTIONS, Recording, Branch, Guide, GuideDone, Material, MaterialDone, Regulation, Subject, Topic
+from .serializers import BranchSerializer, GuideSerializer, MaterialSerializer, RecordingFeedbackSerializer, RecordingSerializer, RecordingSerializer, RegulationSerializer, SubjectSerializer, TopicSerializer
 
 
 class IsAdminRole(BasePermission):
     def has_permission(self, request, view):
         u = request.user
         return bool(u and u.is_authenticated and u.role == Role.ADMIN)
+
+
+class IsStudentRole(BasePermission):
+    def has_permission(self, request, view):
+        u = request.user
+        return bool(u and u.is_authenticated and u.role == Role.STUDENT)
 
 
 class IsAdminOrFaculty(BasePermission):
@@ -69,6 +75,9 @@ class SubjectViewSet(_Base):
 
     def get_queryset(self):
         qs = self.filter_active(Subject.objects.all())
+        area = self.request.query_params.get("area")
+        if self.action == "list" and area != "ALL":
+            qs = qs.filter(area=area if area else Subject.Area.ECET)  # ECET lists never include job-preparation practice sets
         branch = self.request.query_params.get("branch")
         if branch and branch.isdigit():
             # subjects of that branch plus the common subjects (branch is empty)
@@ -222,3 +231,46 @@ class GuideViewSet(ActiveOnlyForNonAdminMixin, SafeDeleteMixin, viewsets.ModelVi
     @action(detail=False, methods=["get"])
     def progress(self, request):
         return Response(guide_progress(request.user))
+
+
+class RecordingViewSet(viewsets.ModelViewSet):
+    """Spoken answers. Students add and delete their own; faculty and admin listen and leave feedback."""
+    serializer_class = RecordingSerializer
+    queryset = Recording.objects.none()
+    parser_classes = [MultiPartParser, FormParser, JSONParser]
+    http_method_names = ["get", "post", "patch", "delete", "head", "options"]
+
+    def get_permissions(self):
+        if self.action == "create":
+            return [IsStudentRole()]
+        if self.action in ("partial_update", "update"):
+            return [IsAdminOrFaculty()]
+        return [IsAuthenticated()]
+
+    def get_serializer_class(self):
+        return RecordingFeedbackSerializer if self.action in ("partial_update", "update") else RecordingSerializer
+
+    def get_queryset(self):
+        u = self.request.user
+        qs = Recording.objects.select_related("user", "guide", "reviewed_by")
+        if u.role == Role.STUDENT:
+            qs = qs.filter(user=u)
+        p = self.request.query_params
+        if p.get("guide", "").isdigit():
+            qs = qs.filter(guide_id=int(p["guide"]))
+        if p.get("student", "").isdigit() and u.role != Role.STUDENT:
+            qs = qs.filter(user_id=int(p["student"]))
+        if p.get("pending") in ("1", "true"):
+            qs = qs.filter(reviewed_by__isnull=True)
+        return qs
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def perform_update(self, serializer):
+        serializer.save(reviewed_by=self.request.user)
+
+    def destroy(self, request, *args, **kwargs):
+        if request.user.role == Role.FACULTY:
+            raise PermissionDenied("Only the student or an admin can delete a recording.")
+        return super().destroy(request, *args, **kwargs)

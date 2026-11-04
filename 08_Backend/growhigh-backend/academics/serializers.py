@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import GUIDE_SECTIONS, Guide, Branch, Material, Regulation, Subject, Topic
+from .models import GUIDE_SECTIONS, Guide, Recording, Recording, Branch, Material, Regulation, Subject, Topic
 
 
 class BranchSerializer(serializers.ModelSerializer):
@@ -44,7 +44,7 @@ class SubjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Subject
-        fields = ["id", "branch_id", "regulation_id", "semester", "name", "code", "marks", "is_active"]
+        fields = ["id", "area", "branch_id", "regulation_id", "semester", "name", "code", "marks", "is_active"]
         validators = []
 
     def validate(self, attrs):
@@ -86,6 +86,8 @@ class FormBoolean(serializers.BooleanField):
 MAX_VIDEO_MB = 300
 MAX_PDF_MB = 25
 VIDEO_EXT = (".mp4", ".webm", ".mov", ".m4v")
+AUDIO_EXT = (".mp3", ".m4a", ".wav", ".ogg", ".webm", ".mp4")
+MAX_AUDIO_MB = 50
 
 
 class MaterialSerializer(serializers.ModelSerializer):
@@ -125,11 +127,12 @@ class MaterialSerializer(serializers.ModelSerializer):
         if name.endswith(".pdf"):
             if f.size > MAX_PDF_MB * 1024 * 1024:
                 raise serializers.ValidationError(f"A PDF can be at most {MAX_PDF_MB} MB.")
-        elif name.endswith(VIDEO_EXT):
-            if f.size > MAX_VIDEO_MB * 1024 * 1024:
-                raise serializers.ValidationError(f"A video can be at most {MAX_VIDEO_MB} MB. Upload a shorter video or share a link.")
+        elif name.endswith(VIDEO_EXT) or name.endswith(AUDIO_EXT):
+            limit = MAX_AUDIO_MB if self.initial_data.get("kind") == "AUDIO" else MAX_VIDEO_MB
+            if f.size > limit * 1024 * 1024:
+                raise serializers.ValidationError(f"The file can be at most {limit} MB. Upload a shorter one or share a link.")
         else:
-            raise serializers.ValidationError("Upload an MP4, WebM or MOV video, or a PDF.")
+            raise serializers.ValidationError("Upload an MP4, WebM or MOV video, an MP3, M4A, WAV or OGG audio file, or a PDF.")
         return f
 
     def validate(self, attrs):
@@ -139,12 +142,14 @@ class MaterialSerializer(serializers.ModelSerializer):
         has_file = bool(attrs.get("file") or (self.instance and self.instance.file))
         if kind == "NOTES" and not body.strip():
             raise serializers.ValidationError({"body": ["Write the notes."]})
-        if kind in ("VIDEO", "PDF") and not (url or has_file):
+        if kind in ("VIDEO", "PDF", "AUDIO") and not (url or has_file):
             raise serializers.ValidationError({"file": ["Upload a file or add a link."]})
         if kind == "LINK" and not url:
             raise serializers.ValidationError({"url": ["Add the link."]})
         if kind == "VIDEO" and attrs.get("file") and not attrs["file"].name.lower().endswith(VIDEO_EXT):
             raise serializers.ValidationError({"file": ["A video must be MP4, WebM or MOV."]})
+        if kind == "AUDIO" and attrs.get("file") and not attrs["file"].name.lower().endswith(AUDIO_EXT):
+            raise serializers.ValidationError({"file": ["Audio must be MP3, M4A, WAV or OGG."]})
         if kind == "PDF" and attrs.get("file") and not attrs["file"].name.lower().endswith(".pdf"):
             raise serializers.ValidationError({"file": ["A PDF must be a .pdf file."]})
         return attrs
@@ -164,3 +169,52 @@ class GuideSerializer(MaterialSerializer):
         if section not in dict(GUIDE_SECTIONS.get(area, [])):
             raise serializers.ValidationError({"section": ["Choose a section that belongs to this area."]})
         return super().validate(attrs)
+
+
+MAX_RECORDING_MB = 15
+MAX_RECORDING_SECONDS = 300
+
+
+class RecordingSerializer(serializers.ModelSerializer):
+    guide_id = serializers.PrimaryKeyRelatedField(source="guide", queryset=Guide.objects.filter(area="COMM"), allow_null=True, required=False)
+    guide_title = serializers.SerializerMethodField()
+    student_name = serializers.SerializerMethodField()
+    login_id = serializers.SerializerMethodField()
+    file = serializers.FileField(write_only=True)
+    file_url = serializers.SerializerMethodField()
+    seconds = serializers.IntegerField(min_value=0, max_value=MAX_RECORDING_SECONDS, required=False)
+    reviewed_by_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Recording
+        fields = ["id", "guide_id", "guide_title", "student_name", "login_id", "file", "file_url", "seconds", "feedback", "reviewed_by_name", "created_at"]
+        read_only_fields = ["feedback", "created_at"]
+
+    def get_guide_title(self, o):
+        return o.guide.title if o.guide_id else None
+
+    def get_student_name(self, o):
+        return o.user.full_name
+
+    def get_login_id(self, o):
+        return o.user.login_id
+
+    def get_reviewed_by_name(self, o):
+        return o.reviewed_by.full_name if o.reviewed_by_id else None
+
+    def get_file_url(self, o):
+        request = self.context.get("request")
+        return request.build_absolute_uri(o.file.url) if request else o.file.url
+
+    def validate_file(self, f):
+        if not f.name.lower().endswith((".webm", ".ogg", ".mp4", ".m4a", ".wav", ".mp3")):
+            raise serializers.ValidationError("Upload a recording in WebM, OGG, MP4, M4A, WAV or MP3 format.")
+        if f.size > MAX_RECORDING_MB * 1024 * 1024:
+            raise serializers.ValidationError(f"A recording can be at most {MAX_RECORDING_MB} MB.")
+        return f
+
+
+class RecordingFeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recording
+        fields = ["feedback"]
