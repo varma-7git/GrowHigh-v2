@@ -26,7 +26,7 @@ export default function Shell({ title, subtitle, tabs, tab, onTab, children }) {
               ))}
             </aside>
           )}
-          <main className="gh-main">
+          <main className="gh-main" id="main" tabIndex={-1}>
             <h1 className="gh-title">{title}</h1>
             {subtitle && <div className="gh-title-sub">{subtitle}</div>}
             {children}

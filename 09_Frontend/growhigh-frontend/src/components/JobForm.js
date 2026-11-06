@@ -46,7 +46,7 @@ export default function JobForm({ needCompany, onDone }) {
 
   return (
     <form onSubmit={submit} noValidate className="gh-panel">
-      {message && <div className="alert alert-danger">{message}</div>}
+      {message && <div className="alert alert-danger" role="alert">{message}</div>}
       <div className="row g-3">
         <div className="col-md-6"><Field label="Title" name="title" value={form.title} onChange={set} error={errors.title} /></div>
         <div className="col-md-6">

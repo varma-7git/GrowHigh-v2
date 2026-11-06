@@ -61,7 +61,7 @@ export default function AdminShell({ page, go, onSearch, children }) {
             {menu && <div className="a-menu"><button onClick={out}>Logout</button></div>}
           </div>
         </header>
-        <main className="a-main" key={page}>{children}</main>
+        <main className="a-main" key={page} id="main" tabIndex={-1}>{children}</main>
         <footer className="a-foot">
           <div><a href="/">About</a><a href="/">Contact</a><a href="/">Privacy</a></div>
           <p>© {new Date().getFullYear()} GROWHIGH. All rights reserved.</p>

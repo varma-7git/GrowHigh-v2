@@ -9,3 +9,4 @@ static/
 db.sqlite3
 .idea/
 .vscode/
+backups/

@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="ad pb">
       <PublicNav />
-      <section className="nf-main">
+      <section className="nf-main" id="main" tabIndex={-1}>
         <div><span className="nf-tag">404 · A SMALL DETOUR</span><h1>Page Not Found</h1>
           <p>The page you’re looking for may have moved or the link may be incorrect. Your journey doesn’t have to stop here.</p>
           <Link className="ad-btn c" style={{ marginTop: 28 }} to="/">Go Back Home</Link>

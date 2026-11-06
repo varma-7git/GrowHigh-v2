@@ -9,6 +9,7 @@ from common.mixins import ActiveOnlyForNonAdminMixin, AdminWriteMixin, SafeDelet
 
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .models import GUIDE_SECTIONS, Recording, Branch, Guide, GuideDone, Material, MaterialDone, Regulation, Subject, Topic
 from .serializers import BranchSerializer, GuideSerializer, MaterialSerializer, RecordingFeedbackSerializer, RecordingSerializer, RecordingSerializer, RegulationSerializer, SubjectSerializer, TopicSerializer
@@ -274,3 +275,25 @@ class RecordingViewSet(viewsets.ModelViewSet):
         if request.user.role == Role.FACULTY:
             raise PermissionDenied("Only the student or an admin can delete a recording.")
         return super().destroy(request, *args, **kwargs)
+
+
+class PublicOverviewView(APIView):
+    """GET /public/overview/  Real numbers for the landing page. No login needed.
+    `ecet`: for each common ECET subject, how many of its topics have at least one active practice question."""
+    permission_classes = [AllowAny]
+    authentication_classes = []
+
+    def get(self, request):
+        from exams.models import Question
+        ecet = []
+        for s in Subject.objects.filter(area="ECET", regulation__isnull=True, branch__isnull=True, is_active=True).order_by("name"):
+            topics = s.topics.filter(is_active=True)
+            total = topics.count()
+            ready = topics.filter(questions__is_active=True).distinct().count()
+            ecet.append({"subject": s.name, "topics": total, "topics_with_questions": ready,
+                         "percent": round(100 * ready / total) if total else 0})
+        return Response({
+            "ecet": ecet,
+            "subjects": Subject.objects.filter(is_active=True).count(),
+            "questions": Question.objects.filter(is_active=True).count(),
+        })

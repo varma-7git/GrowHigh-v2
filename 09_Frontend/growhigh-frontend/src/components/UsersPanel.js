@@ -58,7 +58,7 @@ export default function UsersPanel({ notify }) {
       <div className="gh-panel p-0">
         <div className="table-responsive">
           <table className="table gh-table-stack align-middle mb-0">
-            <thead><tr><th>Login ID</th><th>Name</th><th>Email</th><th>Role</th><th>Details</th><th>Registered</th><th>Status</th><th /></tr></thead>
+            <thead><tr><th scope="col">Login ID</th><th scope="col">Name</th><th scope="col">Email</th><th scope="col">Role</th><th scope="col">Details</th><th scope="col">Registered</th><th scope="col">Status</th><th /></tr></thead>
             <tbody>
               {data.results.length === 0 && <tr><td colSpan="8" className="text-muted p-3">No users found.</td></tr>}
               {data.results.map((u) => (

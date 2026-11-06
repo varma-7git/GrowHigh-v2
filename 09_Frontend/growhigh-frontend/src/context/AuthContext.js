@@ -6,17 +6,16 @@ export const useAuth = () => useContext(AuthContext);
 
 export const homeFor = (role) => ({ STUDENT: "/student", FACULTY: "/faculty", ADMIN: "/admin", COMPANY: "/company" }[role] || "/login");
 
-function savedUser() {
-  try { return JSON.parse(localStorage.getItem("gh_user")); } catch { return null; }
-}
+const savedUser = () => tokenStore.user;
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(savedUser);
 
-  const login = useCallback(async (loginId, password) => {
+  const login = useCallback(async (loginId, password, remember = false) => {
     const { data } = await api.post("/auth/login/", { login_id: loginId, password }, { skipAuth: true });
+    tokenStore.setRemember(remember);
     tokenStore.set(data.access, data.refresh);
-    localStorage.setItem("gh_user", JSON.stringify(data.user));
+    tokenStore.setUser(data.user);
     setUser(data.user);
     return data.user;
   }, []);
@@ -29,7 +28,7 @@ export function AuthProvider({ children }) {
     setUser(null);
   }, []);
 
-  const update = useCallback((u) => { localStorage.setItem("gh_user", JSON.stringify(u)); setUser(u); }, []);
+  const update = useCallback((u) => { tokenStore.setUser(u); setUser(u); }, []);
   const value = useMemo(() => ({ user, login, logout, update }), [user, login, logout, update]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

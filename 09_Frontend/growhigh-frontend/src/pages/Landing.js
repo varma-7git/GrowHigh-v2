@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Art, PublicFooter, PublicNav } from "../components/Public";
 import { Ic } from "../ws/icons";
 import { Bar } from "../admin/ui";
+import api from "../api/client";
 import { useAuth, homeFor } from "../context/AuthContext";
 
 const Card = ({ t, d, m, b }) => (
@@ -13,11 +14,13 @@ export default function Landing() {
   const { user } = useAuth();
   const [mail, setMail] = useState({ email: "", msg: "I would like to learn more about GrowHigh." });
   const send = (e) => { e.preventDefault(); window.location.href = `mailto:growhigh.hub@gmail.com?subject=GrowHigh enquiry&body=${encodeURIComponent(`${mail.msg}\n\nReply to: ${mail.email}`)}`; };
+  const [stats, setStats] = useState(null);
+  useEffect(() => { api.get("/public/overview/", { skipAuth: true }).then((r) => setStats(r.data)).catch(() => setStats(false)); }, []);
   const start = user ? homeFor(user.role) : "/register";
   return (
     <div className="ad pb">
       <PublicNav />
-      <section className="pl-hero">
+      <section className="pl-hero" id="main" tabIndex={-1}>
         <div><span className="nf-tag">SMART DIPLOMA · ECET · CAREER</span><h1>Build Your Future with GrowHigh</h1><h3>Your Career. Our Priority.</h3>
           <p>Prepare for ECET, build job-ready skills and explore career opportunities and internships — all in one focused space.</p>
           <div className="pl-btns"><Link className="ad-btn c" to={start}>{user ? "Go to dashboard" : "Get Started"}</Link><a className="ad-btn o" href="#features">See features</a></div><small>Learn. Prepare. Grow.</small></div>
@@ -34,8 +37,11 @@ export default function Landing() {
         <div className="pl-grid two" style={{ marginBottom: 24 }}>
           <div className="pl-dark"><div className="ad-eyebrow" style={{ color: "#22d3ee" }}>PREPARE WITH PURPOSE</div><h3>A clearer path to ECET readiness</h3><p>Understand the syllabus, practise the right topics and review what needs attention. No guesswork, just a next step.</p>
             <span className="l">Subjects → Topics → Practice → Results</span><Link className="ad-btn c" to={start}>Explore ECET</Link></div>
-          <div className="pl-box" style={{ margin: 0 }}><div className="ad-eyebrow">ILLUSTRATIVE STUDENT PREVIEW</div><h3 style={{ margin: "8px 0 18px" }}>Progress you can understand</h3>
-            {[["Mathematics", 75], ["Physics", 60], ["Chemistry", 55]].map(([l, v]) => <Bar key={l} label={l} pct={v} />)}</div>
+          <div className="pl-box" style={{ margin: 0 }}><div className="ad-eyebrow">LIVE FROM GROWHIGH</div><h3 style={{ margin: "8px 0 18px" }}>What you can practise today</h3>
+            {stats && stats.ecet.length > 0 && stats.ecet.map((x) => <Bar key={x.subject} label={`${x.subject} · ${x.topics_with_questions} of ${x.topics} topics ready`} pct={x.percent} />)}
+            {stats && stats.ecet.length === 0 && <p className="ws-p">ECET subjects will appear here as soon as they are added.</p>}
+            {stats && <p className="ws-foot">{stats.questions} practice questions across {stats.subjects} subjects.</p>}
+            {stats === null && <p className="ws-p">Loading…</p>}{stats === false && <p className="ws-p">Live numbers are not available right now.</p>}</div>
         </div>
       </section>
 

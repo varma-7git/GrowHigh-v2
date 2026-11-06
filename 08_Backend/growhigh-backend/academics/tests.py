@@ -210,3 +210,19 @@ class RecordingTests(APITestCase):
         r = self.client.post("/api/v1/guides/", {"area": "COMM", "section": "listening", "kind": "AUDIO", "title": "Announcements", "file": self._audio("l.mp3")}, format="multipart")
         self.assertEqual(r.status_code, 201, r.data)
         self.assertEqual(self.client.post("/api/v1/guides/", {"area": "COMM", "section": "listening", "kind": "AUDIO", "title": "No file"}, format="json").status_code, 400)
+
+
+class PublicOverviewTests(APITestCase):
+    def test_overview_is_public_and_uses_real_counts(self):
+        from exams.models import Question
+        from .models import Subject, Topic
+        r = self.client.get("/api/v1/public/overview/")
+        self.assertEqual(r.status_code, 200)
+        self.assertEqual(r.data, {"ecet": [], "subjects": 0, "questions": 0})  # nothing invented when empty
+        math = Subject.objects.create(name="Mathematics", area="ECET")
+        t1 = Topic.objects.create(subject=math, name="Matrices")
+        Topic.objects.create(subject=math, name="Calculus")
+        Question.objects.create(topic=t1, text="2+2?", option_a="3", option_b="4", option_c="5", option_d="6", correct=1)
+        r = self.client.get("/api/v1/public/overview/")
+        self.assertEqual(r.data["ecet"], [{"subject": "Mathematics", "topics": 2, "topics_with_questions": 1, "percent": 50}])
+        self.assertEqual((r.data["subjects"], r.data["questions"]), (1, 1))

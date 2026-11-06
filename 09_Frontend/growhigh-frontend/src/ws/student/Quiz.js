@@ -142,7 +142,7 @@ export function TakeTest() {
   return (
     <div className="ad ws-take">
       <header><span className="ws-badge">One attempt · Do not close this window</span><b style={{ color: "#fff", fontSize: 18 }}>{info?.name}</b></header>
-      <main>
+      <main id="main" tabIndex={-1}>
         <h1>{info?.name || "Test"}</h1><Err e={err} />
         {run ? <Runner qs={run.questions} secs={run.remaining_seconds} one busy={busy} onPick={answerSaver(run.id)} onSubmit={submit} /> : info && (
           <div className="ad-card" style={{ maxWidth: 640 }}>

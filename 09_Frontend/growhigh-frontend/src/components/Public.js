@@ -37,10 +37,10 @@ export function AuthFrame({ eyebrow, h, sub, children }) {
   return (
     <div className="ad pb">
       <PublicNav />
-      <section className="pb-auth">
+      <section className="pb-auth" id="main" tabIndex={-1}>
         <div className="pb-left"><span className="nf-tag">YOUR CAREER. OUR PRIORITY.</span><h1>Learn. Prepare. Grow.</h1>
           <p>A stronger foundation. A clearer path. Take your next step with GrowHigh.</p><Art className="pb-art" /><small>Smart Diploma Student Career, ECET &amp; Job Management System</small></div>
-        <div className="pb-card">{eyebrow && <div className="ad-eyebrow">{eyebrow}</div>}<h2>{h}</h2>{sub && <p className="pb-sub">{sub}</p>}{children}</div>
+        <div className="pb-card">{eyebrow && <div className="ad-eyebrow">{eyebrow}</div>}{h && <h2>{h}</h2>}{sub && <p className="pb-sub">{sub}</p>}{children}</div>
       </section>
       <PublicFooter />
     </div>

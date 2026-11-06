@@ -62,7 +62,7 @@ export default function WsShell({ role, crumb, title, subtitle, action, children
             {menu && <div className="ad-menu"><button onClick={() => nav(`${c.base}/profile`)}>My profile</button><button onClick={out}>Logout</button></div>}
           </div>
         </header>
-        <main className="ad-main">
+        <main className="ad-main" id="main" tabIndex={-1}>
           <div className="ad-crumb">{c.name} workspace / {crumb || title}</div>
           <div className="ad-head"><div><h1>{title}</h1>{subtitle && <p>{subtitle}</p>}</div>{action}</div>
           {children}

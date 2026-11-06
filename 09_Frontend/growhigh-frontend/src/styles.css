@@ -328,9 +328,36 @@ a{text-decoration:none}
 .gh-spin{display:inline-block;width:16px;height:16px;border:3px solid #cfe9f0;border-top-color:#0aa5c0;border-radius:50%;animation:gh-rot .8s linear infinite;vertical-align:-3px;margin-right:6px}
 @keyframes gh-rot{to{transform:rotate(360deg)}}
 
+/* ---------- one-time code boxes ---------- */
+.gh-otp{display:flex;gap:10px;justify-content:center;margin:18px 0 6px}
+.gh-otp-box{width:48px;height:54px;border:1px solid #d5dbe5;border-radius:8px;text-align:center;font-size:22px;font-weight:700;color:#0B1F3F;background:#fff;padding:0;outline:none;transition:border-color .15s,box-shadow .15s}
+.gh-otp-box:focus{border-color:#4F46E5;box-shadow:0 0 0 3px rgba(79,70,229,.2)}
+.gh-otp-box.filled{border-color:#9aa6bd}
+.gh-otp-box:disabled{background:#f3f5f9}
+.gh-otp-card{text-align:center}
+.gh-otp-icon{width:72px;height:72px;border-radius:50%;background:#e9f0fb;color:#4F46E5;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.gh-otp-card h3{margin-bottom:6px}
+.gh-otp-sub{margin:0 0 4px}
+.gh-otp-confirm{width:100%;margin-top:16px;padding:13px;border-radius:8px}
+.gh-otp-links{display:flex;justify-content:space-between;gap:12px;margin-top:14px;flex-wrap:wrap}
+.gh-link-btn{background:none;border:0;padding:0;color:#4F46E5;font-weight:600;font-size:14px;cursor:pointer;text-decoration:underline}
+.gh-link-btn:disabled{color:#8a94a8;cursor:default;text-decoration:none}
+.gh-otp-note{font-size:13px;color:#56667f;margin:12px 0 0}
+@media(max-width:420px){.gh-otp{gap:6px}.gh-otp-box{width:40px;height:48px;font-size:20px}}
+
 /* ---------- invalid fields: no Bootstrap warning icon (it overlapped Show and the select arrow) ---------- */
 .form-control.is-invalid,.form-control.is-invalid:focus,.was-validated .form-control:invalid{background-image:none!important;padding-right:.75rem}
 .gh-input-wrap .form-control.is-invalid{padding-right:64px}
 .form-select.is-invalid:not([multiple]):not([size]),.form-select.is-invalid:not([multiple])[size="1"],.was-validated .form-select:invalid:not([multiple]):not([size]){
   background-image:var(--bs-form-select-bg-img)!important;background-position:right .9rem center!important;background-size:16px 12px!important;padding-right:2.4rem!important}
 .form-control.is-invalid,.form-select.is-invalid{border-color:#e0556c}
+
+
+/* ---------- accessibility ---------- */
+.gh-skip{position:fixed;left:12px;top:-60px;z-index:1000;background:#0B1F3F;color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .15s}
+.gh-skip:focus{top:12px;outline:3px solid #22D3EE}
+:focus-visible{outline:3px solid #4F46E5;outline-offset:2px}
+.ad-side a:focus-visible,.ad-dark a:focus-visible,.pl-dark a:focus-visible,.ad-side button:focus-visible{outline-color:#22D3EE}
+#main:focus{outline:none}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #4F46E5;outline-offset:1px}
+.gh-sr,.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

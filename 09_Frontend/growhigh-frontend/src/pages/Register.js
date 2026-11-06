@@ -87,7 +87,7 @@ export default function Register() {
   };
 
   return (
-    <AuthFrame h="@@H@@">
+    <AuthFrame>
         <RoleTabs />
         <h2>Student registration</h2>
         <p className="gh-sub">Already registered? <Link to="/login">Login</Link></p>

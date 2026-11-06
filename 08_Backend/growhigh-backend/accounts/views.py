@@ -42,6 +42,9 @@ def _tell_applicant(user, kind, new_status, reason):
                              f"Hello {user.full_name},\n\nYour {kind} registration was not approved.\nReason: {reason}")
 
 
+auth_log = logging.getLogger("growhigh.auth")
+
+
 class RegisterView(APIView):
     """POST /auth/register/  Student self-registration (public)."""
     authentication_classes = []
@@ -135,6 +138,14 @@ class LoginView(TokenObtainPairView):
     serializer_class = LoginSerializer
     throttle_classes = [ScopedRateThrottle]
     throttle_scope = "login"
+
+    def post(self, request, *args, **kwargs):
+        try:
+            response = super().post(request, *args, **kwargs)
+        except Exception:
+            auth_log.warning("Failed login for %s from %s", str(request.data.get("login_id", ""))[:60], request.META.get("REMOTE_ADDR"))
+            raise
+        return response
 
 
 class LogoutView(APIView):

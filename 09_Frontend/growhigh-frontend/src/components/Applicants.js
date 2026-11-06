@@ -21,7 +21,7 @@ export default function Applicants({ job, onClose }) {
         <div><h3 className="gh-h3">{job.title}</h3><div className="gh-hint">{job.company_name}</div></div>
         <button className="btn btn-sm btn-outline-secondary" onClick={onClose}>Close</button>
       </div>
-      {error && <div className="alert alert-danger mt-3">{error}</div>}
+      {error && <div className="alert alert-danger mt-3" role="alert">{error}</div>}
       {stats && (
         <>
           <p className="mt-3 mb-2"><b>{stats.total}</b> student{stats.total === 1 ? "" : "s"} applied</p>
@@ -31,7 +31,7 @@ export default function Applicants({ job, onClose }) {
           {rows.length > 0 && (
             <div className="table-responsive">
               <table className="table table-sm gh-table-stack align-middle">
-                <thead><tr><th>Roll no.</th><th>Name</th><th>Branch</th><th>Year</th><th>Email</th><th>Phone</th><th>Applied</th></tr></thead>
+                <thead><tr><th scope="col">Roll no.</th><th scope="col">Name</th><th scope="col">Branch</th><th scope="col">Year</th><th scope="col">Email</th><th scope="col">Phone</th><th scope="col">Applied</th></tr></thead>
                 <tbody>
                   {rows.map((r) => (
                     <tr key={r.id}>

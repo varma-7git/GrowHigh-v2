@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api, { parseError } from "../api/client";
+import OtpInput from "./OtpInput";
 
 /** Email box that proves the address is real: availability check, then a 6-digit code sent to that inbox.
  *  `onToken(token)` is called with the proof ("" when the email changes). `original` = an address that needs no proof (editing a user). */
@@ -47,7 +48,7 @@ export default function EmailVerify({ value, onChange, onToken, error, label = "
       {!simple && !ok && valid && avail !== "taken" && !sent && <div style={{ marginTop: 8 }}><button type="button" className={C.btn} disabled={busy} onClick={send}>{busy ? "Sending…" : "Send verification code"}</button></div>}
       {!simple && !ok && sent && (
         <div style={{ marginTop: 8, display: "flex", gap: 8, flexWrap: "wrap" }}>
-          <input className={C.inp} style={{ maxWidth: 170 }} inputMode="numeric" maxLength={6} placeholder="6-digit code" value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))} />
+          <OtpInput value={code} onChange={setCode} disabled={busy} />
           <button type="button" className={C.btn} disabled={busy || code.length !== 6} onClick={verify}>Verify</button>
           <button type="button" className={C.btn2} disabled={busy || wait > 0} onClick={send}>{wait > 0 ? `Resend in ${wait}s` : "Resend code"}</button>
         </div>)}

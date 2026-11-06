@@ -69,7 +69,7 @@ export default function RegisterCompany() {
   }
 
   return (
-    <AuthFrame h="@@H@@">
+    <AuthFrame>
         <RoleTabs />
         <h2>Company registration</h2>
         <p className="gh-sub">Post jobs and internships for diploma students. The admin reviews every company before it can log in. <Link to="/login">Login</Link></p>

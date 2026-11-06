@@ -129,3 +129,25 @@ EMAIL_TIMEOUT = 20
 if "test" in sys.argv:
     REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"] = {k: "100000/min" for k in REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"]}
     PASSWORD_HASHERS = ["django.contrib.auth.hashers.MD5PasswordHasher"]
+
+
+# Logging: everything to the terminal, plus rotating files in logs/ (growhigh.log = all, errors.log = errors only).
+LOG_DIR = BASE_DIR / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {"std": {"format": "{asctime} {levelname} {name}: {message}", "style": "{"}},
+    "handlers": {
+        "console": {"class": "logging.StreamHandler", "formatter": "std"},
+        "file": {"class": "logging.handlers.RotatingFileHandler", "filename": LOG_DIR / "growhigh.log",
+                 "maxBytes": 5_000_000, "backupCount": 5, "formatter": "std", "encoding": "utf-8"},
+        "errors": {"class": "logging.handlers.RotatingFileHandler", "filename": LOG_DIR / "errors.log",
+                   "maxBytes": 5_000_000, "backupCount": 5, "formatter": "std", "level": "ERROR", "encoding": "utf-8"},
+    },
+    "root": {"handlers": ["console", "file", "errors"], "level": LOG_LEVEL},
+    "loggers": {"django.server": {"handlers": ["console"], "level": "INFO", "propagate": False}},
+}
+if "test" in sys.argv:  # keep test output clean
+    LOGGING["root"] = {"handlers": [], "level": "CRITICAL"}

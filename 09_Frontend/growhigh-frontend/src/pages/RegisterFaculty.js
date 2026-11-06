@@ -64,7 +64,7 @@ export default function RegisterFaculty() {
   }
 
   return (
-    <AuthFrame h="@@H@@">
+    <AuthFrame>
         <RoleTabs />
         <h2>Faculty registration</h2>
         <p className="gh-sub">The admin approves every faculty account. Already registered? <Link to="/login">Login</Link></p>

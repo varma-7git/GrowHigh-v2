@@ -81,7 +81,7 @@ export function AdminShell({ crumb, title, subtitle, action, message, children }
             {menu && <div className="ad-menu"><button onClick={out}>Logout</button></div>}
           </div>
         </header>
-        <main className="ad-main">
+        <main className="ad-main" id="main" tabIndex={-1}>
           <div className="ad-crumb">Admin workspace / {crumb || title}</div>
           <div className="ad-head">
             <div><h1>{title}</h1><p>{subtitle}</p></div>

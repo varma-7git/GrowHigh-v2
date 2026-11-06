@@ -175,7 +175,7 @@ function Report() {
           <button key={k} className={`btn btn-sm ${type === k ? "btn-dark" : "btn-outline-dark"}`} onClick={() => setType(k)}>{l}</button>
         ))}
       </div>
-      {error && <div className="alert alert-danger">{error}</div>}
+      {error && <div className="alert alert-danger" role="alert">{error}</div>}
       {rows.length === 0 && <p className="text-muted">No approved postings yet.</p>}
       {rows.map((r) => (
         <div className="gh-job" key={r.job_id}>

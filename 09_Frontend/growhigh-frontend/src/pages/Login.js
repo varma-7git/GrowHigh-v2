@@ -13,6 +13,7 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
+  const [remember, setRemember] = useState(false);
 
   if (user) return <Navigate to={homeFor(user.role)} replace />;
 
@@ -28,7 +29,7 @@ export default function Login() {
     if (Object.keys(errs).length) return;
     setBusy(true);
     try {
-      const u = await login(form.login_id.trim(), form.password);
+      const u = await login(form.login_id.trim(), form.password, remember);
       navigate(homeFor(u.role), { replace: true });
     } catch (err) {
       const { message: m, fields } = parseError(err);
@@ -41,15 +42,20 @@ export default function Login() {
 
   return (
     <AuthFrame eyebrow="YOUR NEXT CHAPTER STARTS HERE" h="Welcome back" sub="Pick up where you left off. Your goals are waiting.">
-      {location.state?.registered && <div className="alert alert-success">Account created. Please login.</div>}
-      {location.state?.reset && <div className="alert alert-success">Password changed. Please login.</div>}
+      {location.state?.registered && <div className="alert alert-success" role="status">Account created. Please login.</div>}
+      {location.state?.reset && <div className="alert alert-success" role="status">Password changed. Please login.</div>}
       {message && <div className="alert alert-danger" role="alert">{message}</div>}
       <form onSubmit={submit} noValidate>
         <Field label="Email or Roll number" name="login_id" value={form.login_id} onChange={set}
           error={errors.login_id} placeholder="you@example.com or 21001-CM-001" autoComplete="username" autoFocus />
         <Field label="Password" name="password" type="password" value={form.password} onChange={set}
           error={errors.password} placeholder="Your password" autoComplete="current-password" />
-        <div className="pb-fg"><Link to="/forgot-password">Forgot password?</Link></div>
+        <div className="pb-fg d-flex justify-content-between align-items-center">
+          <label className="d-flex align-items-center gap-2 mb-0">
+            <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} /> Keep me signed in
+          </label>
+          <Link to="/forgot-password">Forgot password?</Link>
+        </div>
         <button className="gh-btn gh-btn-coral" disabled={busy}>{busy ? "Logging in..." : "Login"}</button>
       </form>
       <p className="pb-alt">New to GrowHigh? <Link to="/register">Register</Link></p>

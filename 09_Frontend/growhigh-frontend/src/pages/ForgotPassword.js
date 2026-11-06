@@ -61,7 +61,7 @@ export default function ForgotPassword() {
           </form>
         ) : (
           <form onSubmit={reset} noValidate>
-            <div className="alert alert-info">{info} The code is valid for 15 minutes.</div>
+            <div className="alert alert-info" role="status">{info} The code is valid for 15 minutes.</div>
             <Field label="Reset code" name="token" value={form.token} onChange={set} error={errors.token} autoFocus />
             <Field label="New password" name="new_password" type="password" value={form.new_password} onChange={set}
               error={errors.new_password} hint="At least 8 characters, with a letter and a number." autoComplete="new-password" />
