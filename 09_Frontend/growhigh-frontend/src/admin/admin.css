@@ -135,3 +135,36 @@ textarea.ad-in{height:auto;padding:14px 16px;resize:vertical}
 .pj-row{width:min(520px,92vw);display:flex;justify-content:space-between;font-weight:700}.pj-row b{color:#22d3ee}
 @keyframes nfspin{to{transform:rotate(360deg)}}@keyframes nffloat{50%{transform:translateY(-10px)}}
 @media (max-width:900px){.nf-main{grid-template-columns:1fr;padding:50px 6vw}.nf-main h1{font-size:44px}.nf-nav nav a:not(.ad-btn){display:none}.nf-art{height:280px}}
+
+/* Mobile and tablet: the menu drawer must stay hidden until opened.
+   The entrance animation ends on "transform:none", which beat the slide-away rule and kept the drawer open. */
+@media (max-width:991px){
+  .ad-side{animation:none;height:100dvh;padding-bottom:calc(96px + env(safe-area-inset-bottom));overscroll-behavior:contain}
+  .ad-side:not(.open){visibility:hidden;box-shadow:none}
+  .ad-side.open{visibility:visible}
+  .ad-main{min-width:0}
+  .ad-body{overflow-x:hidden}
+  .ws-tbl,.ad-card{overflow-x:auto}
+}
+
+/* File picker: button and file name centred inside the box */
+input[type=file].ad-in{display:flex;align-items:center;padding:0 10px;cursor:pointer;color:var(--mu);font-size:14px}
+input[type=file].ad-in::file-selector-button{margin-right:14px;height:34px;padding:0 16px;border:0;border-radius:10px;background:var(--n2);color:#fff;font:700 13px 'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:background .2s}
+input[type=file].ad-in::file-selector-button:hover{background:var(--n)}
+
+/* Logout button at the bottom of the side menu */
+.ad-side .ad-sidelogout{display:flex;align-items:center;gap:12px;width:100%;margin-top:18px;padding:12px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;font:700 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:background .2s,border-color .2s}
+.ad-side .ad-sidelogout svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ad-side .ad-sidelogout:hover{background:rgba(255,107,91,.15);border-color:var(--co)}
+
+/* Lists inside half-width cards (Subject library, Linked topics): text on top, actions underneath */
+.ad-grid.g2>.ad-card .ad-row{flex-direction:column;align-items:flex-start;gap:10px;padding:18px 22px}
+.ad-grid.g2>.ad-card .ad-row:hover{padding-left:22px}
+.ad-grid.g2>.ad-card .ad-row .gm{width:100%}
+.ad-grid.g2>.ad-card .ad-row b{overflow-wrap:anywhere}
+.ad-grid.g2>.ad-card .ad-act{justify-content:flex-start;gap:4px;margin-left:-8px}
+.ad-grid.g2>.ad-card .ad-lh{padding:14px 22px}
+
+/* Notification items in the bell menu */
+.ad-notes .ad-note{padding:12px 14px;border-bottom:1px solid var(--ln)}.ad-notes .ad-note b{display:block;font-size:14px;color:var(--n)}.ad-notes .ad-note small{display:block;margin-top:3px;color:#56667f;font-size:13px;line-height:1.45;white-space:normal}
+.ad-notes{max-width:min(340px,92vw)}

@@ -6,6 +6,7 @@ import { Err, List, Row, Search, Select, all , subLabel } from "../../admin/ui";
 import { DAYS } from "../data";
 import api, { parseError } from "../../api/client";
 import { useAuth } from "../../context/AuthContext";
+import StudentReport from "./StudentReport";
 
 const W = (p) => <WsShell role="faculty" {...p} />;
 const L = ["A", "B", "C", "D"];
@@ -25,13 +26,13 @@ export function Dashboard() {
   const weak = (sum?.weak_topics || []).slice(0, 3);
   return (
     <W crumb="Dashboard" title={`Good morning, ${user.full_name.split(" ")[0]}`} subtitle="Create tests, assign practice and follow your students." action={<Btn b={["Create a test", "/faculty/schedule"]} kind="c" />}>
-      <Stats items={[["Tests created", String(tests.length), "Scheduled by you"], ["Students assigned", String(students), "Across your tests"], ["Average score", pc(sum?.average), sum?.attempts ? `From ${sum.attempts} submitted attempts` : "After students take tests"], ["Pass rate", pc(sum?.pass_rate), "Students at 40% or above"]]} />
+      <Stats items={[["All tests", String(tests.length), `${tests.filter((t) => t.mine).length} created by you`], ["Students assigned", String(students), "Across all tests"], ["Average score", pc(sum?.average), sum?.attempts ? `From ${sum.attempts} submitted attempts` : "After students take tests"], ["Pass rate", pc(sum?.pass_rate), "Students at 40% or above"]]} />
       <div className="ad-grid g2">
         <div className="ad-card"><h2>Class trend</h2>
           {trend.length ? <div className="ad-chart">{trend.map((t, i) => <div key={i}><i style={{ height: `${t.average}%` }} title={`${t.test}: ${t.average}%`} />{t.average}%</div>)}</div>
             : <div className="ad-chart">{DAYS.map((d, i) => <div key={i}><i style={{ height: "0%" }} />{d}</div>)}</div>}
           <p className="ws-foot">{trend.length ? "Average score of your last tests, oldest first." : "The trend appears once students take your tests."}</p></div>
-        <Panel h="Recent tests" p={tests.length ? "" : "No tests yet. Create your first test."} list={tests.slice(0, 3).map((t) => [when(t), t.name, `${t.branch_code || "All branches"} · ${t.year_of_study ? `Year ${t.year_of_study}` : "All years"} · ${t.question_count} questions`])} />
+        <Panel h="Recent tests" p={tests.length ? "" : "No tests yet. Create your first test."} list={tests.slice(0, 3).map((t) => [when(t), t.name, `${t.branch_code || "All branches"} · ${t.year_of_study ? `Year ${t.year_of_study}` : "All years"} · ${t.question_count} questions · ${t.mine ? "by you" : `by ${t.created_by_name || "another faculty"}`}`])} />
       </div>
       <div className="ad-grid g2">
         <Panel h="Class insights" p={weak.length ? "" : "Weak topics across your tests will appear here."} bars={weak.map((w) => [w.name, w.percent])} foot={weak.length ? "Lowest scoring topics across your tests." : ""} />
@@ -143,8 +144,9 @@ export function Schedule() {
           <div className="ws-two"><div><label>Branch</label><Select value={f.branch_id} onChange={set("branch_id")} options={[["", "All branches"], ...branches.map((b) => [String(b.id), b.code])]} /></div><div><label>Year</label><Select value={f.year_of_study} onChange={set("year_of_study")} options={[["", "All years"], ["1", "1st year"], ["2", "2nd year"], ["3", "3rd year"]]} /></div></div>
           <h2 style={{ marginTop: 26 }}>Select questions</h2>
           <Select value={subF} onChange={setSubF} options={[["", "All subjects"], ...subs.map((s) => [String(s.id), subLabel(s)])]} /><Err e={er.question_ids} />
-          <div className="ws-ck hd"><span>Question</span><span>Subject</span></div>
-          {qs.map((x) => <label className="ws-ck" key={x.id}><input type="checkbox" checked={sel.includes(x.id)} onChange={() => tog(x.id)} /><span>{x.text}</span><em>{x.subject_name}</em></label>)}
+          <div className="ws-ck-count">{sel.length} selected · {qs.length} shown</div>
+          <div className="ws-ck hd"><span /><span>Question</span><span>Subject</span></div>
+          {qs.map((x) => <label className={`ws-ck ${sel.includes(x.id) ? "on" : ""}`} key={x.id}><input type="checkbox" checked={sel.includes(x.id)} onChange={() => tog(x.id)} /><span>{x.text}</span><em>{x.subject_name}</em></label>)}
           {qs.length === 0 && <div className="ad-empty">No questions yet. <Link to="/faculty/questions/new">Add questions</Link> first.</div>}
         </div>
         <Panel dark eyebrow="Summary" h={f.name || "New test"} p={`${sel.length} questions · ${f.duration_minutes || 0} min · ${branches.find((b) => String(b.id) === f.branch_id)?.code || "All branches"} · ${f.year_of_study ? `Year ${f.year_of_study}` : "All years"}`} btn={["Schedule test", null, go]} />
@@ -161,7 +163,7 @@ export function Assign() {
   const [sel, setSel] = useState([]);
   const [ok, setOk] = useState("");
   const [err, setErr] = useState("");
-  useEffect(() => { all("/tests/").then((t) => { setTests(t); setTid((c) => c || (t[0] ? String(t[0].id) : "")); }).catch(() => {}); }, []);
+  useEffect(() => { all("/tests/").then((all_) => { const t = all_.filter((x) => x.mine); setTests(t); setTid((c) => c || (t[0] ? String(t[0].id) : "")); }).catch(() => {}); }, []);
   const test = tests.find((t) => String(t.id) === tid);
   useEffect(() => {
     if (!test) { setRoster([]); return; }
@@ -175,18 +177,18 @@ export function Assign() {
     try {
       await api.post(`/tests/${tid}/assign/`, { student_ids: sel });
       setOk(`Assigned to ${sel.length} students.`);
-      all("/tests/").then(setTests).catch(() => {});
+      all("/tests/").then((t) => setTests(t.filter((x) => x.mine))).catch(() => {});
     } catch (e) { setErr(errText(e)); }
   };
   return (
-    <W crumb="Assign tests" title="Assign tests" subtitle="Choose a test and the students who should take it.">
+    <W crumb="Assign tests" title="Assign tests" subtitle="Choose one of your tests and the students who should take it.">
       <div className="ws-split">
         <div className="ad-card ws-form">{ok && <div className="ad-alert">{ok}</div>}<Err e={err} />
           <label>Test</label><Select value={tid} onChange={setTid} options={tests.length ? tests.map((x) => [String(x.id), `${x.name} · ${when(x)}`]) : [["", "No tests yet"]]} />
           {test && <div className="ad-hint">{test.branch_code || "All branches"} · {test.year_of_study ? `Year ${test.year_of_study}` : "All years"} · {test.question_count} questions · {test.duration_minutes} min</div>}
           <div className="ws-ck hd"><input type="checkbox" checked={all_} onChange={() => setSel(all_ ? [] : roster.map((s) => s.id))} /><span>Select all students</span></div>
           {roster.length === 0 && <div className="ad-empty">{test ? "No registered students match this branch and year yet." : "Create a test first."}</div>}
-          {roster.map((s) => <label className="ws-ck" key={s.id}><input type="checkbox" checked={sel.includes(s.id)} onChange={() => tog(s.id)} /><span>{s.full_name}<br /><small style={{ color: "var(--mu)" }}>{s.login_id}</small></span></label>)}
+          {roster.map((s) => <label className={`ws-ck ${sel.includes(s.id) ? "on" : ""}`} key={s.id}><input type="checkbox" checked={sel.includes(s.id)} onChange={() => tog(s.id)} /><span>{s.full_name}<br /><small style={{ color: "var(--mu)" }}>{s.login_id}</small></span></label>)}
         </div>
         <Panel dark eyebrow="Summary" h={`${sel.length} students selected`} p="Students see the test on their dashboard." btn={["Assign test", null, go]} />
       </div>
@@ -213,6 +215,7 @@ export function Students() {
         return (
           <Row key={s.id} title={s.full_name} meta={`${s.login_id} · ${s.branch_code} · Year ${s.year_of_study}${s.regulation ? ` · ${s.regulation}` : ""}`}>
             {p ? <><span className="ad-hint">{p.tests_taken} test{p.tests_taken === 1 ? "" : "s"} · avg {p.average}%</span><span className={`ad-pill ${p.needs_help ? "bad" : "ok"}`}>{p.needs_help ? "Needs help" : "On track"}</span></> : <span className="ad-hint">No tests taken</span>}
+            <Link className="ad-btn o s" to={`/faculty/performance?student=${s.id}`}>Full report</Link>
           </Row>
         );
       })} />
@@ -230,12 +233,12 @@ export function Performance() {
   const pc = (v) => (v == null ? "—" : `${v}%`);
   const STAT = { SUBMITTED: "Submitted", IN_PROGRESS: "In progress", NOT_ATTEMPTED: "Not attempted" };
   return (
-    <W crumb="Performance" title="Performance" subtitle="Weak topics and results for your class.">
+    <W crumb="Performance" title="Performance" subtitle="Weak topics and results across all tests, and each student's own report.">
       <Err e={err} />
-      <Stats items={[["Submitted attempts", String(sum?.attempts ?? 0), "Across your tests"], ["Class average", pc(sum?.average), "Mean of all scores"], ["Pass rate", pc(sum?.pass_rate), "Students at 40% or above"]]} />
+      <Stats items={[["Submitted attempts", String(sum?.attempts ?? 0), "Across all tests"], ["Class average", pc(sum?.average), "Mean of all scores"], ["Pass rate", pc(sum?.pass_rate), "Students at 40% or above"]]} />
       <div className="ad-grid g2">
         <Panel h="Class weak topics" p={sum?.weak_topics?.length ? "" : "Appears once students take your tests."} bars={(sum?.weak_topics || []).map((w) => [w.name, w.percent])} foot={sum?.weak_topics?.length ? "Lowest scoring topics first." : ""} />
-        <Panel h="Your tests" p={sum?.recent?.length ? "" : "No tests yet."} list={(sum?.recent || []).slice(0, 5).map((t) => [when({ scheduled_date: t.date, start_time: "00:00:00" }).split(" · ")[0], t.name, `${t.attempts}/${t.assigned} submitted · average ${pc(t.average)}`])} />
+        <Panel h="All tests" p={sum?.recent?.length ? "" : "No tests yet."} list={(sum?.recent || []).slice(0, 5).map((t) => [when({ scheduled_date: t.date, start_time: "00:00:00" }).split(" · ")[0], t.name, `${t.attempts}/${t.assigned} submitted · average ${pc(t.average)}`])} />
       </div>
       <div className="ad-card"><h2>Results by test</h2>
         <div className="ad-filters"><Select value={pick} onChange={setPick} options={[["", "Choose a test"], ...(sum?.recent || []).map((t) => [String(t.id), t.name])]} /></div>
@@ -247,6 +250,7 @@ export function Performance() {
         ))} />}
         {!res && <p className="ws-foot">Pick a test to see every assigned student's result.</p>}
       </div>
+      <StudentReport initial={new URLSearchParams(window.location.search).get("student") || ""} />
     </W>
   );
 }

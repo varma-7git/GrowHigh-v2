@@ -1,7 +1,6 @@
 import logging
 
 from django.contrib.auth import get_user_model
-from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Q
 from django.utils import timezone
@@ -25,7 +24,7 @@ from common.serializers import RejectSerializer
 from . import services
 from .models import CompanyProfile, FacultyProfile
 from .serializers import (EmailCheckSerializer, FacultyRegisterSerializer, FacultyRequestSerializer, ChangePasswordSerializer, CompanyRegisterSerializer, CompanySerializer, FacultyCreateSerializer, ForgotPasswordSerializer, LoginSerializer,
-                          ProfileUpdateSerializer, RegisterSerializer, ResetPasswordSerializer,
+                          ProfileUpdateSerializer, RegisterSerializer, ResetPasswordSerializer, VerifyResetCodeSerializer,
                           SendEmailCodeSerializer, UserAdminUpdateSerializer, UserSerializer, VerifyEmailCodeSerializer)
 
 User = get_user_model()
@@ -140,11 +139,16 @@ class LoginView(TokenObtainPairView):
     throttle_scope = "login"
 
     def post(self, request, *args, **kwargs):
+        # An account that has never signed in has no last_login yet; the login below sets it.
+        who = services.find_user(str(request.data.get("login_id", ""))) if request.data.get("login_id") else None
+        first = bool(who and who.last_login is None)
         try:
             response = super().post(request, *args, **kwargs)
         except Exception:
             auth_log.warning("Failed login for %s from %s", str(request.data.get("login_id", ""))[:60], request.META.get("REMOTE_ADDR"))
             raise
+        if response.status_code == 200:
+            response.data["first_login"] = first
         return response
 
 
@@ -201,22 +205,33 @@ class ForgotPasswordView(APIView):
         s.is_valid(raise_exception=True)
         user = services.find_user(s.validated_data["login_id"])
         if user and user.is_active and user.email:
-            token = default_token_generator.make_token(user)
             try:
-                send_mail(
-                    "GrowHigh password reset",
-                    f"Hello {user.full_name},\n\nYour password reset code is:\n\n{token}\n\n"
-                    f"Use it with your login ID ({user.login_id}) within 15 minutes.\n"
-                    "If you did not ask for this, ignore this email.",
-                    None, [user.email],
-                )
+                services.send_reset_code(user)
             except Exception:  # never reveal mail problems to the caller
                 logger.exception("Could not send reset email")
         return Response({"detail": "If this account has an email, a reset code has been sent."})
 
 
+class VerifyResetCodeView(APIView):
+    """POST /auth/verify-reset-code/ {login_id, code}  Checks the emailed 6-digit code. Returns a token for the next step."""
+    authentication_classes = []
+    permission_classes = [AllowAny]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = "password_reset"
+
+    @extend_schema(request=VerifyResetCodeSerializer, responses=inline_serializer("ResetToken", {"token": serializers.CharField()}))
+    def post(self, request):
+        s = VerifyResetCodeSerializer(data=request.data)
+        s.is_valid(raise_exception=True)
+        user = services.find_user(s.validated_data["login_id"])
+        if not user or not user.is_active or not services.check_reset_code(user, s.validated_data["code"]):
+            msg = "That code is wrong or has expired. Ask for a new one."
+            return Response({"detail": msg, "errors": {"code": [msg]}}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"token": services.make_reset_token(user)})
+
+
 class ResetPasswordView(APIView):
-    """POST /auth/reset-password/  login_id + emailed token + new password."""
+    """POST /auth/reset-password/  token (from verify-reset-code) + new password."""
     authentication_classes = []
     permission_classes = [AllowAny]
     throttle_classes = [ScopedRateThrottle]

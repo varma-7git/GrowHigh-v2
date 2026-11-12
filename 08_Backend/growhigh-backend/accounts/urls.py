@@ -22,5 +22,6 @@ urlpatterns = [
     path("auth/me/", views.MeView.as_view()),
     path("auth/change-password/", views.ChangePasswordView.as_view()),
     path("auth/forgot-password/", views.ForgotPasswordView.as_view()),
+    path("auth/verify-reset-code/", views.VerifyResetCodeView.as_view()),
     path("auth/reset-password/", views.ResetPasswordView.as_view()),
 ] + router.urls

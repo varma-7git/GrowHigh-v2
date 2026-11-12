@@ -2,13 +2,15 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Applicants from "../components/Applicants";
 import api, { parseError } from "../api/client";
-import { AdminShell, Bar, Err, Icon, List, Row, Search, Select, Stat, SUBJECT_AREAS, all } from "./ui";
+import { AdminShell, Bar, Err, Icon, List, Modal, Row, Search, Select, Stat, SUBJECT_AREAS, all } from "./ui";
 
 const pct = (a, b) => (b ? Math.round((a / b) * 100) : 0);
 const SL = <span className="ad-sl">/</span>;
+const toTop = () => window.scrollTo({ top: 0, behavior: "smooth" });   // forms and messages appear at the top of the page
 async function remove(url, what, notify, done) {
   if (!window.confirm(`Delete ${what}? This cannot be undone.`)) return;
   try { await api.delete(url); notify(`${what} deleted.`, "success"); done(); } catch (e) { notify(parseError(e).message, "danger"); }
+  toTop();
 }
 
 export function Branches({ message, notify }) {
@@ -31,8 +33,8 @@ export function Branches({ message, notify }) {
     try { form.id ? await api.patch(`/branches/${form.id}/`, body) : await api.post("/branches/", body); notify("Branch saved.", "success"); setForm(null); load(); }
     catch (x) { const p = parseError(x); setEr(p.fields || {}); notify(p.message, "danger"); }
   };
-  const edit = (b) => setForm({ id: b.id, name: b.name, code: b.code, is_active: b.is_active });
-  const del = (b) => remove(`/branches/${b.id}/`, b.name, notify, load);
+  const edit = (b) => { setForm({ id: b.id, name: b.name, code: b.code, is_active: b.is_active }); toTop(); };
+  const del = (b) => remove(`/branches/${b.id}/`, `${b.name} (code ${b.code})`, notify, load);
   return (
     <AdminShell title="Branches & learning capacity" crumb="Branches" subtitle="Keep academic structure connected to students, subjects and syllabus coverage." message={message}
       action={<button className="ad-btn p" onClick={() => setForm({ name: "", code: "", is_active: true })}>Add branch</button>}>
@@ -109,6 +111,7 @@ export function Subjects({ message, notify }) {
     catch (e) { notify(parseError(e).message, "danger"); }
   }, [notify]);
   useEffect(() => { load(); all("/branches/").then(setBranches); }, [load]);
+  const [showT, setShowT] = useState(false);
   const cur = subs.find((s) => s.id === sel); const mine = topics.filter((t) => t.subject_id === sel);
   const shown = subs.filter((s) => s.name.toLowerCase().includes(q.toLowerCase()) && (regScope === "" || (regScope === "none" ? !s.regulation_id : String(s.regulation_id) === regScope)) && (scope === "" || (scope === "common" ? !s.branch_id : String(s.branch_id) === scope)));
   const save = async (e) => {
@@ -124,7 +127,7 @@ export function Subjects({ message, notify }) {
       <div className="ad-filters"><Search value={q} onChange={setQ} placeholder="Search subject or linked topic" />
         <Select value={scope} onChange={setScope} options={[["", "All subjects"], ["common", "Common subjects"], ...branches.map((b) => [String(b.id), b.code])]} />
         <Select value={regScope} onChange={setRegScope} options={[["", "All regulations"], ["none", "ECET subjects"], ...regs.map((r) => [String(r.id), r.code])]} /></div>
-      {sf && <form className="ad-card ad-form" style={{ marginBottom: 24 }} onSubmit={save}><h2>{sf.id ? "Edit subject" : "Add subject"}</h2>
+      {sf && <Modal title={sf.id ? "Edit subject" : "Add subject"} onClose={() => setSf(null)}><form onSubmit={save}>
         <div className="ad-grid g2" style={{ marginBottom: 0 }}>
           <div><label>Used for</label><select className="ad-in" value={sf.area || "ECET"} onChange={(e) => setSf({ ...sf, area: e.target.value })}>{SUBJECT_AREAS.map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select><Err e={er.area} /></div>
           <div><label>Subject name</label><input className="ad-in" value={sf.name} onChange={(e) => setSf({ ...sf, name: e.target.value })} /><Err e={er.name} /></div>
@@ -134,19 +137,22 @@ export function Subjects({ message, notify }) {
           <div><label>Code (optional)</label><input className="ad-in" value={sf.code} onChange={(e) => setSf({ ...sf, code: e.target.value })} /><Err e={er.code} /></div>
           <div><label>Marks</label><input className="ad-in" type="number" min="0" value={sf.marks} onChange={(e) => setSf({ ...sf, marks: e.target.value })} /><Err e={er.marks} /></div></div>
         <label style={{ display: "flex", gap: 10, alignItems: "center" }}><input type="checkbox" checked={sf.is_active !== false} onChange={(e) => setSf({ ...sf, is_active: e.target.checked })} /> Visible to students</label>
-        <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 20 }}><button className="ad-btn p">Save</button><button type="button" className="ad-btn o" onClick={() => setSf(null)}>Cancel</button></div></form>}
-      <div className="ad-grid g2" style={{ alignItems: "start" }}>
+        <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 20 }}><button className="ad-btn p">Save</button><button type="button" className="ad-btn o" onClick={() => setSf(null)}>Cancel</button></div></form></Modal>}
+      <div className="ad-grid" style={{ alignItems: "start" }}>
         <div className="ad-card"><h2>Subject library</h2>{cur && <span className="ad-eyebrow">{cur.name} selected</span>}
           <div style={{ marginTop: 16 }}><List head="Subject / Topics / Marks / Action" empty="No subjects." rows={shown.map((s) => (
-            <Row key={s.id} title={<span style={{ cursor: "pointer", color: s.id === sel ? "#0aa5c0" : "" }} onClick={() => setSel(s.id)}>{s.name}{!s.is_active && <span className="ad-pill bad">Hidden</span>}</span>}
+            <Row key={s.id} title={<span style={{ cursor: "pointer", color: s.id === sel ? "#0aa5c0" : "" }} onClick={() => { setSel(s.id); setShowT(true); }}>{s.name}{!s.is_active && <span className="ad-pill bad">Hidden</span>}</span>}
               meta={`Topics: ${topics.filter((t) => t.subject_id === s.id).length} · Marks: ${s.marks ?? "-"} · ${s.area && s.area !== "ECET" ? SUBJECT_AREAS.find((a) => a[0] === s.area)?.[1] : s.regulation_id ? `${regs.find((r) => r.id === s.regulation_id)?.code || ""} Sem ${s.semester || "-"}` : "ECET"} · ${s.branch_id ? branches.find((b) => b.id === s.branch_id)?.code || "Branch" : "Common"}`}>
-              <button className="ad-link" onClick={() => editS(s)}>Edit</button>{SL}<button className="ad-link r" onClick={() => remove(`/subjects/${s.id}/`, s.name, notify, () => { setSel(null); load(); })}>Delete</button></Row>))} /></div>
+              <button className="ad-link" onClick={() => { setSel(s.id); setShowT(true); }}>Topics</button>{SL}<button className="ad-link" onClick={() => editS(s)}>Edit</button>{SL}<button className="ad-link r" onClick={() => remove(`/subjects/${s.id}/`, s.name, notify, () => { setSel(null); load(); })}>Delete</button></Row>))} /></div>
           <button className="ad-btn o" onClick={() => setSf({ area: "ECET", name: "", code: "", marks: "", branch_id: "", regulation_id: "", semester: "", is_active: true })}>Add subject</button></div>
-        <div className="ad-card"><h2>{cur ? `${cur.name} → linked topics` : "Linked topics"}</h2>
-          <List head="Topic / Questions / Action" empty={cur ? "No topics yet." : "Select a subject."} rows={mine.map((t) => (
-            <Row key={t.id} title={t.name} meta="Questions: 0"><Link className="ad-link" to={`/admin/topics?edit=${t.id}`}>Edit</Link></Row>))} />
-          <Link className="ad-btn p" to={`/admin/topics${cur ? `?subject=${cur.id}` : ""}`}>Add topic</Link></div>
       </div>
+      {showT && cur && <Modal title={`${cur.name} → linked topics`} onClose={() => setShowT(false)}>
+        <List head="Topic / Questions / Action" empty="No topics yet." rows={mine.map((t) => (
+          <Row key={t.id} title={t.name} meta="Questions: 0"><Link className="ad-link" to={`/admin/topics?edit=${t.id}`}>Edit</Link></Row>))} />
+        <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 16 }}>
+          <Link className="ad-btn p" to={`/admin/topics?subject=${cur.id}`}>Add topic</Link>
+          <button type="button" className="ad-btn o" onClick={() => setShowT(false)}>Close</button></div>
+      </Modal>}
       <Materials topics={mine} notify={notify} />
       <div className="ad-card" style={{ marginBottom: 24 }}><h2>Regulations</h2>
         <p style={{ color: "#6b7a90", marginTop: 0 }}>Add each curriculum scheme, then add its subjects with a regulation and semester. Students see only their own regulation and branch.</p>
@@ -170,7 +176,7 @@ export function Topics({ message, notify }) {
   const qs = new URLSearchParams(window.location.search);
   const [subs, setSubs] = useState([]); const [topics, setTopics] = useState([]); const [q, setQ] = useState("");
   const [subj, setSubj] = useState(qs.get("subject") || ""); const [cov, setCov] = useState("");
-  const [f, setF] = useState({ subject_id: qs.get("subject") || "", name: "", description: "", order_no: 0 }); const [editId, setEditId] = useState(null); const [er, setEr] = useState({});
+  const [f, setF] = useState({ subject_id: qs.get("subject") || "", name: "", description: "", order_no: 0 }); const [editId, setEditId] = useState(null); const [er, setEr] = useState({}); const [open, setOpen] = useState(false);
   const load = useCallback(async () => {
     try { const [s, t] = await Promise.all([all("/subjects/", { area: "ALL" }), all("/topics/")]); setSubs(s); setTopics(t);
       const eid = Number(qs.get("edit")); if (eid && !editId) { const x = t.find((y) => y.id === eid); if (x) startEdit(x); }
@@ -178,20 +184,21 @@ export function Topics({ message, notify }) {
     catch (e) { notify(parseError(e).message, "danger"); }
   }, [notify]); // eslint-disable-line
   useEffect(() => { load(); }, [load]);
-  const startEdit = (t) => { setEditId(t.id); setF({ subject_id: t.subject_id, name: t.name, description: t.description || "", order_no: t.order_no }); window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }); };
+  const startEdit = (t) => { setEditId(t.id); setF({ subject_id: t.subject_id, name: t.name, description: t.description || "", order_no: t.order_no }); setOpen(true); };
+  const startAdd = () => { setEditId(null); setEr({}); setF({ ...f, subject_id: f.subject_id || subj || String(subs[0]?.id || ""), name: "", description: "" }); setOpen(true); };
   const sname = (id) => subs.find((s) => s.id === id)?.name || "-";
   const shown = topics.filter((t) => t.name.toLowerCase().includes(q.toLowerCase()) && (!subj || String(t.subject_id) === String(subj)) && (!cov || (cov === "ok" ? t.description : !t.description)));
   const inSubj = topics.filter((t) => !subj || String(t.subject_id) === String(subj));
   const save = async (e) => {
     e.preventDefault(); setEr({});
     const body = { subject_id: Number(f.subject_id), name: f.name, description: f.description, order_no: Number(f.order_no || 0) };
-    try { editId ? await api.patch(`/topics/${editId}/`, body) : await api.post("/topics/", body); notify("Topic saved.", "success"); setEditId(null); setF({ ...f, name: "", description: "" }); load(); }
+    try { editId ? await api.patch(`/topics/${editId}/`, body) : await api.post("/topics/", body); notify("Topic saved.", "success"); setEditId(null); setOpen(false); setF({ ...f, name: "", description: "" }); load(); }
     catch (x) { const p = parseError(x); setEr(p.fields || {}); notify(p.message, "danger"); }
   };
   const covPct = pct(inSubj.filter((t) => t.description).length, inSubj.length);
   return (
     <AdminShell title="Topic management" crumb="Subjects & topics" subtitle="Make every practice topic easy to find, maintain and connect to questions." message={message}
-      action={<button className="ad-btn p" onClick={() => { setEditId(null); window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }); }}>Add topic</button>}>
+      action={<button className="ad-btn p" onClick={startAdd}>Add topic</button>}>
       <div className="ad-grid g3"><Stat label={`${subj ? sname(Number(subj)) : "All"} topics`} value={inSubj.length} note="In the selected subject" /><Stat label="Questions mapped" value={0} note="Appears once the question bank is built" /><Stat label="Needs review" value={inSubj.filter((t) => !t.description).length} note="Topics without a description" /></div>
       <div className="ad-filters"><Search value={q} onChange={setQ} placeholder="Search topics" />
         <Select value={subj} onChange={setSubj} options={[["", "All subjects"], ...subs.map((s) => [String(s.id), s.name])]} />
@@ -199,16 +206,19 @@ export function Topics({ message, notify }) {
       <List head="Topic / Subject / Questions / Actions" empty="No topics found." rows={shown.map((t) => (
         <Row key={t.id} title={t.name} meta={`Subject: ${sname(t.subject_id)} · Questions: 0${t.is_active ? "" : " · Hidden"}`}>
           <button className="ad-link" onClick={() => startEdit(t)}>Edit</button>{SL}<button className="ad-link r" onClick={() => remove(`/topics/${t.id}/`, t.name, notify, load)}>Delete</button></Row>))} />
-      <div className="ad-grid g2" style={{ alignItems: "start" }}>
-        <form className="ad-card ad-form" onSubmit={save} noValidate><h2>{editId ? "Edit topic" : "Add a topic"}</h2>
+      <div className="ad-grid" style={{ alignItems: "start" }}>
+
+        <div className="ad-card ad-dark"><h2>Coverage matters</h2><p>A topic is useful when students can practise it and understand their mistakes. Review question variety and explanation quality before publishing.</p>
+          <Bar label={`${subj ? sname(Number(subj)) : "All subjects"} coverage`} pct={covPct} /><small>Share of topics with a description · deleting a topic needs a linked-question review.</small></div>
+      </div>
+      {open && <Modal title={editId ? "Edit topic" : "Add a topic"} onClose={() => { setEditId(null); setOpen(false); }}>
+<form onSubmit={save} noValidate>
           <label>Subject</label><select className="ad-in" value={f.subject_id} onChange={(e) => setF({ ...f, subject_id: e.target.value })}>{subs.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}</select><Err e={er.subject_id} />
           <label>Topic name</label><input className="ad-in" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} /><Err e={er.name} />
           <label>Description</label><input className="ad-in" value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} /><Err e={er.description} />
           <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 22 }}><button className="ad-btn p">{editId ? "Save topic" : "Add topic"}</button>
-            {editId && <button type="button" className="ad-btn o" onClick={() => { setEditId(null); setF({ ...f, name: "", description: "" }); }}>Cancel</button>}</div></form>
-        <div className="ad-card ad-dark"><h2>Coverage matters</h2><p>A topic is useful when students can practise it and understand their mistakes. Review question variety and explanation quality before publishing.</p>
-          <Bar label={`${subj ? sname(Number(subj)) : "All subjects"} coverage`} pct={covPct} /><small>Share of topics with a description · deleting a topic needs a linked-question review.</small></div>
-      </div>
+            <button type="button" className="ad-btn o" onClick={() => { setEditId(null); setOpen(false); setF({ ...f, name: "", description: "" }); }}>Cancel</button></div></form>
+      </Modal>}
     </AdminShell>
   );
 }
@@ -220,7 +230,7 @@ const clean = (f) => { const b = { ...f }; ["location", "duration", "pay", "dead
 function Opportunities2({ message, notify, internships }) {
   const [rows, setRows] = useState([]); const [companies, setCompanies] = useState([]); const [branches, setBranches] = useState([]);
   const [q, setQ] = useState(""); const [type, setType] = useState(""); const [status, setStatus] = useState(internships ? "" : "PENDING"); const [dur, setDur] = useState(""); const [loc, setLoc] = useState("");
-  const [viewing, setViewing] = useState(null); const [f, setF] = useState({ ...EMPTY, job_type: internships ? "INTERNSHIP" : "INTERNSHIP" }); const [editId, setEditId] = useState(null); const [er, setEr] = useState({}); const [busy, setBusy] = useState(false);
+  const [viewing, setViewing] = useState(null); const [f, setF] = useState({ ...EMPTY, job_type: internships ? "INTERNSHIP" : "INTERNSHIP" }); const [editId, setEditId] = useState(null); const [formOpen, setFormOpen] = useState(false); const [er, setEr] = useState({}); const [busy, setBusy] = useState(false);
   const load = useCallback(() => {
     all("/jobs/", { status: status || undefined, job_type: internships ? "INTERNSHIP" : type || undefined }).then(setRows).catch((e) => notify(parseError(e).message, "danger"));
     if (!internships) all("/companies/", { status: "PENDING" }).then(setCompanies).catch(() => {});
@@ -244,10 +254,11 @@ function Opportunities2({ message, notify, internships }) {
     setEr(x); if (Object.keys(x).length) return;
     const body = clean(f); if (!body.description) body.description = `${f.title} at ${f.company_name}`;
     setBusy(true);
-    try { editId ? await api.patch(`/jobs/${editId}/`, body) : await api.post("/jobs/", body); notify(editId ? "Listing updated." : "Posted. Students can see it now.", "success"); reset(); load(); }
+    try { editId ? await api.patch(`/jobs/${editId}/`, body) : await api.post("/jobs/", body); notify(editId ? "Listing updated." : "Posted. Students can see it now.", "success"); reset(); setFormOpen(false); load(); }
     catch (err) { const p = parseError(err); setEr(p.fields || {}); notify(p.message, "danger"); } finally { setBusy(false); }
   };
-  const startEdit = (j) => { setEditId(j.id); setF(toForm(j)); window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }); };
+  const startEdit = (j) => { setEditId(j.id); setF(toForm(j)); setEr({}); setFormOpen(true); };
+  const closeForm = () => { reset(); setFormOpen(false); };
   const shown = rows.filter((j) => (j.title + j.company_name).toLowerCase().includes(q.toLowerCase()) && (!dur || j.duration === dur) && (!loc || j.location === loc));
   const uniq = (k) => [...new Set(rows.map((j) => j[k]).filter(Boolean))];
   const fld = (n, label, type = "text") => (<><label>{label}</label><input className="ad-in" name={n} type={type} value={f[n]} onChange={set} /><Err e={er[n]} /></>);
@@ -258,7 +269,7 @@ function Opportunities2({ message, notify, internships }) {
     <button className="ad-link" onClick={() => startEdit(j)}>Edit</button>{SL}<button className="ad-link r" onClick={() => remove(`/jobs/${j.id}/`, j.title, notify, load)}>Remove</button></>);
   if (viewing) return <AdminShell title="Applicants" crumb="Opportunities" subtitle={viewing.title} message={message}><Applicants job={viewing} onClose={() => setViewing(null)} /></AdminShell>;
   const tabs = <div className="ad-tabs">{[["PENDING", "Pending"], ["APPROVED", "Approved"], ["REJECTED", "Rejected"], ["", "All"]].map(([s, l]) => <button key={l} className={status === s ? "on" : ""} onClick={() => setStatus(s)}>{l}</button>)}</div>;
-  const goTop = () => { reset(); window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }); };
+  const goTop = () => { reset(); setFormOpen(true); };
   if (internships) return (
     <AdminShell title="Manage internships" crumb="Opportunities" subtitle="Keep learning opportunities specific, current and easy for students to understand." message={message}
       action={<button className="ad-btn p" onClick={goTop}>Add internship</button>}>
@@ -270,22 +281,25 @@ function Opportunities2({ message, notify, internships }) {
         <Row key={j.id} title={<>{j.title}{j.status !== "APPROVED" && <span className={`ad-pill ${j.status === "PENDING" ? "warn" : "bad"}`}>{j.status[0] + j.status.slice(1).toLowerCase()}</span>}</>}
           meta={`Company: ${j.company_name} · Duration: ${j.duration || "-"} · Location: ${j.location || "-"}`}>{actions(j)}</Row>))} />
       <div className="ad-grid g2" style={{ alignItems: "start" }}>
-        <form className="ad-card ad-form" onSubmit={submit} noValidate><h2>{editId ? "Edit internship details" : "Add internship details"}</h2>
-          <div className="ad-grid g2" style={{ marginBottom: 0 }}><div>{fld("title", "Title")}</div><div>{fld("company_name", "Company")}</div><div>{fld("duration", "Duration")}</div><div>{fld("location", "Location")}</div></div>
-          <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 22 }}><button className="ad-btn p" disabled={busy}>{editId ? "Save internship" : "Add internship"}</button>{editId && <button type="button" className="ad-btn o" onClick={reset}>Cancel</button>}</div></form>
+
         <div className="ad-card ad-dark"><h2>A useful listing answers real questions</h2><span className="ad-pill">EDITORIAL CHECKLIST</span>
           <p style={{ marginTop: 14 }}>What will the student learn? What skills are expected? How long is the internship? What is the location and stipend? Where is the verified application source?</p>
           <p style={{ fontSize: 14 }}>For full details such as stipend and apply link, use <Link to="/admin/opportunities" style={{ color: "#22d3ee" }}>Opportunities</Link>.</p></div>
       </div>
+      {formOpen && <Modal title={editId ? "Edit internship details" : "Add internship details"} onClose={closeForm}>
+<form onSubmit={submit} noValidate>
+          <div className="ad-grid g2" style={{ marginBottom: 0 }}><div>{fld("title", "Title")}</div><div>{fld("company_name", "Company")}</div><div>{fld("duration", "Duration")}</div><div>{fld("location", "Location")}</div></div>
+          <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 22 }}><button className="ad-btn p" disabled={busy}>{editId ? "Save internship" : "Add internship"}</button><button type="button" className="ad-btn o" onClick={closeForm}>Cancel</button></div></form>
+      </Modal>}
     </AdminShell>);
   return (
     <AdminShell title="Jobs & internships management" crumb="Opportunities" subtitle="Publish useful opportunities with clear sources, accurate details and a careful review." message={message}
-      action={<Link className="ad-btn o" to="/admin/internships">Manage internships</Link>}>
+      action={<div className="ad-act"><button className="ad-btn p" onClick={goTop}>Add opportunity</button><Link className="ad-btn o" to="/admin/internships">Manage internships</Link></div>}>
       {companies.length > 0 && <div className="ad-card" style={{ marginBottom: 24 }}><h2>Company approvals <span className="ad-pill warn">{companies.length}</span></h2>
         {companies.map((c) => <Row key={c.id} title={c.company_name} meta={`${c.contact_person} · ${c.email} · ${c.phone}${c.location ? " · " + c.location : ""}`}>
           <button className="ad-btn c s" onClick={() => review("/companies/", c, "approve", c.company_name)}>Approve</button>
           <button className="ad-btn d s" onClick={() => review("/companies/", c, "reject", c.company_name)}>Reject</button></Row>)}</div>}
-      <div className="ad-grid g2" style={{ alignItems: "start" }}>
+      <div className="ad-grid" style={{ alignItems: "start" }}>
         <div>
           <div className="ad-filters"><Search value={q} onChange={setQ} placeholder="Search listing title or company" />
             <Select value={type} onChange={setType} options={[["", "All types"], ["JOB", "Job"], ["INTERNSHIP", "Internship"]]} /></div>
@@ -298,7 +312,10 @@ function Opportunities2({ message, notify, internships }) {
             <h2 style={{ marginTop: 14 }}>{f.title || "Listing title"}</h2><p>{[f.company_name, f.location, f.duration, f.pay].filter(Boolean).join(" · ") || "Company · Location · Duration"}<br />{f.description || "Summary appears here."}</p>
             <p style={{ fontSize: 14 }}>Verify the original source before publication.</p></div>
         </div>
-        <form className="ad-card ad-form" onSubmit={submit} noValidate><h2>{editId ? "Edit opportunity" : "Add an opportunity"}</h2>
+
+      </div>
+      {formOpen && <Modal title={editId ? "Edit opportunity" : "Add an opportunity"} onClose={closeForm}>
+<form onSubmit={submit} noValidate>
           {fld("title", "Listing title")}{fld("company_name", "Company")}
           <label>Type</label><select className="ad-in" name="job_type" value={f.job_type} onChange={set}><option value="INTERNSHIP">Internship</option><option value="JOB">Job</option></select>
           {fld("apply_link", "Apply link")}<div className="ad-hint">Use a verified original listing URL.</div>
@@ -306,9 +323,9 @@ function Opportunities2({ message, notify, internships }) {
           <label>Summary</label><textarea className="ad-in" rows="4" name="description" value={f.description} onChange={set} /><Err e={er.description} />
           <label>Open to branches <span className="ad-hint">(none ticked = all branches)</span></label>
           <div className="ad-chk">{branches.map((b) => <label key={b.id}><input type="checkbox" checked={f.branch_ids.includes(b.id)} onChange={() => tog(b.id)} /> {b.code}</label>)}</div>
-          <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 22 }}><button className="ad-btn p" disabled={busy}>{busy ? "Saving…" : editId ? "Save listing" : "Publish listing"}</button>{editId && <button type="button" className="ad-btn o" onClick={reset}>Cancel</button>}</div>
+          <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 22 }}><button className="ad-btn p" disabled={busy}>{busy ? "Saving…" : editId ? "Save listing" : "Publish listing"}</button><button type="button" className="ad-btn o" onClick={closeForm}>Cancel</button></div>
           <p className="ad-hint" style={{ marginTop: 14 }}>Admin listings go live immediately.</p></form>
-      </div>
+      </Modal>}
       <Report />
     </AdminShell>
   );

@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { addWelcome } from "../notes";
 import api, { tokenStore } from "../api/client";
 
 const AuthContext = createContext(null);
@@ -17,6 +18,7 @@ export function AuthProvider({ children }) {
     tokenStore.set(data.access, data.refresh);
     tokenStore.setUser(data.user);
     setUser(data.user);
+    if (data.first_login) addWelcome(data.user);   // the server says this is the first time this account has signed in
     return data.user;
   }, []);
 

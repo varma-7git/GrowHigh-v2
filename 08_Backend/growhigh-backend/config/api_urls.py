@@ -9,5 +9,6 @@ urlpatterns = [
     path("", include("academics.urls")),
     path("", include("jobs.urls")),
     path("", include("exams.urls")),
+    path("", include("academics.tracking_urls")),
     # next steps: questions, tests, learning
 ]

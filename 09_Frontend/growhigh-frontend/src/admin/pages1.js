@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import api, { parseError } from "../api/client";
 import { useAuth } from "../context/AuthContext";
-import { AdminShell, Bar, EditUser, Err, List, Pager, Row, Search, Select, Stat, fmt } from "./ui";
+import { AdminShell, Bar, EditUser, Err, List, Modal, Pager, Row, Search, Select, Stat, fmt } from "./ui";
 
 const cnt = (url, params) => api.get(url, { params: { ...params, page_size: 1 } }).then((r) => r.data.count).catch(() => 0);
 
@@ -149,7 +149,7 @@ export function Faculty({ message, notify }) {
   };
   const E = { full_name: "", login_id: "", email: "", department: "", password: "" };
   const [f, setF] = useState(E); const [er, setEr] = useState({}); const [busy, setBusy] = useState(false);
-  const [tok, setTok] = useState("");
+  const [tok, setTok] = useState(""); const [open, setOpen] = useState(false);
   const set = (e) => setF({ ...f, [e.target.name]: e.target.value });
   const submit = async (e) => {
     e.preventDefault(); const x = {};
@@ -157,13 +157,14 @@ export function Faculty({ message, notify }) {
     if (f.email.trim() && !tok) x.email = "Verify this email: send the code to the faculty member and enter it.";
     setEr(x); if (Object.keys(x).length) return;
     setBusy(true);
-    try { await api.post("/users/", { ...f, email_token: tok }); notify(`Faculty account created for ${f.full_name}.`, "success"); setF(E); setTok(""); load(); }
+    try { await api.post("/users/", { ...f, email_token: tok }); notify(`Faculty account created for ${f.full_name}.`, "success"); setF(E); setTok(""); setOpen(false); load(); }
     catch (err) { const p = parseError(err); setEr(p.fields || {}); notify(p.message, "danger"); } finally { setBusy(false); }
   };
   const In = ({ n, label, type = "text", hint }) => (<><label>{label}</label><input className="ad-in" name={n} type={type} value={f[n]} onChange={set} /><Err e={er[n]} />{hint && !er[n] && <div className="ad-hint">{hint}</div>}</>);
   return (
-    <AdminShell title="Manage faculty" crumb="Faculty" subtitle="Support your teaching team with clear access and dependable account setup." message={message}>
-      <div className="ad-grid g2" style={{ alignItems: "start" }}>
+    <AdminShell title="Manage faculty" crumb="Faculty" subtitle="Support your teaching team with clear access and dependable account setup." message={message}
+      action={<button className="ad-btn p" onClick={() => { setEr({}); setOpen(true); }}>Add faculty</button>}>
+      <div className="ad-grid" style={{ alignItems: "start" }}>
         <div>
           <div className="ad-filters"><Search value={q} onChange={setQ} placeholder="Search faculty name or ID" /></div>
           {reqs.length > 0 && <div className="ad-card" style={{ marginBottom: 24 }}><h2>Waiting for approval <span className="ad-pill warn">{reqs.length}</span></h2>
@@ -174,12 +175,15 @@ export function Faculty({ message, notify }) {
               <Account key={u.id} u={u} me={me} notify={notify} reload={load} detail={`Faculty ID: ${u.login_id} · ${u.department || "-"}`} />))} /></div>
             <Pager page={page} setPage={setPage} data={data} /></div>
         </div>
-        <form className="ad-card ad-form" onSubmit={submit} noValidate><span className="ad-eyebrow">Secure onboarding</span><h2 style={{ marginTop: 8 }}>Add faculty account</h2>
+
+      </div>
+      {open && <Modal title="Add faculty account" onClose={() => setOpen(false)}>
+<form onSubmit={submit} noValidate><span className="ad-eyebrow">Secure onboarding</span>
           {In({ n: "full_name", label: "Full name" })}{In({ n: "login_id", label: "Faculty ID", hint: "Use a unique institutional identifier." })}
           <EmailVerify ad label="Email" value={f.email} onChange={set} onToken={setTok} error={er.email || er.email_token} />{In({ n: "department", label: "Department" })}
           {In({ n: "password", label: "Temporary password", type: "password", hint: "Share through an approved secure channel. Min 8 characters with a letter and a number." })}
-          <button className="ad-btn p" style={{ marginTop: 22 }} disabled={busy}>{busy ? "Creating…" : "Create account"}</button></form>
-      </div>
+          <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 22 }}><button className="ad-btn p" disabled={busy}>{busy ? "Creating…" : "Create account"}</button><button type="button" className="ad-btn o" onClick={() => setOpen(false)}>Cancel</button></div></form>
+      </Modal>}
       <div className="ad-card ad-dark"><h2>A thoughtful onboarding flow</h2><p>Create the account, verify the teaching identity and ask the faculty member to replace the temporary password at first login.</p></div>
     </AdminShell>
   );

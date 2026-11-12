@@ -43,6 +43,8 @@ const api = axios.create({ baseURL: API_URL, headers: { "Content-Type": "applica
 
 api.interceptors.request.use((config) => {
   if (store.access && !config.skipAuth) config.headers.Authorization = `Bearer ${store.access}`;
+  // File uploads: let the browser set multipart/form-data (the JSON default would turn the file into text).
+  if (typeof FormData !== "undefined" && config.data instanceof FormData) delete config.headers["Content-Type"];
   return config;
 });
 

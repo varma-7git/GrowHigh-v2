@@ -3,6 +3,7 @@ import NotFound from "../../pages/NotFound";
 import Materials from "./Materials";
 import Profile from "../student/Profile";
 import Reviews from "./Reviews";
+import Notifications from "../Notifications";
 import { Assign, Dashboard, Performance, QuestionForm, Questions, Schedule, Students } from "./Faculty";
 
 export default function FacultyApp() {
@@ -18,6 +19,7 @@ export default function FacultyApp() {
       <Route path="students" element={<Students />} />
       <Route path="reviews" element={<Reviews />} />
       <Route path="performance" element={<Performance />} />
+      <Route path="notifications" element={<Notifications role="faculty" />} />
       <Route path="profile/*" element={<Profile role="faculty" />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { confirmLogout, showToast } from "../toast";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import { homeFor, useAuth } from "../context/AuthContext";
@@ -13,14 +14,14 @@ export function PublicNav() {
   const { user, logout } = useAuth();
   const nav = useNavigate();
   const [open, setOpen] = useState(false);
-  const out = async () => { await logout(); nav("/", { replace: true }); };
+  const out = async () => { if (!(await confirmLogout())) return; await logout(); showToast("Logout successful"); nav("/login", { replace: true }); };
   return (
     <header className="nf-nav pb-nav"><Logo dark />
       <button className="pb-burger" aria-label="Menu" onClick={() => setOpen(!open)}>☰</button>
       <nav className={open ? "open" : ""} onClick={() => setOpen(false)}>
         <Link to="/">Home</Link><a href="/#features">Features</a><a href="/#about">About</a><a href="/#contact">Contact</a>
         {user ? (<><Link to={homeFor(user.role)}>Dashboard</Link><button className="ad-btn c s" onClick={out}>Logout</button></>)
-          : (<><Link to="/login">Login</Link><Link className="ad-btn c s" to="/register">Register</Link></>)}
+          : (<><Link className="ad-btn c s" to="/login">Login</Link><Link className="ad-btn c s" to="/register">Register</Link></>)}
       </nav>
     </header>
   );

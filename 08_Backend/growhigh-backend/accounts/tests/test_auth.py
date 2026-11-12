@@ -1,6 +1,5 @@
 import re
 
-from django.contrib.auth.tokens import default_token_generator
 from django.core import mail
 from rest_framework.test import APITestCase
 
@@ -97,11 +96,17 @@ class AuthTests(APITestCase):
         unknown = self.client.post(f"{API}/auth/forgot-password/", {"login_id": "NOPE"}, format="json")
         self.assertEqual(known.data, unknown.data)  # same reply: no user guessing
         self.assertEqual(len(mail.outbox), 1)
-        token = re.search(r"\n\n(\S+)\n\n", mail.outbox[0].body).group(1)
-        bad = self.client.post(f"{API}/auth/reset-password/", {"login_id": "21001-CM-001", "token": "bad",
-                               "new_password": "NewPass@123", "confirm_password": "NewPass@123"}, format="json")
+        code = re.search(r"\n\n(\d{6})\n\n", mail.outbox[0].body).group(1)
+        wrong = "000000" if code != "000000" else "111111"
+        bad = self.client.post(f"{API}/auth/verify-reset-code/", {"login_id": "21001-CM-001", "code": wrong}, format="json")
         self.assertEqual(bad.status_code, 400)
-        ok = self.client.post(f"{API}/auth/reset-password/", {"login_id": "21001-CM-001", "token": token,
-                              "new_password": "NewPass@123", "confirm_password": "NewPass@123"}, format="json")
-        self.assertEqual(ok.status_code, 204, getattr(ok, "data", None))
+        ok = self.client.post(f"{API}/auth/verify-reset-code/", {"login_id": "21001-CM-001", "code": code}, format="json")
+        self.assertEqual(ok.status_code, 200)
+        token = ok.data["token"]
+        noproof = self.client.post(f"{API}/auth/reset-password/", {"token": "nonsense", "new_password": "NewPass@123", "confirm_password": "NewPass@123"}, format="json")
+        self.assertEqual(noproof.status_code, 400)
+        done = self.client.post(f"{API}/auth/reset-password/", {"token": token, "new_password": "NewPass@123", "confirm_password": "NewPass@123"}, format="json")
+        self.assertEqual(done.status_code, 204, getattr(done, "data", None))
+        again = self.client.post(f"{API}/auth/reset-password/", {"token": token, "new_password": "Other@12345", "confirm_password": "Other@12345"}, format="json")
+        self.assertEqual(again.status_code, 400)  # the proof works only once
         self.assertEqual(self.login("21001-CM-001", "NewPass@123").status_code, 200)

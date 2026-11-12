@@ -1,4 +1,6 @@
+import ThemeToggle from "./ThemeToggle";
 import { useNavigate } from "react-router-dom";
+import { confirmLogout, showToast } from "../toast";
 import Logo from "./Logo";
 import { useAuth } from "../context/AuthContext";
 
@@ -6,12 +8,13 @@ import { useAuth } from "../context/AuthContext";
 export default function Shell({ title, subtitle, tabs, tab, onTab, children }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const out = async () => { await logout(); navigate("/login", { replace: true }); };
+  const out = async () => { if (!(await confirmLogout())) return; await logout(); showToast("Logout successful"); navigate("/login", { replace: true }); };
   return (
     <div className="gh-dash">
       <header className="gh-dash-bar">
         <Logo dark />
         <div className="d-flex align-items-center gap-3">
+          <ThemeToggle />
           <span className="gh-who d-none d-sm-inline">{user.full_name}</span>
           <button className="gh-btn gh-btn-coral gh-btn-sm" onClick={out}>Logout</button>
         </div>
@@ -24,6 +27,7 @@ export default function Shell({ title, subtitle, tabs, tab, onTab, children }) {
               {tabs.map(([key, label]) => (
                 <button key={key} className={tab === key ? "active" : ""} onClick={() => onTab(key)}>{label}</button>
               ))}
+              <button className="gh-side-logout" onClick={out}>Logout</button>
             </aside>
           )}
           <main className="gh-main" id="main" tabIndex={-1}>

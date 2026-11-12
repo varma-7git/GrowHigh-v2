@@ -106,12 +106,31 @@ def _hash_code(email, code):
     return signing.salted_hmac("email-code", f"{email}:{code}").hexdigest()
 
 
+def _issue_code(key):
+    """Create (replacing any older one) and return a fresh 6-digit code for `key`. Only a hash is stored."""
+    EmailCode.objects.filter(email=key).delete()
+    code = f"{secrets.randbelow(10 ** 6):06d}"
+    EmailCode.objects.create(email=key, code_hash=_hash_code(key, code))
+    return code
+
+
+def _consume_code(key, code):
+    """True when `code` is right for `key`. A right code works once; 5 wrong tries lock it until a new code is sent."""
+    row = EmailCode.objects.filter(email=key, created_at__gte=timezone.now() - timedelta(minutes=CODE_MINUTES)).first()
+    if not row or row.attempts >= MAX_ATTEMPTS:
+        return False
+    row.attempts += 1
+    row.save(update_fields=["attempts"])
+    if not hmac.compare_digest(row.code_hash, _hash_code(key, (code or "").strip())):
+        return False
+    row.delete()
+    return True
+
+
 def send_email_code(email):
     """Email a fresh 6-digit code. Raises ValueError when the mail server refuses the address."""
     email = email.strip().lower()
-    EmailCode.objects.filter(email=email).delete()
-    code = f"{secrets.randbelow(10 ** 6):06d}"
-    EmailCode.objects.create(email=email, code_hash=_hash_code(email, code))
+    code = _issue_code(email)
     try:
         send_mail("Your GrowHigh verification code",
                   f"Your GrowHigh verification code is {code}.\n\nIt works for {CODE_MINUTES} minutes. "
@@ -125,15 +144,39 @@ def send_email_code(email):
 def check_email_code(email, code):
     """Return a signed token (valid 30 minutes) when the code is right, else None."""
     email = email.strip().lower()
-    row = EmailCode.objects.filter(email=email, created_at__gte=timezone.now() - timedelta(minutes=CODE_MINUTES)).first()
-    if not row or row.attempts >= MAX_ATTEMPTS:
+    if not _consume_code(email, code):
         return None
-    row.attempts += 1
-    row.save(update_fields=["attempts"])
-    if not hmac.compare_digest(row.code_hash, _hash_code(email, (code or "").strip())):
-        return None
-    row.delete()
     return signing.dumps({"email": email}, salt="email-verified")
+
+
+def send_reset_code(user):
+    """Email the 6-digit password reset code. Same code system as email verification, kept separate per user."""
+    code = _issue_code(f"reset:{user.pk}")
+    send_mail("GrowHigh password reset code",
+              f"Hello {user.full_name},\n\nYour password reset code is:\n\n{code}\n\n"
+              f"It works for {CODE_MINUTES} minutes. Use it with your login ID ({user.login_id}).\n"
+              "If you did not ask for this, ignore this email.", None, [user.email])
+
+
+def check_reset_code(user, code):
+    return _consume_code(f"reset:{user.pk}", code)
+
+
+RESET_TOKEN_SECONDS = 10 * 60
+
+
+def make_reset_token(user):
+    """Proof that the emailed code was right. It dies when the password changes, so it works only once."""
+    return signing.dumps({"uid": user.pk, "p": user.password[-16:]}, salt="password-reset")
+
+
+def user_from_reset_token(token):
+    try:
+        data = signing.loads(token or "", salt="password-reset", max_age=RESET_TOKEN_SECONDS)
+    except signing.BadSignature:
+        return None
+    user = User.objects.filter(pk=data.get("uid"), is_active=True).first()
+    return user if user and user.password[-16:] == data.get("p") else None
 
 
 def token_is_valid(email, token):

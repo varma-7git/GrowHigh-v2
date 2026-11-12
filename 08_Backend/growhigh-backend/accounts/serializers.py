@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
-from django.contrib.auth.tokens import default_token_generator
 from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 from rest_framework.exceptions import PermissionDenied
@@ -231,16 +230,20 @@ class ForgotPasswordSerializer(serializers.Serializer):
     login_id = serializers.CharField(max_length=254, label="Email or login ID")
 
 
-class ResetPasswordSerializer(serializers.Serializer):
+class VerifyResetCodeSerializer(serializers.Serializer):
     login_id = serializers.CharField(max_length=254, label="Email or login ID")
-    token = serializers.CharField()
+    code = serializers.CharField(max_length=6, label="6-digit code")
+
+
+class ResetPasswordSerializer(serializers.Serializer):
+    token = serializers.CharField(label="Proof from the verified code")
     new_password = serializers.CharField(write_only=True, min_length=8)
     confirm_password = serializers.CharField(write_only=True)
 
     def validate(self, attrs):
-        user = services.find_user(attrs["login_id"])
-        if not user or not user.is_active or not default_token_generator.check_token(user, attrs["token"]):
-            raise serializers.ValidationError({"token": ["Invalid or expired token."]})
+        user = services.user_from_reset_token(attrs["token"])
+        if not user:
+            raise serializers.ValidationError({"token": ["This reset has expired. Start again and ask for a new code."]})
         if attrs["new_password"] != attrs["confirm_password"]:
             raise serializers.ValidationError({"confirm_password": ["Passwords do not match."]})
         validate_password(attrs["new_password"], user)

@@ -1,0 +1,135 @@
+/* Dark theme. Everything here applies only when <html data-theme="dark">; light mode is the original design, unchanged. */
+html[data-theme="dark"]{--surface:#11233a;--tx:#e8eff7;--mu:#97abc0;--mu2:#b4c3d3;--ln:#25405c;--soft:#0f2036;--sel:#143457;--tint-blue:#12364f;--tint-blue-fg:#7ad0f5;--tint-green:#123a2a;--tint-green-fg:#6fe0a6;--tint-amber:#3a2e10;--tint-amber-fg:#f3c56a;--tint-grey:#1a3350;color-scheme:dark;--bg1:#071220;--bg2:#0b1a2e;--ink:#e8eff7;--mut:#97abc0;--line:#25405c;--sh-card:0 12px 28px rgba(0,0,0,.45),0 2px 5px rgba(0,0,0,.3);--sh-card-up:0 20px 40px rgba(0,0,0,.55),0 4px 8px rgba(0,0,0,.35)}
+html[data-theme="dark"] .ad{--bg:#0a1424;--n2:#1f5a86;--surface:#11233a;--tx:#e8eff7;--mu:#97abc0;--mu2:#b4c3d3;--ln:#25405c;--soft:#0f2036;--sel:#143457}
+html[data-theme="dark"] .ad-top{background:var(--surface)}
+html[data-theme="dark"] .ad-menu{background:var(--surface)}
+html[data-theme="dark"] .ad-card{background:var(--surface)}
+html[data-theme="dark"] .ad-sbox{background:var(--surface)}
+html[data-theme="dark"] .ad-list{background:var(--surface)}
+html[data-theme="dark"] .ad-foot{background:var(--surface)}
+html[data-theme="dark"] .ws-opt{background:var(--surface)}
+html[data-theme="dark"] .ws-nv button{background:var(--surface)}
+html[data-theme="dark"] .ws-badge{background:var(--surface)}
+html[data-theme="dark"] .ws-rs{background:var(--surface)}
+html[data-theme="dark"] .ws-tbl{background:var(--surface)}
+html[data-theme="dark"] .ws-st.cur{background:var(--surface)}
+html[data-theme="dark"] .ad-in:focus{background:var(--surface)}
+html[data-theme="dark"] .ad-btn.o{background:var(--surface)}
+html[data-theme="dark"] .gh-card{background:var(--surface)}
+html[data-theme="dark"] .gh-panel{background:var(--surface)}
+html[data-theme="dark"] .gh-job{background:var(--surface)}
+html[data-theme="dark"] .pb-card{background:var(--surface)}
+html[data-theme="dark"] .pl-box{background:var(--surface)}
+html[data-theme="dark"] .pl-card{background:var(--surface)}
+html[data-theme="dark"] .pl-sec.w{background:var(--surface)}
+html[data-theme="dark"] .nf-tag{background:var(--surface)}
+html[data-theme="dark"] .ad-top{background:#0f2036}
+html[data-theme="dark"] .ad-in:focus{border-color:var(--cy);background:#0f2036}
+html[data-theme="dark"] .ad select.ad-sel{background:#0f2036;border-color:var(--ln);color:var(--tx)}
+html[data-theme="dark"] .ad-in{background:#0f2036;border-color:var(--ln);color:var(--tx)}
+html[data-theme="dark"] .pb-card .gh-field .form-control{background:#0f2036;border-color:var(--ln);color:var(--tx)}
+html[data-theme="dark"] .pb-card .gh-field .form-select{background:#0f2036;border-color:var(--ln);color:var(--tx)}
+html[data-theme="dark"] .gh-field .form-control{background:#0f2036;border-color:var(--ln);color:var(--tx)}
+html[data-theme="dark"] .gh-field .form-select{background:#0f2036;border-color:var(--ln);color:var(--tx)}
+html[data-theme="dark"] .gh-checks{background:#0f2036;border-color:var(--ln);color:var(--tx)}
+html[data-theme="dark"] .gh-field .form-control:focus,html[data-theme="dark"] .gh-field .form-select:focus{background:#0f2036;color:var(--tx);border-color:var(--cy)}
+html[data-theme="dark"] .gh-field .form-control::placeholder,html[data-theme="dark"] .ad-in::placeholder{color:#6f86a0}
+html[data-theme="dark"] .ad-lh,html[data-theme="dark"] .ws-ck.hd,html[data-theme="dark"] .ws-st{background:#0f2036;color:var(--mu2)}
+html[data-theme="dark"] .ad-row:hover{background:#152b45}
+html[data-theme="dark"] .ad-tabs button,html[data-theme="dark"] .ad-tabs a,html[data-theme="dark"] .ad-sub span,html[data-theme="dark"] .ws-tags span,html[data-theme="dark"] .ws-opt i,html[data-theme="dark"] .ad-pill,html[data-theme="dark"] .ws-ini,html[data-theme="dark"] .pb-card .gh-roletabs a,html[data-theme="dark"] .gh-roletabs a{background:#1a3350;color:var(--mu2)}
+html[data-theme="dark"] .ad-tabs button.on,html[data-theme="dark"] .ad-tabs button:hover,html[data-theme="dark"] .ad-tabs a.on,html[data-theme="dark"] .ad-tabs a:hover,html[data-theme="dark"] .pb-card .gh-roletabs a.active,html[data-theme="dark"] .gh-roletabs a.active{background:var(--n2);color:#fff}
+html[data-theme="dark"] .ad-bar,html[data-theme="dark"] .ws-pbar{background:#24405c}
+html[data-theme="dark"] .ad-link:hover{background:#1a3350;color:#fff}
+html[data-theme="dark"] .ad-link.r:hover{background:#3d1b19;color:#ff9d94}
+html[data-theme="dark"] .ws-form .ad-in:disabled{background:#0c1a2c;color:#6f86a0}
+html[data-theme="dark"] .ad-head h1{color:var(--tx)}
+html[data-theme="dark"] .ws-qt{color:var(--tx)}
+html[data-theme="dark"] .ws-take h1{color:var(--tx)}
+html[data-theme="dark"] .ws-big{color:var(--tx)}
+html[data-theme="dark"] .ad-stat b{color:var(--tx)}
+html[data-theme="dark"] .ws-job h3{color:var(--tx)}
+html[data-theme="dark"] .ws-rs h4{color:var(--tx)}
+html[data-theme="dark"] .ws-st a{color:var(--tx)}
+html[data-theme="dark"] .pl-sec h2{color:var(--tx)}
+html[data-theme="dark"] .pb-left h1{color:var(--tx)}
+html[data-theme="dark"] .pb-card .gh-field label{color:var(--tx)}
+html[data-theme="dark"] .ad-notes .ad-note b{color:var(--tx)}
+html[data-theme="dark"] .ad-menu button{color:var(--tx)}
+html[data-theme="dark"] .nf-main{color:var(--tx)}
+html[data-theme="dark"] .pb{color:var(--tx)}
+html[data-theme="dark"] .nf-main h1{color:var(--tx)}
+html[data-theme="dark"] .pb-left h2{color:var(--tx)}
+html[data-theme="dark"] .ad-head p{color:var(--mu2)}
+html[data-theme="dark"] .ws-p{color:var(--mu2)}
+html[data-theme="dark"] .ws-check{color:var(--mu2)}
+html[data-theme="dark"] .ad-stat small{color:var(--mu2)}
+html[data-theme="dark"] .ad-foot{color:var(--mu2)}
+html[data-theme="dark"] .ad-foot a{color:var(--mu2)}
+html[data-theme="dark"] .ad-link{color:var(--mu2)}
+html[data-theme="dark"] .ws-save{color:var(--mu2)}
+html[data-theme="dark"] .ws-tile em{color:var(--mu2)}
+html[data-theme="dark"] .pb-left p{color:var(--mu2)}
+html[data-theme="dark"] .pb-left small{color:var(--mu2)}
+html[data-theme="dark"] .pb-sub{color:var(--mu2)}
+html[data-theme="dark"] .pb-alt{color:var(--mu2)}
+html[data-theme="dark"] .pb-fine{color:var(--mu2)}
+html[data-theme="dark"] .pl-box>p{color:var(--mu2)}
+html[data-theme="dark"] .pl-card p{color:var(--mu2)}
+html[data-theme="dark"] .pl-card em{color:var(--mu2)}
+html[data-theme="dark"] .nf-main p{color:var(--mu2)}
+html[data-theme="dark"] .ad-notes .ad-note small{color:var(--mu2)}
+html[data-theme="dark"] .gh-desc{color:var(--mu2)}
+html[data-theme="dark"] .pl-form label{color:var(--mu2)}
+html[data-theme="dark"] .ad-search{color:var(--mu2)}
+html[data-theme="dark"] .pb-alt a,html[data-theme="dark"] .pb-card a:not(.gh-btn),html[data-theme="dark"] .pb-fg a{color:#7ad9ec}
+html[data-theme="dark"] .ad-notes .ad-note{border-bottom-color:var(--ln)}
+html[data-theme="dark"] .ad-menu button:hover{background:#152b45}
+html[data-theme="dark"] .pb,html[data-theme="dark"] .nf-main,html[data-theme="dark"] .ws-take{background:var(--bg)}
+html[data-theme="dark"] .ws-take{color:var(--tx)}
+html[data-theme="dark"] .gh-register{background:radial-gradient(circle at 15% 10%,#10304a,transparent 45%),radial-gradient(circle at 90% 90%,#241d4d,transparent 40%),linear-gradient(160deg,#071220,#0b1a2e)}
+html[data-theme="dark"] .ad-alert.success,html[data-theme="dark"] .ad-pill.ok{background:#123a2a;color:#6fe0a6}
+html[data-theme="dark"] .ad-alert.danger,html[data-theme="dark"] .ad-pill.bad,html[data-theme="dark"] .ad-btn.d{background:#3d1b19;color:#ff9d94}
+html[data-theme="dark"] .ad-alert.warning,html[data-theme="dark"] .ad-pill.warn{background:#3a2e10;color:#f3c56a}
+html[data-theme="dark"] .ad-form .ad-err{color:#ff9d94}
+html[data-theme="dark"] .ws-opt.ok{background:#123a2a;border-color:#2cb872}
+html[data-theme="dark"] .ws-opt.no{background:#3d1b19;border-color:#e2574c}
+html[data-theme="dark"] .ws-nv button.done{background:#11485a;border-color:#2b8aa3;color:#fff}
+html[data-theme="dark"] .ws-nv button.cur{background:var(--n2);color:#fff;border-color:var(--n2)}
+html[data-theme="dark"] .ws-opt:hover{border-color:#2b8aa3}
+html[data-theme="dark"] .ws-ck em{color:#4fd6b0}
+html[data-theme="dark"] .ws-st.lock .dot,html[data-theme="dark"] .ws-st .dot{background:#24405c}
+html[data-theme="dark"] .ws-st .dot svg{stroke:#e8eff7}
+html[data-theme="dark"] .ws-st.cur .dot{background:var(--n2)}
+html[data-theme="dark"] .ws-ck input{accent-color:#22d3ee}
+html[data-theme="dark"] .ad-btn.p{background:var(--n2)}
+html[data-theme="dark"]input[type=file].ad-in::file-selector-button{background:var(--n2)}
+html[data-theme="dark"] .gh-logo{color:#fff}
+html[data-theme="dark"] .gh-badge{background:#12364f;color:#7ad0f5}
+html[data-theme="dark"] .gh-badge-INTERNSHIP{background:#3d1f1c;color:#ffa99f}
+html[data-theme="dark"] .gh-btn-done{background:#123a2a;color:#6fe0a6;border-color:#1f6b4c}
+html[data-theme="dark"] .gh-title,html[data-theme="dark"] .gh-h3,html[data-theme="dark"] .gh-card h2{color:var(--tx)}
+html[data-theme="dark"] .table tbody tr:nth-child(odd) td{background:#11233a;color:var(--tx);border-bottom-color:var(--ln)}
+html[data-theme="dark"] .table tbody tr:nth-child(even) td{background:#0f2036;color:var(--tx);border-bottom-color:var(--ln)}
+html[data-theme="dark"] .table tbody tr:hover td{background:#153a4e}
+html[data-theme="dark"] .alert-danger{background:#3d1b19;color:#ff9d94}
+html[data-theme="dark"] .alert-success{background:#123a2a;color:#6fe0a6}
+html[data-theme="dark"] .alert-warning{background:#3a2e10;color:#f3c56a}
+html[data-theme="dark"] .alert-info{background:#12364f;color:#7ad0f5}
+html[data-theme="dark"] .modal-content{background:var(--surface);color:var(--tx)}
+html[data-theme="dark"] .form-check-input{background-color:#0f2036;border-color:#3a5a7d}
+html[data-theme="dark"] .form-check-input:checked{background-color:#22d3ee;border-color:#22d3ee}
+html[data-theme="dark"] .gh-skip:focus{background:#fff;color:#0b1f33}
+html[data-theme="dark"] .gh-theme-float{background:#fff;color:#0b1f33;border-color:#25405c}
+
+/* The light/dark switch on public pages sits in the corner; inside the dashboards it is a header button. */
+.gh-theme-float{position:fixed;right:18px;bottom:18px;z-index:2500;width:46px;height:46px;border-radius:50%;border:1px solid #d5deea;background:#0b2a45;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 24px rgba(6,26,46,.35);transition:transform .2s}
+.gh-theme-float:hover{transform:scale(1.08)}
+.gh-theme-float:focus-visible,.gh-theme:focus-visible{outline:3px solid #22d3ee;outline-offset:2px}
+.ad-bell.gh-theme{margin-left:0;display:grid;place-items:center;cursor:pointer}
+.gh-dash-bar .gh-theme{margin-left:auto;margin-right:8px;color:#cfe2f5;background:none;border:0;padding:6px;cursor:pointer}
+html[data-theme="dark"] .ws-form label.ws-ck,html[data-theme="dark"] .ws-ck{background:var(--surface);color:var(--tx);border-color:var(--ln)}
+html[data-theme="dark"] .ws-ck:hover{background:var(--soft);border-color:#3a5f85}
+html[data-theme="dark"] .ws-ck.on{background:var(--sel);border-color:#22d3ee;box-shadow:inset 3px 0 0 #22d3ee}
+html[data-theme="dark"] .ws-ck em{background:rgba(79,214,176,.14)}
+html[data-theme="dark"] .ws-form label.ws-ck.hd,html[data-theme="dark"] .ws-ck.hd{background:#0f2036;color:var(--mu2)}
+html[data-theme="dark"] .ws-ck-count{color:var(--mu2)}

@@ -1,4 +1,7 @@
+import ThemeToggle from "../components/ThemeToggle";
 import { useEffect, useState } from "react";
+import { confirmLogout, showToast } from "../toast";
+import { markAllRead, useNoteList } from "../notes";
 import { createPortal } from "react-dom";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
@@ -33,6 +36,7 @@ export const NAV = [
   ["", "Dashboard", "dashboard"], ["users", "Users", "users"], ["students", "Students", "students"], ["faculty", "Faculty", "faculty"],
   ["branches", "Branches", "branches"], ["subjects", "Subjects & topics", "subjects"], ["questions", "Question bank", "questions"],
   ["tests", "Tests", "tests"], ["papers", "Previous papers", "questions"], ["opportunities", "Opportunities", "opportunities"], ["content", "Content & settings", "content"],
+  ["notifications", "Notifications", "bell"],
 ];
 
 const ALIAS = { subjects: ["topics"], opportunities: ["internships"] };
@@ -44,6 +48,10 @@ export function AdminShell({ crumb, title, subtitle, action, message, children }
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [bell, setBell] = useState(false);
+  const [notes, refreshNotes] = useNoteList(user.id);
+  const unread = notes.filter((n) => !n.read).length;
+  const toggleBell = () => { const next = !bell; setBell(next); setMenu(false); if (next && unread) { markAllRead(user.id); setTimeout(refreshNotes, 4000); } };
   const [q, setQ] = useState("");
   const [pending, setPending] = useState(0);
   useEffect(() => {
@@ -51,7 +59,14 @@ export function AdminShell({ crumb, title, subtitle, action, message, children }
       api.get(`/${u}/`, { params: { status: "PENDING", page_size: 1 } }).then((r) => r.data.count).catch(() => 0)))
       .then((a) => setPending(a.reduce((x, y) => x + y, 0)));
   }, [title]);
-  const out = async () => { await logout(); nav("/login", { replace: true }); };
+  useEffect(() => {
+    if (!menu && !bell) return undefined;
+    const away = (e) => { if (!e.target.closest(".ad-user, .ad-bellwrap")) { setMenu(false); setBell(false); } };
+    const esc = (e) => { if (e.key === "Escape") { setMenu(false); setBell(false); } };
+    document.addEventListener("mousedown", away); document.addEventListener("touchstart", away); document.addEventListener("keydown", esc);
+    return () => { document.removeEventListener("mousedown", away); document.removeEventListener("touchstart", away); document.removeEventListener("keydown", esc); };
+  }, [menu, bell]);
+  const out = async () => { if (!(await confirmLogout())) return; await logout(); showToast("Logout successful"); nav("/login", { replace: true }); };
   const today = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
   return (
     <div className="ad">
@@ -65,6 +80,7 @@ export function AdminShell({ crumb, title, subtitle, action, message, children }
         </nav>
         <div className="ad-tag">Learn. Prepare. Grow.</div>
         <div className="ad-help">Your Career. Our Priority.</div>
+        <button className="ad-sidelogout" onClick={(e) => { e.stopPropagation(); out(); }}>Logout</button>
       </aside>
       <div className="ad-body">
         <header className="ad-top">
@@ -72,9 +88,18 @@ export function AdminShell({ crumb, title, subtitle, action, message, children }
           <form className="ad-search" onSubmit={(e) => { e.preventDefault(); if (q.trim()) nav(`/admin/users?q=${encodeURIComponent(q.trim())}`); }}>
             <Icon n="search" /><input placeholder="Search GrowHigh…" value={q} onChange={(e) => setQ(e.target.value)} />
           </form>
-          <button className="ad-bell" title={`${pending} waiting for review`} onClick={() => nav("/admin")}>
-            <Icon n="bell" />{pending > 0 && <i>{pending}</i>}
-          </button>
+          <div className="ad-bellwrap" style={{ position: "relative" }}>
+            <button className="ad-bell" aria-label="Notifications" title={`${pending} waiting for review`} onClick={toggleBell}>
+              <Icon n="bell" />{pending + unread > 0 && <i>{pending + unread}</i>}
+            </button>
+            {bell && <div className="ad-menu ad-notes" style={{ position: "absolute", right: 0, top: 44, minWidth: 260 }}>
+              {notes.slice(0, 5).map((n) => <div key={n.id} className="ad-note"><b>{n.title}</b><small>{n.text}</small></div>)}
+              {pending > 0 && <button onClick={() => { setBell(false); nav("/admin"); }}><b>{pending} waiting for review</b><small>Open the dashboard</small></button>}
+              {pending === 0 && notes.length === 0 && <p style={{ margin: 0, padding: "10px 12px" }}>You are all caught up.</p>}
+              <button onClick={() => { setBell(false); nav("/admin/notifications"); }}><b>See all notifications</b></button>
+            </div>}
+          </div>
+          <ThemeToggle />
           <div className="ad-user">
             <span>{today}</span>
             <button onClick={() => setMenu(!menu)}><span className="nm">{user.full_name}</span> ▾</button>
@@ -147,7 +172,7 @@ export async function all(url, params) {
 export function Modal({ title, onClose, children }) {
   useEffect(() => {
     const prev = document.body.style.overflow; document.body.style.overflow = "hidden";
-    const esc = (e) => e.key === "Escape" && onClose();
+    const esc = (e) => e.key === "Escape" && !document.querySelector(".gh-dlg") && onClose();
     window.addEventListener("keydown", esc);
     return () => { document.body.style.overflow = prev; window.removeEventListener("keydown", esc); };
   }, [onClose]);
@@ -200,7 +225,7 @@ export function EditUser({ u, onClose, notify, reload }) {
         <div className="ad-act" style={{ justifyContent: "flex-start", marginTop: 22 }}>
           <button className="ad-btn p" disabled={busy}>{busy ? "Saving…" : "Save changes"}</button></div>
       </form>
-      <div style={{ borderTop: "1px solid #e6ecf4", marginTop: 24 }}>
+      <div style={{ borderTop: "1px solid var(--ln, #e6ecf4)", marginTop: 24 }}>
         <label>Set a new password</label>
         <div style={{ position: "relative" }}><input className="ad-in" type={showPw ? "text" : "password"} value={pw} onChange={(e) => setPw(e.target.value)} placeholder="At least 8 characters, with a letter and a number" autoComplete="new-password" />
           <button type="button" className="ad-link" style={{ position: "absolute", right: 8, top: 12 }} onClick={() => setShowPw(!showPw)}>{showPw ? "Hide" : "Show"}</button></div>

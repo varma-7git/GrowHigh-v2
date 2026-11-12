@@ -13,6 +13,7 @@ import AdminHome from "./admin/AdminHome";
 import CompanyHome from "./pages/CompanyHome";
 import StudentApp from "./ws/student/StudentApp";
 import FacultyApp from "./ws/faculty/FacultyApp";
+import ThemeToggle from "./components/ThemeToggle";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -40,6 +41,7 @@ export default function App() {
       <Route path="/company" element={<ProtectedRoute role="COMPANY"><CompanyHome /></ProtectedRoute>} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    {!/^\/(student|faculty|admin|company)/.test(pathname) && <ThemeToggle floating />}
     </>
   );
 }

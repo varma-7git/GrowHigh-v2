@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { confirmLogout, showToast } from "../toast";
 import Logo from "../components/Logo";
 import { useAuth } from "../context/AuthContext";
 
@@ -8,7 +9,7 @@ const TITLES = { STUDENT: "Student dashboard", FACULTY: "Faculty dashboard", ADM
 export default function Dashboard() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const out = async () => { await logout(); navigate("/login", { replace: true }); };
+  const out = async () => { if (!(await confirmLogout())) return; await logout(); showToast("Logout successful"); navigate("/login", { replace: true }); };
   return (
     <div className="gh-dash">
       <header className="gh-dash-bar">

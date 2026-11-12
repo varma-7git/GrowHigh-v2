@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { confirmLogout, showToast } from "../toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import api from "../api/client";
@@ -27,7 +28,7 @@ export default function AdminShell({ page, go, onSearch, children }) {
       .then(([fac, co, jobs]) => setPending({ fac, other: co + jobs }));
   }, [page]);
 
-  const out = async () => { await logout(); navigate("/login", { replace: true }); };
+  const out = async () => { if (!(await confirmLogout())) return; await logout(); showToast("Logout successful"); navigate("/login", { replace: true }); };
   const pick = (k) => { go(k); setOpen(false); };
   const total = pending.fac + pending.other;
 

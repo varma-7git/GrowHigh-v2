@@ -17,8 +17,8 @@ def _pct(score, total):
 
 
 def _tests_for(user):
-    qs = Test.objects.select_related("branch")
-    return qs if user.role == Role.ADMIN else qs.filter(created_by=user)
+    """Faculty and admin both see results for every test."""
+    return Test.objects.select_related("branch")
 
 
 def _done_attempts(tests):

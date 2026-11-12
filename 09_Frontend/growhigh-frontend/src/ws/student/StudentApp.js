@@ -7,6 +7,7 @@ import { Career, Comm, JobPrep } from "./Learn";
 import { Applications, JobDetail, Jobs } from "./Jobs";
 import Curriculum from "./Curriculum";
 import Profile from "./Profile";
+import Notifications from "../Notifications";
 
 export default function StudentApp() {
   return (
@@ -36,6 +37,7 @@ export default function StudentApp() {
       <Route path="jobs/saved" element={<Jobs savedOnly />} />
       <Route path="jobs/:id" element={<JobDetail />} />
       <Route path="applications" element={<Applications />} />
+      <Route path="notifications" element={<Notifications role="student" />} />
       <Route path="profile/*" element={<Profile role="student" />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

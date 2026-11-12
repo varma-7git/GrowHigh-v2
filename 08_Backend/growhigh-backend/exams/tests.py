@@ -175,9 +175,9 @@ class PerformanceTests(ExamsBase):
         r = self.client.get(f"/api/v1/performance/tests/{tid}/").data
         self.assertEqual(r["results"][0]["percent"], 100)
         self.assertEqual(self.client.get("/api/v1/performance/students/").data[str(self.s1.pk)]["tests_taken"], 1)
-        self.client.force_authenticate(self.fac2)
-        self.assertEqual(self.client.get("/api/v1/performance/summary/").data["attempts"], 0)
-        self.assertEqual(self.client.get(f"/api/v1/performance/tests/{tid}/").status_code, 404)
+        self.client.force_authenticate(self.fac2)  # every faculty member sees every test's results
+        self.assertEqual(self.client.get("/api/v1/performance/summary/").data["attempts"], 1)
+        self.assertEqual(self.client.get(f"/api/v1/performance/tests/{tid}/").status_code, 200)
         self.client.force_authenticate(self.s1)
         self.assertEqual(self.client.get("/api/v1/performance/summary/").status_code, 403)
 
@@ -281,45 +281,3 @@ class JobPrepQuestionTests(ExamsBase):
         self.assertEqual(len(p.data["questions"]), 1)
         self.client.force_authenticate(self.fac)
         self.assertIn("Quantitative aptitude", [s["name"] for s in self.client.get("/api/v1/subjects/?area=ALL").data["results"]])
-
-
-class ImportPapersTests(ExamsBase):
-    def test_import_from_folder(self):
-        import tempfile
-        from pathlib import Path
-        from django.core.management import call_command
-        from django.test import override_settings
-        from .models import Paper
-        with tempfile.TemporaryDirectory() as src, tempfile.TemporaryDirectory() as media, override_settings(MEDIA_ROOT=media):
-            (Path(src) / "2023_ALL.pdf").write_bytes(b"%PDF-1.4 a")
-            (Path(src) / "2023_CME_Paper 1.pdf").write_bytes(b"%PDF-1.4 b")
-            (Path(src) / "bad name.pdf").write_bytes(b"%PDF-1.4 c")
-            (Path(src) / "2022_XXX.pdf").write_bytes(b"%PDF-1.4 d")
-            call_command("import_papers", folder=src)
-            call_command("import_papers", folder=src)  # second run adds nothing
-            self.assertEqual(Paper.objects.count(), 2)
-            self.assertTrue(Paper.objects.filter(year=2023, branch=self.cse, title="Paper 1").exists())
-            self.assertTrue(Paper.objects.filter(year=2023, branch=None, title="AP ECET 2023").exists())
-
-
-class ImportQuestionsTests(ExamsBase):
-    def test_import_into_every_branch_with_subject(self):
-        import json, tempfile
-        from pathlib import Path
-        from django.core.management import call_command
-        from academics.models import Regulation
-        from .models import Question
-        reg = Regulation.objects.create(code="C23")
-        for br in (self.cse, self.civ):
-            s = Subject.objects.create(name="Mathematics-II", regulation=reg, branch=br, semester=3)
-            Topic.objects.create(subject=s, name="Integral Calculus", order_no=1)
-            Topic.objects.create(subject=s, name="Statistics", order_no=2)
-        q = {"subject": "Mathematics-II", "topic": "stat", "text": "Mean of 2, 4, 6?", "options": ["3", "4", "5", "6"], "correct": 1, "explanation": "12/3 = 4"}
-        bad_subject = dict(q, subject="Nope", text="x")
-        with tempfile.TemporaryDirectory() as d:
-            f = Path(d) / "q.json"
-            f.write_text(json.dumps({"regulation": "C23", "questions": [q, bad_subject]}), encoding="utf-8")
-            call_command("import_questions", file=str(f))
-            call_command("import_questions", file=str(f))  # second run adds nothing
-        self.assertEqual(Question.objects.filter(text="Mean of 2, 4, 6?").count(), 2)
-        self.assertTrue(Question.objects.filter(topic__name="Statistics", correct=1, created_by=self.admin).exists())

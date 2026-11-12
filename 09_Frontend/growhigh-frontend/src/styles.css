@@ -361,3 +361,10 @@ a{text-decoration:none}
 #main:focus{outline:none}
 input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #4F46E5;outline-offset:1px}
 .gh-sr,.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+.gh-otp-card{max-height:92vh;overflow-y:auto}
+
+/* Logout button at the bottom of the company menu */
+.gh-side button.gh-side-logout{margin-top:14px;border:1px solid rgba(255,255,255,.2);color:#fff;text-align:center}
+.gh-side button.gh-side-logout:hover{background:rgba(255,107,91,.18);border-color:#ff6b5b;transform:none}
+@media (max-width:991px){.gh-side button.gh-side-logout{margin-top:0}}

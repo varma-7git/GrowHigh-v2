@@ -80,7 +80,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", "OPTIONS": {"min_length": 8}},
     {"NAME": "common.validators.LetterAndNumberValidator"},
 ]
-PASSWORD_RESET_TIMEOUT = 15 * 60  # forgot-password token life: 15 minutes (assumed)
+PASSWORD_RESET_TIMEOUT = 15 * 60  # unused now: password reset uses a 6-digit code that lasts 10 minutes
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "Asia/Kolkata"
@@ -99,7 +99,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "common.pagination.StandardPagination",
     "EXCEPTION_HANDLER": "common.exceptions.custom_exception_handler",
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    "DEFAULT_THROTTLE_RATES": {"login": "10/min", "password_reset": "5/hour", "email_check": "30/min", "email_code": "20/hour"},
+    "DEFAULT_THROTTLE_RATES": {"login": "10/min", "password_reset": "20/hour", "email_check": "30/min", "email_code": "20/hour"},
 }
 
 SIMPLE_JWT = {

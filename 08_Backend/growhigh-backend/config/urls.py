@@ -13,3 +13,8 @@ urlpatterns = [
 
 if settings.DEBUG:  # serve uploaded files while developing
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:  # demo hosting: serve uploads from the app (use cloud storage for real use)
+    from django.urls import re_path
+    from django.views.static import serve
+
+    urlpatterns += [re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT})]

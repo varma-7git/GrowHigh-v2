@@ -5,6 +5,7 @@ import { AdminContent, AdminPapers, AdminTests, QuestionBank } from "./pages3";
 import { Branches, Internships, Opportunities, Subjects, Topics } from "./pages2";
 import NotFound from "../pages/NotFound";
 import Preparing from "../components/Preparing";
+import Notifications from "../ws/Notifications";
 
 export default function AdminHome() {
   const [message, setMessage] = useState({ kind: "", text: "" });
@@ -29,6 +30,7 @@ export default function AdminHome() {
       <Route path="papers" element={<AdminPapers {...p} />} />
       <Route path="tests" element={<AdminTests {...p} />} />
       <Route path="content" element={<AdminContent {...p} />} />
+      <Route path="notifications" element={<Notifications role="admin" />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

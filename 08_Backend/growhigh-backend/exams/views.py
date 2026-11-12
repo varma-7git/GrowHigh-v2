@@ -84,9 +84,7 @@ class TestViewSet(_OwnerMixin, SafeDeleteMixin, viewsets.ModelViewSet):
         qs = Test.objects.select_related("branch", "created_by")
         if user.role == Role.STUDENT:
             qs = qs.filter(assignments__student=user, is_active=True)
-        elif user.role == Role.FACULTY:
-            qs = qs.filter(created_by=user)
-        elif user.role != Role.ADMIN:
+        elif user.role not in (Role.FACULTY, Role.ADMIN):  # faculty and admin both see every test; faculty can change only their own
             qs = qs.none()
         p = self.request.query_params
         if p.get("test_type"):

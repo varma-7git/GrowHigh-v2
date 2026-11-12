@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { showToast } from "../toast";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Field from "../components/Field";
 import { AuthFrame } from "../components/Public";
@@ -30,6 +31,7 @@ export default function Login() {
     setBusy(true);
     try {
       const u = await login(form.login_id.trim(), form.password, remember);
+      showToast("Login successful");
       navigate(homeFor(u.role), { replace: true });
     } catch (err) {
       const { message: m, fields } = parseError(err);

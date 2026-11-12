@@ -8,7 +8,7 @@ const pickType = () => ["audio/webm;codecs=opus", "audio/webm", "audio/ogg;codec
 const extOf = (t) => (t.includes("ogg") ? "ogg" : t.includes("mp4") ? "m4a" : "webm");
 
 /** Record a spoken answer to one prompt, listen back, then save it. Saved answers are listed below with faculty feedback. */
-export default function Recorder({ guide }) {
+export default function Recorder({ guide, onSaved }) {
   const [state, setState] = useState("idle"); // idle | recording | review
   const [secs, setSecs] = useState(0);
   const [blob, setBlob] = useState(null);
@@ -51,7 +51,7 @@ export default function Recorder({ guide }) {
     const fd = new FormData();
     fd.append("guide_id", guide.id); fd.append("seconds", secs);
     fd.append("file", blob, `speaking.${extOf(blob.type)}`);
-    try { await api.post("/recordings/", fd); discard(); load(); } catch (e) { setErr(parseError(e).message); }
+    try { await api.post("/recordings/", fd); discard(); load(); if (onSaved) onSaved(); } catch (e) { setErr(parseError(e).message); }
     setBusy(false);
   };
   const del = async (r) => { if (!window.confirm("Delete this recording?")) return; try { await api.delete(`/recordings/${r.id}/`); load(); } catch (e) { setErr(parseError(e).message); } };
