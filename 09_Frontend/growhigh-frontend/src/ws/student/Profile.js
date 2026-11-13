@@ -42,14 +42,14 @@ function ProfileBody({ role, user, T }) {
       )}
       {tab === "edit" && (
         <div className="ad-card ws-form" style={{ maxWidth: 640 }}>
-          <Fld l="Full name" k="full_name" o={f} set={setF} /><Fld l={role === "student" ? "Roll number" : "Faculty ID"} k="login_id" o={u} set={() => {}} disabled /><Fld l="Email" k="email" o={f} set={setF} /><Fld l="Phone" k="phone" o={f} set={setF} />
+          {Fld({ l: "Full name", k: "full_name", o: f, set: setF })}{Fld({ l: role === "student" ? "Roll number" : "Faculty ID", k: "login_id", o: u, set: () => {}, disabled: true })}{Fld({ l: "Email", k: "email", o: f, set: setF })}{Fld({ l: "Phone", k: "phone", o: f, set: setF })}
           {role === "student" && <><label>Regulation</label><select className="ad-in" value={reg} onChange={(e) => setReg(e.target.value)}><option value="">Select regulation</option>{regs.map((r) => <option key={r.id} value={r.id}>{r.code}</option>)}</select></>}
           <div className="ws-btns"><Btn b={["Save changes", null, save]} kind="c" /></div>
         </div>
       )}
       {tab === "password" && (
         <div className="ad-card ws-form" style={{ maxWidth: 640 }}>
-          <Fld l="Current password" k="old_password" o={p} set={setP} type="password" /><Fld l="New password" k="new_password" o={p} set={setP} type="password" /><Fld l="Confirm new password" k="confirm_password" o={p} set={setP} type="password" />
+          {Fld({ l: "Current password", k: "old_password", o: p, set: setP, type: "password" })}{Fld({ l: "New password", k: "new_password", o: p, set: setP, type: "password" })}{Fld({ l: "Confirm new password", k: "confirm_password", o: p, set: setP, type: "password" })}
           <div className="ad-hint">At least 8 characters with a letter and a number.</div>
           <div className="ws-btns"><Btn b={["Update password", null, pass]} kind="c" /></div>
         </div>

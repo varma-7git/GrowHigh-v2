@@ -133,3 +133,4 @@ html[data-theme="dark"] .ws-ck.on{background:var(--sel);border-color:#22d3ee;box
 html[data-theme="dark"] .ws-ck em{background:rgba(79,214,176,.14)}
 html[data-theme="dark"] .ws-form label.ws-ck.hd,html[data-theme="dark"] .ws-ck.hd{background:#0f2036;color:var(--mu2)}
 html[data-theme="dark"] .ws-ck-count{color:var(--mu2)}
+html[data-theme="dark"] .ad .ws-form select.ad-sel,html[data-theme="dark"] .ws-form .ad-sel{background:#0f2036;border-color:var(--ln);color:var(--tx)}

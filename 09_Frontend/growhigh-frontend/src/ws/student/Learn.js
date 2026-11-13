@@ -375,8 +375,8 @@ function Resume() {
       <Tabs items={JP_TABS} />
       <div className="ws-split" style={{ gridTemplateColumns: "1fr 1fr" }}>
         <div className="ad-card ws-form"><h2>Your details</h2>
-          <F k="name" l="Full name" /><F k="role" l="Headline" /><F k="email" l="Email" /><F k="phone" l="Phone" />
-          <F k="summary" l="Summary" area /><F k="skills" l="Skills (comma separated)" /><F k="project" l="Project" area /><F k="edu" l="Education" />
+          {F({ k: "name", l: "Full name" })}{F({ k: "role", l: "Headline" })}{F({ k: "email", l: "Email" })}{F({ k: "phone", l: "Phone" })}
+          {F({ k: "summary", l: "Summary", area: true })}{F({ k: "skills", l: "Skills (comma separated)" })}{F({ k: "project", l: "Project", area: true })}{F({ k: "edu", l: "Education" })}
         </div>
         <div className="ws-rs ws-print">
           <h2>{r.name}</h2><p>{r.role} · {r.email} · {r.phone}</p>

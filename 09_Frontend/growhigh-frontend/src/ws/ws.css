@@ -90,3 +90,10 @@
 .ws-ck.hd:hover{background:#fafbfd;border-color:var(--ln)}
 .ws-ck-count{margin:10px 0 0;font-size:13px;font-weight:700;color:#55667c}
 @media(max-width:600px){.ws-ck{grid-template-columns:22px 1fr}.ws-ck em{grid-column:2;justify-self:start;margin-top:6px}.ws-ck.hd span:last-child{display:none}}
+
+/* Forms: two-column rows never overflow; selects match the inputs */
+.ws-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ws-two>div{min-width:0}
+.ws-form .ad-sel,.ad .ws-form select.ad-sel{display:block;width:100%;max-width:100%;height:52px;padding:0 16px;font-size:15px;font-weight:600;color:var(--tx);background:#f6f8fb;border:1px solid var(--ln);border-radius:14px;text-overflow:ellipsis;margin-bottom:14px}
+.ws-form .ad-sel:focus{outline:0;border-color:#00a58e;box-shadow:0 0 0 4px rgba(0,165,142,.12)}
+@media(max-width:640px){.ws-two{grid-template-columns:minmax(0,1fr)}}

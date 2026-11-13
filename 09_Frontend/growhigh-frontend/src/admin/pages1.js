@@ -36,10 +36,10 @@ export function Dashboard({ message }) {
       </div>
       <div className="ad-grid g2">
         <div className="ad-card"><h2>Platform activity</h2>
-          <div className="ad-hint" style={{ color: "#6b7a90" }}>New registrations · last 7 days</div>
+          <div className="ad-hint" style={{ color: "var(--mu, #6b7a90)" }}>New registrations · last 7 days</div>
           <div className="ad-chart">{bars.map((v, i) => (
             <div key={i}><i className={i === top && v ? "top" : ""} style={{ height: `${(v / max) * 100}%`, animationDelay: `${i * 70}ms` }} title={`${v} new`} />{"SMTWTFS"[days[i].getDay()]}</div>))}</div>
-          <small style={{ color: "#6b7a90" }}>Cyan: registrations · Coral: busiest day</small></div>
+          <small style={{ color: "var(--mu, #6b7a90)" }}>Cyan: registrations · Coral: busiest day</small></div>
         <div className="ad-card"><h2>Activity stream</h2>
           <div className="ad-stream">{recent.slice(0, 3).map((u) => (
             <div key={u.id}><small>{fmt(u.created_at)}</small><b>New {u.role.toLowerCase()} account</b><span>{u.full_name} · {u.login_id}</span></div>))}
@@ -49,7 +49,7 @@ export function Dashboard({ message }) {
         <div className="ad-card"><h2>Platform operations</h2>
           <Bar label="Faculty reviewed" pct={pct((s.faculty || 0), (s.faculty || 0) + (s.pf || 0))} />
           <Bar label="Companies reviewed" pct={pct((s.companies || 0), (s.companies || 0) + (s.pc || 0))} />
-          <p style={{ color: "#6b7a90" }}>Review pending registrations and postings before they go live.</p>
+          <p style={{ color: "var(--mu, #6b7a90)" }}>Review pending registrations and postings before they go live.</p>
           <Link className="ad-btn o" to="/admin/opportunities">Review content</Link></div>
         <div className="ad-card ad-dark"><h2>Publishing checklist</h2>
           {todo.map(([l, n, to]) => <p key={l} style={{ margin: "6px 0" }}>{n ? "○" : "✓"} <Link to={to} style={{ color: "#fff" }}>{n ? `${n} ${l.toLowerCase()} waiting` : `${l} reviewed`}</Link></p>)}
@@ -107,7 +107,7 @@ export function Users({ message, notify }) {
       <Pager page={page} setPage={setPage} data={data} />
       <div className="ad-grid g2">
         <div className="ad-card"><h2>Role-aware account rules</h2><p>Student login ID: roll number<br />Faculty login ID: Faculty ID<br />Admin login ID: username</p>
-          <p style={{ color: "#6b7a90" }}>Admin accounts expose Edit only. Deactivation is limited to student and faculty accounts.</p></div>
+          <p style={{ color: "var(--mu, #6b7a90)" }}>Admin accounts expose Edit only. Deactivation is limited to student and faculty accounts.</p></div>
         <div className="ad-card ad-dark"><h2>Handle access with care</h2><p>Deactivation should pause access without removing learning history. Confirm the account before making a change. Use Edit to reactivate or reset a password.</p></div>
       </div>
     </AdminShell>

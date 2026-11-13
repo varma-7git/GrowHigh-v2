@@ -138,9 +138,9 @@ export function Schedule() {
     <W crumb="Create & schedule" title="Create & schedule" subtitle="Pick questions and set when the test runs.">
       <div className="ws-split">
         <div className="ad-card ws-form"><Err e={err} />
-          <In l="Test name" k="name" />
-          <div className="ws-two"><div><label>Type</label><Select value={f.test_type} onChange={set("test_type")} options={[["DAILY", "Daily"], ["WEEKLY", "Weekly"], ["CUMULATIVE", "Cumulative"], ["MOCK", "Mock"]]} /></div><div><In l="Date" k="scheduled_date" type="date" /></div></div>
-          <div className="ws-two"><div><In l="Start time" k="start_time" type="time" /></div><div><In l="Duration (minutes)" k="duration_minutes" type="number" /></div></div>
+          {In({ l: "Test name", k: "name" })}
+          <div className="ws-two"><div><label>Type</label><Select value={f.test_type} onChange={set("test_type")} options={[["DAILY", "Daily"], ["WEEKLY", "Weekly"], ["CUMULATIVE", "Cumulative"], ["MOCK", "Mock"]]} /></div><div>{In({ l: "Date", k: "scheduled_date", type: "date" })}</div></div>
+          <div className="ws-two"><div>{In({ l: "Start time", k: "start_time", type: "time" })}</div><div>{In({ l: "Duration (minutes)", k: "duration_minutes", type: "number" })}</div></div>
           <div className="ws-two"><div><label>Branch</label><Select value={f.branch_id} onChange={set("branch_id")} options={[["", "All branches"], ...branches.map((b) => [String(b.id), b.code])]} /></div><div><label>Year</label><Select value={f.year_of_study} onChange={set("year_of_study")} options={[["", "All years"], ["1", "1st year"], ["2", "2nd year"], ["3", "3rd year"]]} /></div></div>
           <h2 style={{ marginTop: 26 }}>Select questions</h2>
           <Select value={subF} onChange={setSubF} options={[["", "All subjects"], ...subs.map((s) => [String(s.id), subLabel(s)])]} /><Err e={er.question_ids} />
